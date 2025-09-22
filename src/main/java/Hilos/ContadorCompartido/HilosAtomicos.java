@@ -1,12 +1,11 @@
-package Hilos;
+package Hilos.ContadorCompartido;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class HilosNormales {
-    private static final int NUM_HILOS = 10;
+public class HilosAtomicos {
+    private static final int NUM_HILOS = 1000;
 
     public static void main(String[] args) {
 
@@ -14,7 +13,15 @@ public class HilosNormales {
         List<Thread> hilos = new ArrayList<>();
 
         for (int i = 0; i < NUM_HILOS; i++){
-            Thread hilo = new Thread(() -> { sumaTotalVisitas.incrementAndGet(); });
+            Thread hilo = new Thread(() -> {
+                sumaTotalVisitas.incrementAndGet();
+
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
             hilos.add(hilo);
             hilo.start();
         }
