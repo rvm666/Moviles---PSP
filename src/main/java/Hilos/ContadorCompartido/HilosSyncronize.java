@@ -3,35 +3,17 @@ package Hilos.ContadorCompartido;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HilosSyncronize {
-    private static final int NUM_HILOS = 1000;
+public class HilosSyncronize implements IContadorVisitas{
+   private int contadorVisitas;
 
-    public static void main(String[] args) {
 
-        ContadorVisitas contadorVisitas = new ContadorVisitas();
-        List<Thread> hilos = new ArrayList<>();
+    @Override
+    public synchronized void incrementarVisita() {
+        contadorVisitas++;
+    }
 
-        for (int i = 0; i < NUM_HILOS; i++){
-            Thread hilo = new Thread(() -> {
-                contadorVisitas.incrementarVisitasSyn();
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            });
-            hilos.add(hilo);
-            hilo.start();
-        }
-
-        for (Thread hilo : hilos) {
-            try {
-                hilo.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
-        System.out.println("Total visitas: " + contadorVisitas.getContadorVisitas() );
+    @Override
+    public int getContador() {
+        return contadorVisitas;
     }
 }

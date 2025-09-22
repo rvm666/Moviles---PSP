@@ -1,6 +1,6 @@
 package Hilos.ContadorCompartido;
 
-public class ContadorVisitas {
+public class ContadorVisitas implements IContadorVisitas {
 
     private int contadorVisitas;
 
@@ -12,7 +12,13 @@ public class ContadorVisitas {
         return contadorVisitas;
     }
 
-    public synchronized void incrementarVisitasSyn() {
+    @Override
+    public void incrementarVisita() {
         contadorVisitas++;
+    }
+
+    @Override
+    public int getContador() {
+        return contadorVisitas;
     }
 }
