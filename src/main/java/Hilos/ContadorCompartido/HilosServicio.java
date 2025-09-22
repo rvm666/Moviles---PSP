@@ -24,12 +24,11 @@ public class HilosServicio {
 
     public void work() {
         final int NUM_HILOS = 1000;
-        IContadorVisitas contadorVisitas = new ContadorVisitas();
         List<Thread> hilos = new ArrayList<>();
 
         for (int i = 0; i < NUM_HILOS; i++) {
             Thread hilo = new Thread(() -> {
-                contadorVisitas.incrementarVisita();
+                contador.incrementarVisita();
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
@@ -47,7 +46,7 @@ public class HilosServicio {
                 e.printStackTrace();
             }
         }
-        System.out.println("Total visitas: " + contadorVisitas.getContador());
+        System.out.println("Total visitas: " + contador.getContador());
     }
 }
 
