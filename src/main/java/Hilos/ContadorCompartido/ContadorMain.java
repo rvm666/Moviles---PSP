@@ -12,11 +12,11 @@ public class ContadorMain {
         System.out.println("\nContador de visitas sincronizado:");
         IContadorVisitas contadorVisitasSyncronized = new HilosSyncronize();
         HilosServicio serviciosSyncronized = new HilosServicio(contadorVisitasSyncronized);
-        servicios.work();
+        serviciosSyncronized.work();
 
         System.out.println("\nContador de visitas con Atomic:");
         IContadorVisitas contadorVisitasAtomic = new HilosAtomicos();
         HilosServicio serviciosAtomic = new HilosServicio(contadorVisitasAtomic);
-        servicios.work();
+        serviciosAtomic.work();
     }
 }
