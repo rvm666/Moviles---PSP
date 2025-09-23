@@ -13,6 +13,7 @@ public class BancoService {
 
     private IBancoVirtual saldo;
     private AtomicInteger operacionesNoRealizadas = new AtomicInteger(0);
+
     public BancoService(IBancoVirtual saldo) {
         this.saldo = saldo;
     }

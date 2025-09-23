@@ -14,10 +14,12 @@ public class BancoMain {
         IBancoVirtual bancoReentrantLock = new BancoReentrantLock();
         BancoService serviciosReentrantLock = new BancoService(bancoReentrantLock);
         serviciosReentrantLock.work();
+        log.info("Operaciones finalizadas: {}", 500 - serviciosReentrantLock.getOperacionesNoRealizadas());
 
         log.info("----USANDO SYNCHRONIZED----");
         IBancoVirtual bancoSincronized = new BancoSyncronized();
         BancoService serviciosSyncronized = new BancoService(bancoSincronized);
         serviciosSyncronized.work();
+        log.info("Operaciones finalizadas: {}", 500 - serviciosSyncronized.getOperacionesNoRealizadas());
     }
 }
