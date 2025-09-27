@@ -4,22 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public class HilosServicio {
-
-    private IContadorVisitas contador;
+    Logger log = LoggerFactory.getLogger(HilosServicio.class);
+    private final IContadorVisitas contador;
 
     public HilosServicio(IContadorVisitas contador) {
         this.contador = contador;
     }
 
-    public IContadorVisitas getContador() {
-        return contador;
-    }
-
-    public void setContador(IContadorVisitas contador) {
-        this.contador = contador;
-    }
 
 
     public void work() {
@@ -32,7 +28,7 @@ public class HilosServicio {
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    log.info(e.getMessage());
                 }
             });
             hilos.add(hilo);
@@ -43,10 +39,10 @@ public class HilosServicio {
             try {
                 hilo.join();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.info(e.getMessage());
             }
         }
-        System.out.println("Total visitas: " + contador.getContador());
+        log.info("Total visitas: {}", contador.getContador());
     }
 }
 

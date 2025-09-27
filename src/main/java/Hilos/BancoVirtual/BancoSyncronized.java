@@ -1,6 +1,5 @@
 package Hilos.BancoVirtual;
 
-import java.util.List;
 
 public class BancoSyncronized implements IBancoVirtual{
     private double saldo = 10000;
@@ -26,8 +25,4 @@ public class BancoSyncronized implements IBancoVirtual{
         return this.saldo;
     }
 
-    @Override
-    public List<String> obtenerHistorial() {
-        return List.of();
-    }
 }

@@ -1,7 +1,5 @@
 package Hilos.ContadorCompartido;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class HilosNormales implements IContadorVisitas{
     private int contadorVisitas;

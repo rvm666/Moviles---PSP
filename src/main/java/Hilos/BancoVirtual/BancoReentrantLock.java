@@ -10,7 +10,6 @@ public class BancoReentrantLock implements IBancoVirtual {
     ReentrantLock lock= new ReentrantLock();
     private double saldo = 10000;
 
-
     @Override
     public boolean retirar(double cantidad) {
         boolean retirado = true;
@@ -42,9 +41,4 @@ public class BancoReentrantLock implements IBancoVirtual {
         return this.saldo;
     }
 
-    @Override
-    public List<String> obtenerHistorial() {
-        List<String> historial = new ArrayList<>();
-        return List.of();
-    }
 }
