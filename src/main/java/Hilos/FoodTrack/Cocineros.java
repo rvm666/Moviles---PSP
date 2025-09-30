@@ -1,5 +1,8 @@
 package Hilos.FoodTrack;
 
+import lombok.Data;
+
+@Data
 public class Cocineros {
     private final int id;
 
