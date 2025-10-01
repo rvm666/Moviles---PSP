@@ -5,127 +5,196 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#C6F6D5">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:id="@+id/textCabezera"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Añadir Usuario"
+        android:layout_marginTop="40dp"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:textColor="#E85E43"
+        android:text="@string/a_adir_usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="120dp"
+        android:id="@+id/Nombre_Peli"
+        android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:ems="10"
+        android:layout_marginTop="30dp"
+        android:ems="20"
         android:inputType="text"
-        android:text="Name"
-        app:layout_constraintEnd_toStartOf="@+id/editTextText2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:text="@string/nombre_personaje"
+        app:layout_constraintEnd_toEndOf="@+id/Pelicula_Serie"
+        app:layout_constraintStart_toStartOf="@+id/Pelicula_Serie"
+        app:layout_constraintTop_toBottomOf="@+id/Pelicula_Serie" />
 
-    <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="44dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Surname"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextText"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="350dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:text="Email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
-
-    <EditText
-        android:id="@+id/editTextPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:inputType="phone"
-        android:text="Phone"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
-
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:text="Acepto términos y condiciones"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
-
-    <Button
-        android:id="@+id/button"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/botonLimpiar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="100dp"
-        android:text="Limpiar"
+        android:layout_marginBottom="70dp"
+        android:text="@string/limpiar"
+        android:backgroundTint="#5A9BD5"
+        app:strokeColor="#2C7A7B"
+        app:strokeWidth="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/botonBorrar"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button2"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/botonBorrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="100dp"
-        android:text="Borrar"
+        android:layout_marginBottom="70dp"
+        android:text="@string/borrar"
+        android:backgroundTint="#F6C6A5"
+        app:strokeColor="#2C7A7B"
+        app:strokeWidth="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button3" />
+        app:layout_constraintEnd_toStartOf="@+id/botonActualizar" />
 
-    <Button
-        android:id="@+id/button3"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/botonActualizar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="100dp"
-        android:text="Update"
+        android:layout_marginBottom="70dp"
+        android:text="@string/update"
+        android:backgroundTint="#BFA2DB"
+        app:strokeColor="#2C7A7B"
+        app:strokeWidth="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button4" />
+        app:layout_constraintEnd_toStartOf="@+id/botonGuardar" />
 
-    <Button
-        android:id="@+id/button4"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/botonGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:text="Guardar"
+        android:layout_marginBottom="70dp"
+        android:text="@string/guardar"
+        android:backgroundTint="#2C7A7B"
+        app:strokeColor="#2C7A7B"
+        app:strokeWidth="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/Pelicula_Serie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/textCabezera"
+        app:layout_constraintStart_toStartOf="@+id/textCabezera"
+        app:layout_constraintTop_toBottomOf="@+id/textCabezera">
+
+        <RadioButton
+            android:id="@+id/pelicula"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="100dp"
+            android:text="@string/pelicula"
+            tools:layout_editor_absoluteX="52dp"
+            tools:layout_editor_absoluteY="125dp" />
+
+        <RadioButton
+            android:id="@+id/serie"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/serie"
+            app:layout_constraintStart_toEndOf="@+id/Pelicula_Serie"
+            app:layout_constraintTop_toTopOf="@+id/Pelicula_Serie" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/director"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/director"
+        app:layout_constraintEnd_toEndOf="@+id/Nombre_Peli"
+        app:layout_constraintStart_toStartOf="@+id/Nombre_Peli"
+        app:layout_constraintTop_toBottomOf="@+id/Nombre_Peli" />
+
+    <EditText
+        android:id="@+id/lanzamiento"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="date"
+        android:text="@string/lanzamiento"
+        app:layout_constraintEnd_toEndOf="@+id/director"
+        app:layout_constraintTop_toBottomOf="@+id/director" />
+
+    <EditText
+        android:id="@+id/numeroTemporadas"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="@string/n_de_seasons"
+        app:layout_constraintStart_toStartOf="@+id/director"
+        app:layout_constraintTop_toBottomOf="@+id/director" />
+
+    <Spinner
+        android:id="@+id/opcionesGenero"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:entries="@array/opcionesGenero"
+        app:layout_constraintStart_toStartOf="@+id/numeroTemporadas"
+        app:layout_constraintTop_toBottomOf="@+id/numeroTemporadas" />
+
+    <Spinner
+        android:id="@+id/opcionesPais"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:entries="@array/opcionesPais"
+        app:layout_constraintEnd_toEndOf="@+id/lanzamiento"
+        app:layout_constraintTop_toBottomOf="@+id/lanzamiento" />
+
+    <RatingBar
+        android:id="@+id/valoracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="@+id/opcionesPais"
+        app:layout_constraintStart_toStartOf="@+id/opcionesGenero"
+        app:layout_constraintTop_toBottomOf="@+id/opcionesGenero"
+        app:numStars="5" />
+
+    <Button
+        android:id="@+id/anterior"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/anterior"
+        app:layout_constraintStart_toStartOf="@+id/opcionesGenero"
+        app:layout_constraintTop_toBottomOf="@+id/valoracion" />
+
+    <Button
+        android:id="@+id/siguiente"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/siguiente"
+        app:layout_constraintEnd_toEndOf="@+id/opcionesPais"
+        app:layout_constraintTop_toBottomOf="@+id/valoracion" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

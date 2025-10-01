@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">AnadirUsuarios1</string>
+    <string name="a_adir_usuario">Añadir pelicula / serie</string>
+    <string name="nombre_personaje">Nombre</string>
+    <string name="pelicula">Pelicula</string>
+    <string name="serie">Serie</string>
+    <string name="director">Director</string>
+    <string name="n_de_seasons">Nº de seasons</string>
+    <string name="lanzamiento">Lanzamiento</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="borrar">Borrar</string>
+    <string name="update">Update</string>
+    <string name="guardar">Guardar</string>
+    <string name="anterior">Anterior</string>
+    <string name="siguiente">Siguiente</string>
+    <string-array name="opcionesGenero">
+        <item>Género</item>
+        <item>Acción / Aventuras</item>
+        <item>Comedia</item>
+        <item>Drama</item>
+        <item>Ficción / Fantasía</item>
+        <item>Terror</item>
+    </string-array>
+
+    <string-array name="opcionesPais">
+        <item>Estados Unidos</item>
+        <item>China</item>
+        <item>Japón</item>
+        <item>Reino Unido</item>
+        <item>Francia</item>
+        <item>España</item>
+    </string-array>
 </resources>
