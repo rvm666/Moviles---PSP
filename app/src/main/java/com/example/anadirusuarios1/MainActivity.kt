@@ -26,11 +26,11 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        // Al inicio de tu función, añade esta línea:
+
         binding.bookingDateEditText.setOnClickListener {
             val datePickerBuilder = MaterialDatePicker.Builder.datePicker()
 
-            // Luego tu código:
+
             datePickerBuilder.setTitleText("Select Date")
             if (binding.bookingDateEditText.text.toString().isNotEmpty()) {
                 try {
