@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/textCabezera"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:textSize="25sp"
@@ -24,7 +24,7 @@
 
     <EditText
         android:id="@+id/Nombre_Peli"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="30dp"
         android:ems="20"
@@ -117,7 +117,7 @@
 
     <EditText
         android:id="@+id/director"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="10"
@@ -127,23 +127,36 @@
         app:layout_constraintStart_toStartOf="@+id/Nombre_Peli"
         app:layout_constraintTop_toBottomOf="@+id/Nombre_Peli" />
 
-    <EditText
-        android:id="@+id/lanzamiento"
-        android:layout_width="140dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/bookingDataEditText1"
+        style="?attr/textInputOutlinedStyle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:hint="Lanzamiento"
         android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="date"
-        android:text="@string/lanzamiento"
+        app:endIconContentDescription="Open Date Picker"
+        app:endIconDrawable="@drawable/baseline_calendar_month_24"
+        app:endIconMode="custom"
         app:layout_constraintEnd_toEndOf="@+id/director"
-        app:layout_constraintTop_toBottomOf="@+id/director" />
+        app:layout_constraintStart_toEndOf="@+id/numeroTemporadas"
+        app:layout_constraintTop_toBottomOf="@+id/director">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bookingDateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="false"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <EditText
         android:id="@+id/numeroTemporadas"
-        android:layout_width="140dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:ems="10"
+        android:ems="7"
         android:inputType="number"
         android:text="@string/n_de_seasons"
         app:layout_constraintStart_toStartOf="@+id/director"
@@ -162,10 +175,9 @@
         android:id="@+id/opcionesPais"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:entries="@array/opcionesPais"
-        app:layout_constraintEnd_toEndOf="@+id/lanzamiento"
-        app:layout_constraintTop_toBottomOf="@+id/lanzamiento" />
+        app:layout_constraintEnd_toEndOf="@+id/bookingDataEditText1"
+        app:layout_constraintTop_toBottomOf="@+id/bookingDataEditText1" />
 
     <RatingBar
         android:id="@+id/valoracion"
