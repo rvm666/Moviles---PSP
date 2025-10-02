@@ -25,10 +25,5 @@ public enum TipoPlato {
         this.emoji = emoji;
     }
 
-    public TipoPlato aleatorio() {
-        TipoPlato[] platos = values();
-        int indiceAleatorio = new Random().nextInt(platos.length);
-        return platos[indiceAleatorio];
-    }
 
 }
