@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#C6F6D5">
+
+    <TextView
+        android:id="@+id/textCabezera"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:textColor="#E85E43"
+        android:text="@string/a_adir_usuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/Nombre_Peli"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:ems="20"
+        android:inputType="text"
+        android:text="@string/nombre_personaje"
+        app:layout_constraintEnd_toEndOf="@+id/Pelicula_Serie"
+        app:layout_constraintStart_toStartOf="@+id/Pelicula_Serie"
+        app:layout_constraintTop_toBottomOf="@+id/Pelicula_Serie" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/botonLimpiar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#5A9BD5"
+        android:text="@string/limpiar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCabezera"
+        app:strokeColor="#2C7A7B"
+        app:strokeWidth="2dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/botonBorrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F6C6A5"
+        android:text="@string/borrar"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/botonLimpiar"
+        app:layout_constraintStart_toStartOf="@+id/botonLimpiar"
+        app:layout_constraintTop_toBottomOf="@+id/botonLimpiar"
+        app:strokeColor="#2C7A7B"
+        app:strokeWidth="2dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/botonActualizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#BFA2DB"
+        android:text="@string/update"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/botonBorrar"
+        app:layout_constraintStart_toStartOf="@+id/botonBorrar"
+        app:layout_constraintTop_toBottomOf="@+id/botonBorrar"
+        app:strokeColor="#2C7A7B"
+        app:strokeWidth="2dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/botonGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2C7A7B"
+        android:text="@string/guardar"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/botonActualizar"
+        app:layout_constraintStart_toStartOf="@+id/botonActualizar"
+        app:layout_constraintTop_toBottomOf="@+id/botonActualizar"
+        app:strokeColor="#2C7A7B"
+        app:strokeWidth="2dp" />
+
+    <RadioGroup
+        android:id="@+id/Pelicula_Serie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/textCabezera"
+        app:layout_constraintTop_toBottomOf="@+id/textCabezera">
+
+        <RadioButton
+            android:id="@+id/pelicula"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="100dp"
+            android:text="@string/pelicula"
+            tools:layout_editor_absoluteX="52dp"
+            tools:layout_editor_absoluteY="125dp" />
+
+        <RadioButton
+            android:id="@+id/serie"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/serie"
+            app:layout_constraintStart_toEndOf="@+id/Pelicula_Serie"
+            app:layout_constraintTop_toTopOf="@+id/Pelicula_Serie" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/director"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/director"
+        app:layout_constraintEnd_toEndOf="@+id/Nombre_Peli"
+        app:layout_constraintStart_toStartOf="@+id/Nombre_Peli"
+        app:layout_constraintTop_toBottomOf="@+id/Nombre_Peli" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/bookingDataEditText1"
+        style="?attr/textInputOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Lanzamiento"
+        app:endIconContentDescription="Open Date Picker"
+        app:endIconDrawable="@drawable/baseline_calendar_month_24"
+        app:endIconMode="custom"
+        app:layout_constraintEnd_toEndOf="@+id/director"
+        app:layout_constraintStart_toEndOf="@+id/numeroTemporadas"
+        app:layout_constraintTop_toBottomOf="@+id/director">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bookingDateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="false"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/numeroTemporadas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="7"
+        android:inputType="number"
+        android:text="@string/n_de_seasons"
+        app:layout_constraintStart_toStartOf="@+id/director"
+        app:layout_constraintTop_toBottomOf="@+id/director" />
+
+    <Spinner
+        android:id="@+id/opcionesGenero"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/opcionesGenero"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/Pelicula_Serie"
+        app:layout_constraintTop_toBottomOf="@+id/textCabezera" />
+
+    <Spinner
+        android:id="@+id/opcionesPais"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/opcionesPais"
+        android:layout_marginTop="45dp"
+        app:layout_constraintStart_toEndOf="@+id/opcionesGenero"
+        app:layout_constraintTop_toBottomOf="@+id/textCabezera" />
+
+    <RatingBar
+        android:id="@+id/valoracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="@+id/opcionesPais"
+        app:layout_constraintStart_toStartOf="@+id/opcionesGenero"
+        app:layout_constraintTop_toBottomOf="@+id/opcionesGenero" />
+
+    <Button
+        android:id="@+id/anterior"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/anterior"
+        android:layout_marginStart="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/siguiente"
+        app:layout_constraintStart_toEndOf="@+id/bookingDataEditText1"
+        app:layout_constraintTop_toBottomOf="@+id/valoracion" />
+
+    <Button
+        android:id="@+id/siguiente"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/siguiente"
+        android:layout_marginStart="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/opcionesPais"
+        app:layout_constraintTop_toBottomOf="@+id/valoracion" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
