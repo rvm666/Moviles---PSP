@@ -3,7 +3,7 @@ package Hilos.FoodTrack;
 import lombok.Data;
 
 @Data
-public class Cocineros {
+public class Cocineros implements Runnable {
     private final int id;
     private int numeroPedidosRealizados;
 
@@ -12,4 +12,8 @@ public class Cocineros {
     }
 
 
+    @Override
+    public void run() {
+
+    }
 }

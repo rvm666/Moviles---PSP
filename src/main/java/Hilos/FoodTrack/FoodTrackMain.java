@@ -7,8 +7,8 @@ public class FoodTrackMain {
         {
             try {
                 foodTrack = new FoodTrackService();
-                foodTrack.generadorPedidos();
-                foodTrack.recogerPedidos();
+                foodTrack.iniciar();
+                foodTrack.terminar();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
