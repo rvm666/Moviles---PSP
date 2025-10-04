@@ -1,18 +1,17 @@
-package com.example.anadirusuarios1
+package com.example.anadirusuarios1.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.anadirusuarios1.R
+import com.example.anadirusuarios1.databinding.ActivityMainBinding
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
-import com.example.anadirusuarios1.databinding.ActivityMainBinding
-
-
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
