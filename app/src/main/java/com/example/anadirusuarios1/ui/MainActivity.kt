@@ -2,20 +2,36 @@ package com.example.anadirusuarios1.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import com.example.anadirusuarios1.R
+import com.example.anadirusuarios1.data.RepositorioProducciones
 import com.example.anadirusuarios1.databinding.ActivityMainBinding
+import com.example.anadirusuarios1.domain.useCase.AnadirProduccionUseCase
+import com.example.anadirusuarios1.ui.MainViewModel.MainViewModelFactory
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.jakewharton.threetenabp.AndroidThreeTen
 import java.text.SimpleDateFormat
+//import java.time.LocalDate
 import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
+import kotlin.getValue
+import org.threeten.bp.LocalDate
 
 class MainActivity : AppCompatActivity() {
+
+    private val viewModel: MainViewModel by viewModels {
+        val repositorio = RepositorioProducciones
+        val aniadirProduccion =  AnadirProduccionUseCase(repositorio)
+        MainViewModelFactory(aniadirProduccion)
+    }
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidThreeTen.init(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -59,5 +75,29 @@ class MainActivity : AppCompatActivity() {
             datePicker.show(supportFragmentManager, "DATE_PICKER")
         }
 
+
+    }
+
+    private fun eventos(){
+        binding.botonGuardar.setOnClickListener {
+            val esPelicula = binding.pelicula.isChecked
+            val nombre = binding.NombrePeli.text.toString()
+            val director = binding.director.text.toString()
+            val numeroSeasonsTexto = binding.numeroTemporadas.text.toString()
+            val numeroSeasons = numeroSeasonsTexto.toIntOrNull() ?: 0
+            val lanzamientoTexto = binding.bookingDateEditText.text.toString()
+            val lanzamiento = LocalDate.parse(lanzamientoTexto)
+            //val genero = binding.opcionesGenero.
+        }
+    }
+
+    private fun observacion() {
+        viewModel.state.observe(this) { state ->
+            val produccion = state.produccion
+            if(produccion != null){
+
+            }
+            binding
+        }
     }
 }

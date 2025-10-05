@@ -20,6 +20,7 @@ class MainViewModel(
     fun clickBotonGuardar(produccion: Produccion){
         viewModelScope.launch{
             aniadirProduccionUseCase(produccion)
+            _state.value = _state.value?.copy(produccion = produccion)
         }
 
     }
@@ -30,9 +31,8 @@ class MainViewModel(
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return MainViewModel(
-                    return MainViewModel(aniadirProduccionUseCase) as T
-                ) as T
+
+                return MainViewModel(aniadirProduccionUseCase) as T
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }
