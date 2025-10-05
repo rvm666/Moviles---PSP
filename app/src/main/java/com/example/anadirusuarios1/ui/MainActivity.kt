@@ -1,6 +1,7 @@
 package com.example.anadirusuarios1.ui
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.anadirusuarios1.R
 import com.example.anadirusuarios1.data.RepositorioProducciones
 import com.example.anadirusuarios1.databinding.ActivityMainBinding
+import com.example.anadirusuarios1.domain.model.Produccion
 import com.example.anadirusuarios1.domain.useCase.AnadirProduccionUseCase
 import com.example.anadirusuarios1.ui.MainViewModel.MainViewModelFactory
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -20,6 +22,7 @@ import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
 import kotlin.getValue
+import org.threeten.bp.format.DateTimeFormatter
 import org.threeten.bp.LocalDate
 
 class MainActivity : AppCompatActivity() {
@@ -75,8 +78,14 @@ class MainActivity : AppCompatActivity() {
             datePicker.show(supportFragmentManager, "DATE_PICKER")
         }
 
+        eventos()
+
 
     }
+
+
+
+
 
     private fun eventos(){
         binding.botonGuardar.setOnClickListener {
@@ -86,8 +95,21 @@ class MainActivity : AppCompatActivity() {
             val numeroSeasonsTexto = binding.numeroTemporadas.text.toString()
             val numeroSeasons = numeroSeasonsTexto.toIntOrNull() ?: 0
             val lanzamientoTexto = binding.bookingDateEditText.text.toString()
-            val lanzamiento = LocalDate.parse(lanzamientoTexto)
-            //val genero = binding.opcionesGenero.
+            val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+            val lanzamiento = LocalDate.parse(lanzamientoTexto, formatter)
+            val genero = binding.opcionesGenero.selectedItem.toString()
+            val pais = binding.opcionesPais.selectedItem.toString()
+            val valoracion = binding.valoracion.rating.toDouble()
+            val nuevaProduccion = Produccion(
+                esPelicula,
+                nombre,
+                director,
+                numeroSeasons,
+                lanzamiento,
+                genero,
+                pais,
+                valoracion)
+            viewModel.clickBotonGuardar(nuevaProduccion)
         }
     }
 
@@ -97,7 +119,7 @@ class MainActivity : AppCompatActivity() {
             if(produccion != null){
 
             }
-            binding
+
         }
     }
 }
