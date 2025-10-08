@@ -115,10 +115,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun observacion() {
         viewModel.state.observe(this) { state ->
-            val produccion = state.produccion
-            if(produccion != null){
+            binding.NombrePeli.setText(state.produccion.nombre)
 
-            }
 
         }
     }
