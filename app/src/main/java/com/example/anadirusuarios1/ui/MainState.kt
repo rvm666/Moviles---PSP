@@ -5,5 +5,5 @@ import java.time.LocalDate
 
 data class MainState(
     val produccion: Produccion = Produccion(),
-
+    val mensaje: String = ""
     )

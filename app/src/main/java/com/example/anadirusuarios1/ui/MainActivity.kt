@@ -1,13 +1,11 @@
 package com.example.anadirusuarios1.ui
 
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.ViewModelProvider
 import com.example.anadirusuarios1.R
 import com.example.anadirusuarios1.data.RepositorioProducciones
 import com.example.anadirusuarios1.databinding.ActivityMainBinding
@@ -89,7 +87,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun eventos(){
         binding.botonGuardar.setOnClickListener {
-            val esPelicula = binding.pelicula.isChecked
+            val esSerie = binding.serie.isChecked
             val nombre = binding.NombrePeli.text.toString()
             val director = binding.director.text.toString()
             val numeroSeasonsTexto = binding.numeroTemporadas.text.toString()
@@ -101,7 +99,7 @@ class MainActivity : AppCompatActivity() {
             val pais = binding.opcionesPais.selectedItem.toString()
             val valoracion = binding.valoracion.rating.toDouble()
             val nuevaProduccion = Produccion(
-                esPelicula,
+                esSerie,
                 nombre,
                 director,
                 numeroSeasons,
@@ -115,9 +113,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun observacion() {
         viewModel.state.observe(this) { state ->
+            if (binding.serie.isChecked){
+                state.produccion.esSerie = true
+            } else {
+                state.produccion.esSerie = false
+            }
             binding.NombrePeli.setText(state.produccion.nombre)
-
-
+            binding.director.setText(state.produccion.director)
+            binding.opcionesGenero.setText()
         }
     }
 }
