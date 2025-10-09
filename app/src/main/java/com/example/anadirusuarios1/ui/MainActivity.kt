@@ -1,6 +1,7 @@
 package com.example.anadirusuarios1.ui
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import com.example.anadirusuarios1.data.RepositorioProducciones
 import com.example.anadirusuarios1.databinding.ActivityMainBinding
 import com.example.anadirusuarios1.domain.model.Produccion
 import com.example.anadirusuarios1.domain.useCase.AnadirProduccionUseCase
+import com.example.anadirusuarios1.domain.useCase.GetProduccionUseCase
 import com.example.anadirusuarios1.ui.MainViewModel.MainViewModelFactory
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.jakewharton.threetenabp.AndroidThreeTen
@@ -28,7 +30,8 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels {
         val repositorio = RepositorioProducciones
         val aniadirProduccion =  AnadirProduccionUseCase(repositorio)
-        MainViewModelFactory(aniadirProduccion)
+        val getProduccion = GetProduccionUseCase(repositorio)
+        MainViewModelFactory(aniadirProduccion, getProduccion)
     }
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,6 +80,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         eventos()
+        observacion()
 
 
     }
@@ -109,18 +113,29 @@ class MainActivity : AppCompatActivity() {
                 valoracion)
             viewModel.clickBotonGuardar(nuevaProduccion)
         }
+
+        binding.siguiente.setOnClickListener {
+            viewModel.siguienteProduccion()
+        }
     }
 
     private fun observacion() {
+        val generos = resources.getStringArray(R.array.opcionesGenero)
+        val paises = resources.getStringArray(R.array.opcionesPais)
         viewModel.state.observe(this) { state ->
-            if (binding.serie.isChecked){
-                state.produccion.esSerie = true
-            } else {
-                state.produccion.esSerie = false
-            }
+            binding.serie.isChecked == state.produccion.esSerie
             binding.NombrePeli.setText(state.produccion.nombre)
             binding.director.setText(state.produccion.director)
-            binding.opcionesGenero.setText()
+            binding.bookingDateEditText.setText(state.produccion.fechaLanzamiento?.toString() ?: "")
+            binding.numeroTemporadas.setText(state.produccion.numeroSeason.toString())
+            binding.opcionesGenero.setSelection(generos.indexOf(state.produccion.genero))
+            binding.opcionesPais.setSelection(paises.indexOf(state.produccion.pais))
+            binding.valoracion.rating = state.produccion.valoracion.toFloat()
+
+            state.mensaje?.let{ mensaje ->
+                Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
+                 viewModel.limpiarMensaje()
+            }
         }
     }
 }
