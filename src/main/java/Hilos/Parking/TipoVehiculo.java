@@ -2,6 +2,8 @@ package Hilos.Parking;
 
 import lombok.Data;
 
+import java.util.Random;
+
 
 public enum TipoVehiculo {
     NORMAL(1.0),
@@ -15,5 +17,15 @@ public enum TipoVehiculo {
 
     TipoVehiculo(double tarifaPorMinuto) {
         tarifaPorMinuto = tarifaPorMinuto;
+    }
+
+    public TipoVehiculo tipoAleatorio () {
+        Random random = new Random();
+        int aleatorio = random.nextInt(0, 100);
+        if ( aleatorio < 80) {
+            return NORMAL;
+        } else {
+            return VIP;
+        }
     }
 }
