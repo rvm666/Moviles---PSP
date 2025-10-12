@@ -1,12 +1,14 @@
 package Hilos.Parking;
 
 import lombok.Data;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Data
 public class Parking {
+    Logger log = LoggerFactory.getLogger(Parking.class);
     private AtomicInteger normalesOcupadas = new AtomicInteger(0);
     private AtomicInteger vipOcupadas = new AtomicInteger(0);
     private AtomicInteger entradasTotales = new AtomicInteger(0);
@@ -62,16 +64,10 @@ public class Parking {
     }
 
     public void monitor(){
-        System.out.println("-------SEGUIMIENTO PARKING------");
-        System.out.println("Plazas normales ocupadas: " + normalesOcupadas + "/20");
-        System.out.println("Plazas VIP ocupadas: " + vipOcupadas + "/5");
-        System.out.println("Recaudado: " + recaudado);
-        System.out.println("--------------------------------");
-    }
-
-    public void estadisticasFinales(){
-        System.out.println("Coches que han entrado: " + entradasTotales);
-        System.out.println("Coches que no han entrado: " + vehiculosNoEntrados);
-        System.out.println("Dinero recaudado: " + recaudado);
+        log.info("-------SEGUIMIENTO PARKING------");
+        log.info("Plazas normales ocupadas: {}/20", normalesOcupadas);
+        log.info("Plazas VIP ocupadas: {}/5", vipOcupadas);
+        log.info("Recaudado: {}", recaudado);
+        log.info("--------------------------------");
     }
 }

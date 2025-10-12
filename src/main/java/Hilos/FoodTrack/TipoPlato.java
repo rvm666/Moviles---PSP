@@ -1,7 +1,6 @@
 package Hilos.FoodTrack;
 
 
-import java.util.Random;
 
 public enum TipoPlato {
     ENSALADA(2000, "🥗"),

@@ -1,13 +1,16 @@
 package Hilos.Parking;
 
-import java.sql.SQLOutput;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
 
 public class ParkingMain {
 
     public static void main(String[] args) {
+        Logger log = LoggerFactory.getLogger(ParkingMain.class);
         Parking parking = new Parking();
         List<Thread> listaVehiculos = new ArrayList<>();
 
@@ -52,16 +55,12 @@ public class ParkingMain {
         long fin = System.currentTimeMillis();
         long tiempo = fin - inicio;
 
-        System.out.println("---------DATOS FINALES--------");
-        System.out.println("Coches que han entrado: " + parking.getEntradasTotales());
-        System.out.println("Coches que no han entrado: " + parking.getVehiculosNoEntrados());
-        System.out.println("Dinero recaudado: " + parking.getRecaudado());
-        System.out.println("Tiempo total: " + tiempo/1000 + "seg");
-        System.out.println("-------------------------------");
-
-
-
-
+        log.info("---------DATOS FINALES--------");
+        log.info("Coches que han entrado: {}", parking.getEntradasTotales());
+        log.info("Coches que no han entrado: {}", parking.getVehiculosNoEntrados());
+        log.info("Dinero recaudado: {}", parking.getRecaudado());
+        log.info("Tiempo total: {} seg", tiempo/1000);
+        log.info("-------------------------------");
 
     }
 }

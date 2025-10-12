@@ -1,5 +1,9 @@
 package Hilos.FoodTrack;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -9,6 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class FoodTrackService {
+    Logger log = LoggerFactory.getLogger(FoodTrackService.class);
     private final BlockingQueue<Pedido> pedidosPendientes = new ArrayBlockingQueue<>(10);
     private final List<Thread> cocineros = new ArrayList<>();
     private final List<Thread> clientes = new ArrayList<>();
@@ -19,9 +24,9 @@ public class FoodTrackService {
                 try {
                     while (true) {
                         Pedido p = pedidosPendientes.take();
-                        System.out.println("Se esta cocinando " + p.getPlato().getEmoji() + " por cocinero" + Thread.currentThread().getName());
+                        log.info("Se esta cocinando {} por cocinero {}", p.getPlato().getEmoji(), Thread.currentThread().getName());
                         Thread.sleep(p.getPlato().getTiempoMs());
-                        System.out.println("Cocinero " + Thread.currentThread().getName() + " cocinó " + p.getPlato() + p.getPlato().getEmoji());
+                        log.info("Cocinero {} cocinó {}", Thread.currentThread().getName(), p.getPlato() + p.getPlato().getEmoji());
                     }
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
@@ -38,7 +43,7 @@ public class FoodTrackService {
                 Pedido p = new Pedido(id2, platoElegido);
                 try {
                     pedidosPendientes.put(p);
-                    System.out.println("El cliente " + Thread.currentThread().getName() + " ha pedido " + platoElegido);
+                    log.info("El cliente {} ha pedido {}", Thread.currentThread().getName(), platoElegido);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                 }
@@ -59,7 +64,7 @@ public class FoodTrackService {
 
         for (Thread c: cocineros){c.join();}
 
-        System.out.println("Se ha cerrado el foodtrack");
+        log.info("Se ha cerrado el foodtrack");
     }
 
     public TipoPlato platoAleatorio(){
@@ -68,25 +73,5 @@ public class FoodTrackService {
         return platos[indiceAleatorio];
     }
 
-    /*public void generadorPedidos(){
-        AtomicInteger id = new AtomicInteger(0);
-        clientes.forEach(cliente -> {
-            Pedido p = new Pedido(id.getAndIncrement(), platoAleatorio());
-            try {
-                pedidosPendientes.put(p);
-                cliente.toString();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        });
-    }*/
-
-    public void recogerPedidos(){
-
-    }
-
-    public void fin(){
-
-    }
 
 }
