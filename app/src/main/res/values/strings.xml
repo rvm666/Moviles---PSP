@@ -23,6 +23,7 @@
     </string-array>
 
     <string-array name="opcionesPais">
+        <item>Pais</item>
         <item>Estados Unidos</item>
         <item>China</item>
         <item>Japón</item>

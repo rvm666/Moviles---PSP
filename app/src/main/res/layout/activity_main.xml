@@ -132,7 +132,7 @@
         style="?attr/textInputOutlinedStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Lanzamiento"
+        android:hint="@string/lanzamiento"
         android:layout_marginTop="20dp"
         app:endIconContentDescription="Open Date Picker"
         app:endIconDrawable="@drawable/baseline_calendar_month_24"

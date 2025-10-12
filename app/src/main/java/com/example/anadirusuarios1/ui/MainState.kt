@@ -6,5 +6,6 @@ import java.time.LocalDate
 data class MainState(
     val indiceProduccion: Int = 0,
     val produccion: Produccion = Produccion(),
-    val mensaje: String? = null
+    val mensaje: String? = null,
+    val isEnable: Boolean = true
     )

@@ -8,4 +8,8 @@ object RepositorioProducciones {
     fun getProduccion(id:Int): Produccion = producciones[id]
 
     fun aniadirProduccion(produccion: Produccion) = producciones.add(produccion)
+
+    fun borrarProduccion(produccion: Produccion) = producciones.remove(produccion)
+
+    fun size() : Int = producciones.size
 }
