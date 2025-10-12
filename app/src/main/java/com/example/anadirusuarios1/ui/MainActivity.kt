@@ -11,6 +11,7 @@ import com.example.anadirusuarios1.R
 import com.example.anadirusuarios1.data.RepositorioProducciones
 import com.example.anadirusuarios1.databinding.ActivityMainBinding
 import com.example.anadirusuarios1.domain.model.Produccion
+import com.example.anadirusuarios1.domain.useCase.ActualizarProduccionUseCase
 import com.example.anadirusuarios1.domain.useCase.AnadirProduccionUseCase
 import com.example.anadirusuarios1.domain.useCase.BorrarProduccionUseCase
 import com.example.anadirusuarios1.domain.useCase.GetProduccionUseCase
@@ -35,7 +36,8 @@ class MainActivity : AppCompatActivity() {
         val getProduccion = GetProduccionUseCase(repositorio)
         val borrarProduccion = BorrarProduccionUseCase(repositorio)
         val sizeProducciones = SizeProduccionesUseCase(repositorio)
-        MainViewModelFactory(aniadirProduccion, getProduccion, borrarProduccion, sizeProducciones)
+        val actualizarProduccion = ActualizarProduccionUseCase(repositorio)
+        MainViewModelFactory(aniadirProduccion, getProduccion, borrarProduccion, sizeProducciones, actualizarProduccion)
     }
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -92,26 +94,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun eventos(){
         binding.botonGuardar.setOnClickListener {
-            val esSerie = binding.serie.isChecked
-            val nombre = binding.NombrePeli.text.toString()
-            val director = binding.director.text.toString()
             val numeroSeasonsTexto = binding.numeroTemporadas.text.toString()
-            val numeroSeasons = numeroSeasonsTexto.toIntOrNull() ?: 0
             val lanzamientoTexto = binding.bookingDateEditText.text.toString()
             val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-            val lanzamiento = LocalDate.parse(lanzamientoTexto, formatter)
-            val genero = binding.opcionesGenero.selectedItem.toString()
-            val pais = binding.opcionesPais.selectedItem.toString()
-            val valoracion = binding.valoracion.rating.toDouble()
+
             val nuevaProduccion = Produccion(
-                esSerie,
-                nombre,
-                director,
-                numeroSeasons,
-                lanzamiento,
-                genero,
-                pais,
-                valoracion)
+                binding.serie.isChecked,
+                binding.NombrePeli.text.toString(),
+                binding.director.text.toString(),
+                numeroSeasonsTexto.toIntOrNull() ?: 0,
+                LocalDate.parse(lanzamientoTexto, formatter),
+                binding.opcionesGenero.selectedItem.toString(),
+                binding.opcionesPais.selectedItem.toString(),
+                binding.valoracion.rating.toDouble())
             viewModel.clickBotonGuardar(nuevaProduccion)
         }
 
@@ -124,26 +119,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.botonBorrar.setOnClickListener {
-            val esSerie = binding.serie.isChecked
-            val nombre = binding.NombrePeli.text.toString()
-            val director = binding.director.text.toString()
             val numeroSeasonsTexto = binding.numeroTemporadas.text.toString()
-            val numeroSeasons = numeroSeasonsTexto.toIntOrNull() ?: 0
             val lanzamientoTexto = binding.bookingDateEditText.text.toString()
             val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-            val lanzamiento = LocalDate.parse(lanzamientoTexto, formatter)
-            val genero = binding.opcionesGenero.selectedItem.toString()
-            val pais = binding.opcionesPais.selectedItem.toString()
-            val valoracion = binding.valoracion.rating.toDouble()
+
             val nuevaProduccion = Produccion(
-                esSerie,
-                nombre,
-                director,
-                numeroSeasons,
-                lanzamiento,
-                genero,
-                pais,
-                valoracion)
+                binding.serie.isChecked,
+                binding.NombrePeli.text.toString(),
+                binding.director.text.toString(),
+                numeroSeasonsTexto.toIntOrNull() ?: 0,
+                LocalDate.parse(lanzamientoTexto, formatter),
+                binding.opcionesGenero.selectedItem.toString(),
+                binding.opcionesPais.selectedItem.toString(),
+                binding.valoracion.rating.toDouble())
             viewModel.clickBotonBorrar(nuevaProduccion)
             viewModel.siguienteProduccion()
         }
@@ -153,7 +141,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.botonActualizar.setOnClickListener {
-
+            val numeroSeasonsTexto = binding.numeroTemporadas.text.toString()
+            val lanzamientoTexto = binding.bookingDateEditText.text.toString()
+            val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+            val nuevaProduccion = Produccion(
+                binding.serie.isChecked,
+                binding.NombrePeli.text.toString(),
+                binding.director.text.toString(),
+                numeroSeasonsTexto.toIntOrNull() ?: 0,
+                LocalDate.parse(lanzamientoTexto, formatter),
+                binding.opcionesGenero.selectedItem.toString(),
+                binding.opcionesPais.selectedItem.toString(),
+                binding.valoracion.rating.toDouble())
+            viewModel.actualizarProduccion(nuevaProduccion)
         }
 
         binding.pelicula.setOnCheckedChangeListener { _, isCheked ->

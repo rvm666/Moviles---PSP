@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.anadirusuarios1.domain.model.Produccion
+import com.example.anadirusuarios1.domain.useCase.ActualizarProduccionUseCase
 import com.example.anadirusuarios1.domain.useCase.AnadirProduccionUseCase
 import com.example.anadirusuarios1.domain.useCase.BorrarProduccionUseCase
 import com.example.anadirusuarios1.domain.useCase.GetProduccionUseCase
@@ -16,7 +17,8 @@ class MainViewModel(
     private val aniadirProduccionUseCase: AnadirProduccionUseCase,
     private val getProduccionUseCase: GetProduccionUseCase,
     private val borrarProduccionUseCase: BorrarProduccionUseCase,
-    private val sizeProduccionesUseCase: SizeProduccionesUseCase
+    private val sizeProduccionesUseCase: SizeProduccionesUseCase,
+    private val actualizarProduccionUseCase: ActualizarProduccionUseCase
 ) : ViewModel() {
 
     private var _state : MutableLiveData<MainState> = MutableLiveData(MainState())
@@ -39,7 +41,11 @@ class MainViewModel(
             _state.value = _state.value?.copy(mensaje = "ERROR")
         }
     }
-
+    fun actualizarProduccion(produccion: Produccion){
+        val id = _state.value.indiceProduccion
+        actualizarProduccionUseCase(id, produccion)
+        _state.value = _state.value?.copy(produccion = produccion)
+    }
     fun limpiarPantalla(){
         val produccion: Produccion = Produccion( null, "Nombre", "Director",
             null,
@@ -52,7 +58,6 @@ class MainViewModel(
     }
 
     fun esPelicula(isCheked: Boolean){
-        val esPelicula = _state.value?.produccion?.esPelicula
         if(isCheked == true){
             _state.value = _state.value?.copy(isEnable = false)
         } else {
@@ -65,7 +70,7 @@ class MainViewModel(
     }
     fun siguienteProduccion(){
         val indice = _state.value?.indiceProduccion ?: 0
-        val nuevoIndice = if (indice == sizeProduccionesUseCase()){
+        val nuevoIndice = if (indice >= sizeProduccionesUseCase() -1){
            0
         } else {
            indice +1
@@ -86,16 +91,19 @@ class MainViewModel(
         _state.value = _state.value?.copy(produccion = produccion, indiceProduccion = nuevoIndice)
 
     }
+
+
     class MainViewModelFactory(
         private val aniadirProduccionUseCase: AnadirProduccionUseCase,
         private val getProduccionUseCase: GetProduccionUseCase,
         private val borrarProduccionUseCase: BorrarProduccionUseCase,
-        private val sizeProduccionesUseCase: SizeProduccionesUseCase
+        private val sizeProduccionesUseCase: SizeProduccionesUseCase,
+        private val actualizarProduccionUseCase: ActualizarProduccionUseCase
     ) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return MainViewModel(aniadirProduccionUseCase, getProduccionUseCase, borrarProduccionUseCase, sizeProduccionesUseCase) as T
+                return MainViewModel(aniadirProduccionUseCase, getProduccionUseCase, borrarProduccionUseCase, sizeProduccionesUseCase, actualizarProduccionUseCase) as T
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }

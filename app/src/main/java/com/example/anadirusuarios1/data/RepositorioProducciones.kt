@@ -7,6 +7,8 @@ object RepositorioProducciones {
 
     fun getProduccion(id:Int): Produccion = producciones[id]
 
+    fun actualizarProduccion(id:Int, produccion: Produccion) = producciones.set(id, produccion)
+
     fun aniadirProduccion(produccion: Produccion) = producciones.add(produccion)
 
     fun borrarProduccion(produccion: Produccion) = producciones.remove(produccion)
