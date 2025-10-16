@@ -1,7 +1,6 @@
-package com.example.anadirusuarios1.ui
+package com.example.anadirusuarios1.ui.pantallaInfo
 
 import com.example.anadirusuarios1.domain.model.Produccion
-import java.time.LocalDate
 
 data class MainState(
     val indiceProduccion: Int = 0,

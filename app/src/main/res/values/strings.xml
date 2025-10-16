@@ -13,6 +13,7 @@
     <string name="guardar">Guardar</string>
     <string name="anterior">Anterior</string>
     <string name="siguiente">Siguiente</string>
+    <string name="fab_content_desc">Añadir producción</string>
     <string-array name="opcionesGenero">
         <item>Género</item>
         <item>Acción / Aventuras</item>

@@ -1,17 +1,15 @@
-package com.example.anadirusuarios1.ui
+package com.example.anadirusuarios1.ui.pantallaInfo
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
 import com.example.anadirusuarios1.domain.model.Produccion
 import com.example.anadirusuarios1.domain.useCase.ActualizarProduccionUseCase
 import com.example.anadirusuarios1.domain.useCase.AnadirProduccionUseCase
 import com.example.anadirusuarios1.domain.useCase.BorrarProduccionUseCase
 import com.example.anadirusuarios1.domain.useCase.GetProduccionUseCase
 import com.example.anadirusuarios1.domain.useCase.SizeProduccionesUseCase
-import kotlinx.coroutines.launch
 
 class MainViewModel(
     private val aniadirProduccionUseCase: AnadirProduccionUseCase,
