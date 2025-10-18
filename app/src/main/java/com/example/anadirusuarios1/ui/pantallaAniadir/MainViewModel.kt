@@ -1,4 +1,4 @@
-package com.example.anadirusuarios1.ui.pantallaInfo
+package com.example.anadirusuarios1.ui.pantallaAniadir
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

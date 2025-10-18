@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.pantallaAniadir.MainActivity"
+    tools:context=".ui.pantallaInfo.InfoMainActivity"
     android:background="#C6F6D5">
 
     <androidx.constraintlayout.widget.Guideline
@@ -140,7 +140,7 @@
         app:layout_constraintTop_toBottomOf="@+id/numeroTemporadas"
         app:layout_constraintBottom_toTopOf="@+id/valoracion"
         app:layout_constraintEnd_toStartOf="@+id/opcionesPais"
-/>
+        />
 
     <Spinner
         android:id="@+id/opcionesPais"
@@ -169,7 +169,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#2C7A7B"
-        android:text="@string/guardar"
+        android:text="@string/update"
         app:strokeColor="#2C7A7B"
         app:strokeWidth="2dp"
         app:layout_constraintBottom_toBottomOf="@+id/botonLimpiar"
@@ -190,6 +190,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/valoracion"
         app:layout_constraintEnd_toStartOf="@+id/botonGuardar" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

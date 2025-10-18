@@ -1,4 +1,4 @@
-package com.example.anadirusuarios1.ui.pantallaInfo
+package com.example.anadirusuarios1.ui.pantallaAniadir
 
 import android.os.Bundle
 import android.widget.Toast
@@ -16,7 +16,7 @@ import com.example.anadirusuarios1.domain.useCase.AnadirProduccionUseCase
 import com.example.anadirusuarios1.domain.useCase.BorrarProduccionUseCase
 import com.example.anadirusuarios1.domain.useCase.GetProduccionUseCase
 import com.example.anadirusuarios1.domain.useCase.SizeProduccionesUseCase
-import com.example.anadirusuarios1.ui.pantallaInfo.MainViewModel.MainViewModelFactory
+import com.example.anadirusuarios1.ui.pantallaAniadir.MainViewModel.MainViewModelFactory
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.jakewharton.threetenabp.AndroidThreeTen
 import java.text.SimpleDateFormat
@@ -110,13 +110,6 @@ class MainActivity : AppCompatActivity() {
             viewModel.clickBotonGuardar(nuevaProduccion)
         }
 
-        binding.siguiente.setOnClickListener {
-            viewModel.siguienteProduccion()
-        }
-
-        binding.anterior.setOnClickListener {
-            viewModel.anteriorProduccion()
-        }
 
         binding.botonBorrar.setOnClickListener {
             val numeroSeasonsTexto = binding.numeroTemporadas.text.toString()

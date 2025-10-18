@@ -1,4 +1,4 @@
-package com.example.anadirusuarios1.ui.pantallaInfo
+package com.example.anadirusuarios1.ui.pantallaAniadir
 
 import com.example.anadirusuarios1.domain.model.Produccion
 

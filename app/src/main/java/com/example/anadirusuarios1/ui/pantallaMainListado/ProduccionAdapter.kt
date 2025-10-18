@@ -1,0 +1,56 @@
+package com.example.anadirusuarios1.ui.pantallaMainListado
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.example.anadirusuarios1.databinding.ItemProduccionBinding
+import com.example.anadirusuarios1.domain.model.Produccion
+
+class ProduccionAdapter(
+    val actions: ProduccionesActions,
+    val onClickView: (Produccion) -> Unit,
+) : ListAdapter<Produccion, ProduccionAdapter.ProduccionViewHolder>(
+    ProduccionDiffCallback()
+) {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int
+        ): ProduccionViewHolder{
+        val binding = ItemProduccionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ProduccionViewHolder(binding,onClickView,actions)
+    }
+
+    override fun onBindViewHolder(holder: ProduccionViewHolder, position: Int){
+        holder.bind(getItem(position))
+    }
+
+
+    class ProduccionViewHolder(private val binding: ItemProduccionBinding,
+                               val onClickView : (Produccion) -> Unit,
+                               val actions: ProduccionesActions,
+    ) : RecyclerView.ViewHolder(binding.root)    {
+        fun bind(produccion: Produccion){
+            binding.NombreProduccion.text = produccion.nombre
+            binding.NombreDirector.text = produccion.director
+            binding.root.setOnClickListener{
+                onClickView(produccion)
+                actions.onItemClick(produccion)
+            }
+        }
+    }
+
+    class ProduccionDiffCallback: DiffUtil.ItemCallback<Produccion>(){
+        override fun areItemTheSame(oldItem: Produccion, newItem: Produccion): Boolean {
+            return oldItem.nombre == newItem.nombre && oldItem.director == newItem.director
+        }
+
+        override fun areContentsTheSame(oldItem: Produccion, newItem: Produccion): Boolean {
+            return oldItem == newItem
+        }
+    }
+
+    interface ProduccionesActions{
+        fun onItemClick(produccion: Produccion)
+    }
+}
