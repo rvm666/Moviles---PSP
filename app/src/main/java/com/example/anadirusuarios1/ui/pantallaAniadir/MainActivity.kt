@@ -16,8 +16,11 @@ import com.example.anadirusuarios1.domain.useCase.AnadirProduccionUseCase
 import com.example.anadirusuarios1.domain.useCase.BorrarProduccionUseCase
 import com.example.anadirusuarios1.domain.useCase.GetProduccionUseCase
 import com.example.anadirusuarios1.domain.useCase.SizeProduccionesUseCase
+import com.example.anadirusuarios1.ui.common.UiEvent
 import com.example.anadirusuarios1.ui.pantallaAniadir.MainViewModel.MainViewModelFactory
+import com.example.anadirusuarios1.ui.pantallaMainListado.ListaMainActivity
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.snackbar.Snackbar
 import com.jakewharton.threetenabp.AndroidThreeTen
 import java.text.SimpleDateFormat
 //import java.time.LocalDate
@@ -87,70 +90,81 @@ class MainActivity : AppCompatActivity() {
 
         eventos()
         observacion()
-
-
     }
 
 
     private fun eventos(){
-        binding.botonGuardar.setOnClickListener {
-            val numeroSeasonsTexto = binding.numeroTemporadas.text.toString()
-            val lanzamientoTexto = binding.bookingDateEditText.text.toString()
-            val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+        with(binding) {
+            botonGuardar.setOnClickListener {
+                val numeroSeasonsTexto = binding.numeroTemporadas.text.toString()
+                val lanzamientoTexto = binding.bookingDateEditText.text.toString()
+                val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
 
-            val nuevaProduccion = Produccion(
-                binding.serie.isChecked,
-                binding.NombrePeli.text.toString(),
-                binding.director.text.toString(),
-                numeroSeasonsTexto.toIntOrNull() ?: 0,
-                LocalDate.parse(lanzamientoTexto, formatter),
-                binding.opcionesGenero.selectedItem.toString(),
-                binding.opcionesPais.selectedItem.toString(),
-                binding.valoracion.rating.toDouble())
-            viewModel.clickBotonGuardar(nuevaProduccion)
-        }
+                val nuevaProduccion = Produccion(
+                    binding.serie.isChecked,
+                    binding.NombrePeli.text.toString(),
+                    binding.director.text.toString(),
+                    numeroSeasonsTexto.toIntOrNull() ?: 0,
+                    LocalDate.parse(lanzamientoTexto, formatter),
+                    binding.opcionesGenero.selectedItem.toString(),
+                    binding.opcionesPais.selectedItem.toString(),
+                    binding.valoracion.rating.toDouble()
+                )
+                viewModel.clickBotonGuardar(nuevaProduccion)
+                root.postDelayed({
+                    val intent = android.content.Intent(
+                        this@MainActivity,
+                        ListaMainActivity::class.java
+                    )
+                    startActivity(intent)
+                    finish()
+                }, 1500)
+            }
 
 
-        binding.botonBorrar.setOnClickListener {
-            val numeroSeasonsTexto = binding.numeroTemporadas.text.toString()
-            val lanzamientoTexto = binding.bookingDateEditText.text.toString()
-            val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+//        binding.botonBorrar.setOnClickListener {
+//            val numeroSeasonsTexto = binding.numeroTemporadas.text.toString()
+//            val lanzamientoTexto = binding.bookingDateEditText.text.toString()
+//            val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+//
+//            val nuevaProduccion = Produccion(
+//                binding.serie.isChecked,
+//                binding.NombrePeli.text.toString(),
+//                binding.director.text.toString(),
+//                numeroSeasonsTexto.toIntOrNull() ?: 0,
+//                LocalDate.parse(lanzamientoTexto, formatter),
+//                binding.opcionesGenero.selectedItem.toString(),
+//                binding.opcionesPais.selectedItem.toString(),
+//                binding.valoracion.rating.toDouble())
+//            viewModel.clickBotonBorrar(nuevaProduccion)
+//            viewModel.siguienteProduccion()
+//        }
+//
+            botonLimpiar.setOnClickListener {
+                viewModel.limpiarPantalla()
 
-            val nuevaProduccion = Produccion(
-                binding.serie.isChecked,
-                binding.NombrePeli.text.toString(),
-                binding.director.text.toString(),
-                numeroSeasonsTexto.toIntOrNull() ?: 0,
-                LocalDate.parse(lanzamientoTexto, formatter),
-                binding.opcionesGenero.selectedItem.toString(),
-                binding.opcionesPais.selectedItem.toString(),
-                binding.valoracion.rating.toDouble())
-            viewModel.clickBotonBorrar(nuevaProduccion)
-            viewModel.siguienteProduccion()
-        }
+            }
+//
+//        binding.botonActualizar.setOnClickListener {
+//            val numeroSeasonsTexto = binding.numeroTemporadas.text.toString()
+//            val lanzamientoTexto = binding.bookingDateEditText.text.toString()
+//            val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+//            val nuevaProduccion = Produccion(
+//                binding.serie.isChecked,
+//                binding.NombrePeli.text.toString(),
+//                binding.director.text.toString(),
+//                numeroSeasonsTexto.toIntOrNull() ?: 0,
+//                LocalDate.parse(lanzamientoTexto, formatter),
+//                binding.opcionesGenero.selectedItem.toString(),
+//                binding.opcionesPais.selectedItem.toString(),
+//                binding.valoracion.rating.toDouble())
+//            viewModel.actualizarProduccion(nuevaProduccion)
+//        }
 
-        binding.botonLimpiar.setOnClickListener {
-            viewModel.limpiarPantalla()
-        }
+            pelicula.setOnCheckedChangeListener { _, isCheked ->
+                viewModel.esPelicula(isCheked)
+            }
 
-        binding.botonActualizar.setOnClickListener {
-            val numeroSeasonsTexto = binding.numeroTemporadas.text.toString()
-            val lanzamientoTexto = binding.bookingDateEditText.text.toString()
-            val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-            val nuevaProduccion = Produccion(
-                binding.serie.isChecked,
-                binding.NombrePeli.text.toString(),
-                binding.director.text.toString(),
-                numeroSeasonsTexto.toIntOrNull() ?: 0,
-                LocalDate.parse(lanzamientoTexto, formatter),
-                binding.opcionesGenero.selectedItem.toString(),
-                binding.opcionesPais.selectedItem.toString(),
-                binding.valoracion.rating.toDouble())
-            viewModel.actualizarProduccion(nuevaProduccion)
-        }
-
-        binding.pelicula.setOnCheckedChangeListener { _, isCheked ->
-            viewModel.esPelicula(isCheked)
         }
     }
 
@@ -169,10 +183,27 @@ class MainActivity : AppCompatActivity() {
             binding.opcionesPais.setSelection(paises.indexOf(state.produccion.pais))
             binding.valoracion.rating = state.produccion.valoracion.toFloat()
 
-            state.mensaje?.let{ mensaje ->
-                Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
-                 viewModel.limpiarMensaje()
+            state.uiEvent?.let{ event ->
+                when (event){
+                    is UiEvent.ShowSnackbar -> {
+                       val snackbar = Snackbar.make(
+                            binding.root,
+                            event.message,
+                            Snackbar.LENGTH_LONG
+                       )
+                        event.action?.let {
+                            snackbar.setAction(event.action ?: "UNDO"){
+                                // Aquí puedes manejar la acción de deshacer si lo necesitas
+                            }
+                        }
+                        snackbar.show()
+                        viewModel.limpiarMensaje()
+                    }
+                        is UiEvent.Navigate -> TODO()
+                        else -> {}
+                }
             }
+
         }
     }
 }

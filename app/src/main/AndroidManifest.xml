@@ -15,20 +15,13 @@
             android:name=".ui.pantallaInfo.InfoMainActivity"
             android:exported="false" />
         <activity
-            android:name=".InfoActivity"
-            android:exported="false" />
-        <activity
-            android:name="res.layout.activity_info.InfoActivity"
+            android:name=".ui.pantallaAniadir.MainActivity"
             android:exported="false" />
         <activity
             android:name=".ui.pantallaMainListado.ListaMainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.pantallaAniadir.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

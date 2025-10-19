@@ -41,7 +41,7 @@ class ProduccionAdapter(
     }
 
     class ProduccionDiffCallback: DiffUtil.ItemCallback<Produccion>(){
-        override fun areItemTheSame(oldItem: Produccion, newItem: Produccion): Boolean {
+        override fun areItemsTheSame(oldItem: Produccion, newItem: Produccion): Boolean {
             return oldItem.nombre == newItem.nombre && oldItem.director == newItem.director
         }
 

@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.pantallaMainListado.ListaMainActivity">
+    tools:context=".ui.pantallaMainListado.ListaMainActivity"
+    android:background="#C6F6D5">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewProducciones"
@@ -23,7 +24,7 @@
         <!-- Main content -->
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floating_action_button"
+            android:id="@+id/buttonAniadir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
