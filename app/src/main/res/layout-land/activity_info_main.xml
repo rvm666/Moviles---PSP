@@ -185,10 +185,10 @@
         app:layout_constraintEnd_toEndOf="@+id/opcionesPais"
         app:layout_constraintStart_toStartOf="@+id/opcionesPais"
         app:layout_constraintTop_toBottomOf="@+id/opcionesPais"
-        app:layout_constraintBottom_toTopOf="@+id/botonLimpiar"/>
+        app:layout_constraintBottom_toTopOf="@+id/botonLimpiardeUpdate"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/botonLimpiar"
+        android:id="@+id/botonLimpiardeUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#5A9BD5"
@@ -196,20 +196,20 @@
         app:strokeWidth="2dp"
         android:text="@string/limpiar"
         app:layout_constraintStart_toStartOf="@+id/opcionesGenero"
-        app:layout_constraintEnd_toStartOf="@+id/botonGuardar"
+        app:layout_constraintEnd_toStartOf="@+id/botonUpdate"
         app:layout_constraintTop_toBottomOf="@+id/valoracion"
         app:layout_constraintBottom_toTopOf="@+id/guideline_bottom"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/botonGuardar"
+        android:id="@+id/botonUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#BFA2DB"
         app:strokeColor="#2C7A7B"
         app:strokeWidth="2dp"
-        android:text="@string/guardar"
-        app:layout_constraintStart_toEndOf="@+id/botonLimpiar"
+        android:text="@string/update"
+        app:layout_constraintStart_toEndOf="@+id/botonLimpiardeUpdate"
         app:layout_constraintEnd_toStartOf="@+id/guideline_end"
-        app:layout_constraintTop_toTopOf="@+id/botonLimpiar"
-        app:layout_constraintBottom_toBottomOf="@+id/botonLimpiar"/>
+        app:layout_constraintTop_toTopOf="@+id/botonLimpiardeUpdate"
+        app:layout_constraintBottom_toBottomOf="@+id/botonLimpiardeUpdate"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

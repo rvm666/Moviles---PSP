@@ -35,6 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/BotonPatras"
         style="?attr/floatingActionButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,7 +49,7 @@
         android:id="@+id/textCabezera"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/a_adir_usuario"
+        android:text="@string/info_produccion"
         android:textAlignment="center"
         android:textColor="#E85E43"
         android:textSize="25sp"
@@ -173,28 +174,28 @@
         android:layout_height="wrap_content"
         android:numStars="5"
         android:stepSize="0.5"
-        app:layout_constraintBottom_toTopOf="@+id/botonLimpiar"
+        app:layout_constraintBottom_toTopOf="@+id/botonLimpiardeUpdate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/opcionesGenero" />
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/botonGuardar"
+        android:id="@+id/botonUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#2C7A7B"
         android:text="@string/update"
         app:strokeColor="#2C7A7B"
         app:strokeWidth="2dp"
-        app:layout_constraintBottom_toBottomOf="@+id/botonLimpiar"
+        app:layout_constraintBottom_toBottomOf="@+id/botonLimpiardeUpdate"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/botonLimpiar"
-        app:layout_constraintStart_toEndOf="@+id/botonLimpiar"
+        app:layout_constraintTop_toTopOf="@+id/botonLimpiardeUpdate"
+        app:layout_constraintStart_toEndOf="@+id/botonLimpiardeUpdate"
         />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/botonLimpiar"
+        android:id="@+id/botonLimpiardeUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#5A9BD5"
@@ -204,5 +205,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/valoracion"
-        app:layout_constraintEnd_toStartOf="@+id/botonGuardar" />
+        app:layout_constraintEnd_toStartOf="@+id/botonUpdate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

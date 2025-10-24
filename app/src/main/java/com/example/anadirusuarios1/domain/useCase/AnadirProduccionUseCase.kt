@@ -8,6 +8,4 @@ class AnadirProduccionUseCase(private val repositorio: RepositorioProducciones) 
     operator fun invoke(produccion: Produccion) : Boolean{
         return repositorio.aniadirProduccion(produccion)
     }
-
-    //fun anadirProduccion(produccion: Produccion) = RepositorioProducciones
 }
