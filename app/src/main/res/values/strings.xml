@@ -16,6 +16,7 @@
     <string name="siguiente">Siguiente</string>
     <string name="fab_content_desc">Añadir producción</string>
     <string name="m3_expressive_primary_fab_content_description">boton patras\n</string>
+    <string name="produccion">Produccion</string>
     <string-array name="opcionesGenero">
         <item>Género</item>
         <item>Acción / Aventuras</item>
