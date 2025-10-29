@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adivina un numero</title>
+    <style>
+    h1{
+        color: blue;
+        text-align: center;
+    }
+    .center{
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <h1 th:text="${texto_h1}">nada</h1>
+    <form class="center" action="juego" method="post">
+        <label for="numero" th:text="${introuce_numero}">.</label>
+        <br>
+        <br>
+        <p th:text="${mensaje}"></p>
+        <br>
+        <input type="number" name="numero" id="numero"/>
+        <button type="submit" th:text="${boton_jugar}">.</button>
+        <br>
+        <p>Intentos: </p>
+        <p th:text="${intentos}">nada</p>
+    </form>
+    <br>
+    <div class="center" th:if="${juegoTerminado}">
+        <h2 th:text="${terminado_juego}">.</h2>
+        <a th:href="@{/login.html}" th:text="${volver_login}">.</a>
+        <br>
+        <a th:href="@{/juego(nombre=${nombreUsuario}, accion='reiniciar')}" th:text="${volver_jugar}">.</a>
+    </div>
+
+</body>
+</html>

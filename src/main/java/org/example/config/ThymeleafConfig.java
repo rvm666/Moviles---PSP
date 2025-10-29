@@ -17,14 +17,14 @@ public class ThymeleafConfig implements ServletContextListener {
         JakartaServletWebApplication application  = JakartaServletWebApplication.buildApplication(servletContext);
 
         WebApplicationTemplateResolver templateResolver = new WebApplicationTemplateResolver(application);
-        templateResolver.setPrefix("/WEB-INF/templates/");
-        templateResolver.setSuffix(".html");
-        templateResolver.setTemplateMode("HTML");
-        templateResolver.setCharacterEncoding("UTF-8");
+        templateResolver.setPrefix(Constantes.PREFIJO);
+        templateResolver.setSuffix(Constantes.SUFIJO);
+        templateResolver.setTemplateMode(Constantes.TEMPLATE_MODE);
+        templateResolver.setCharacterEncoding(Constantes.ENCODING);
 
         TemplateEngine templateEngine = new TemplateEngine();
         templateEngine.setTemplateResolver(templateResolver);
 
-        servletContext.setAttribute("com.daw.TemplateEngine", templateEngine);
+        servletContext.setAttribute(Constantes.TEMPLATE_ENGINE, templateEngine);
     }
 }
