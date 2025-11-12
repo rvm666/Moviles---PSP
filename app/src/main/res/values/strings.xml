@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">GestionProducciones(Navegacion)</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="perfil">Perfil</string>
+    <string name="usuario">Usuarios</string>
+    <string name="pelicula">Pelicula</string>
+    <string name="serie">Serie</string>
+    <string name="m3_expressive_primary_fab_content_description">patras</string>
+    <string name="aniadir_usuario">Añadir Produccion</string>
+    <string name="nombre_produccion">Producción</string>
+    <string name="director">Director</string>
+    <string name="n_de_seasons">Nº Seasons</string>
+    <string name="lanzamiento">Lanzamiento</string>
+    <string name="guardar">Guardar</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="tu_texto_checkbox">¿La has visto?</string>
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="usuarioo">Usuario</string>
+    <string name="contrasenia">Contraseña</string>
+    <string name="crearCuenta">Crear Cuenta</string>
+    <string name="iniciar_Sesion">Iniciar Sesión</string>
+    <string name="email">Email</string>
+    <string name="info_produccion">Info Producción</string>
+    <string name="actualizar_produccion">Actualizar</string>
+    <string name="fab_content_desc">AniadirPendiente</string>
+    <string name="Aniadir_Vista">AniadirVista</string>
+    <string name="editar_usuario">Info/Editar Usuario</string>
+    <string name="producciones">Producciones</string>
+    <string name="inicio">Inicio</string>
+    <string name="pelicula_mas_vistatext">Pelicula mas vista:</string>
+    <string name="ejemplo">ejemplo</string>
+    <string name="genero_mas_visto_text">Genero mas visto:</string>
+    <string name="producciones_pendientes">Producciones pendientes</string>
+    <string name="_0">0</string>
+    <string name="producciones_totales">Producciones totales</string>
+    <string-array name="opcionesGenero">
+        <item>Género</item>
+        <item>Acción / Aventuras</item>
+        <item>Comedia</item>
+        <item>Drama</item>
+        <item>Ficción / Fantasía</item>
+        <item>Terror</item>
+    </string-array>
+
+    <string-array name="opcionesPais">
+        <item>Pais</item>
+        <item>Estados Unidos</item>
+        <item>China</item>
+        <item>Japón</item>
+        <item>Reino Unido</item>
+        <item>Francia</item>
+        <item>España</item>
+    </string-array>
+</resources>
