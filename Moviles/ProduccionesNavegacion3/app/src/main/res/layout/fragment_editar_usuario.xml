@@ -58,43 +58,57 @@
         app:layout_constraintTop_toTopOf="@+id/guideline_top"
         app:layout_constraintVertical_chainStyle="spread" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        style="?attr/textInputFilledStyle"
         android:id="@+id/EmailAddress"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:ems="12"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toStartOf="@+id/guideline_end"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/cabezera"
-        app:layout_constraintBottom_toTopOf="@+id/usuario"/>
+        app:layout_constraintBottom_toTopOf="@+id/usuario">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="?attr/textInputFilledStyle"
         android:id="@+id/usuario"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:ems="12"
         android:hint="@string/usuarioo"
-        android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/Password"
         app:layout_constraintEnd_toStartOf="@+id/guideline_end"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@+id/EmailAddress"
-        app:layout_constraintVertical_chainStyle="spread"
-       />
+        app:layout_constraintTop_toBottomOf="@+id/EmailAddress">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="?attr/textInputFilledStyle"
         android:id="@+id/Password"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:ems="12"
         android:hint="@string/contrasenia"
         app:layout_constraintEnd_toEndOf="@+id/cabezera"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/usuario"
-        app:layout_constraintBottom_toTopOf="@+id/botonLimpiar"/>
+        app:layout_constraintBottom_toTopOf="@+id/botonLimpiar">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.button.MaterialButton

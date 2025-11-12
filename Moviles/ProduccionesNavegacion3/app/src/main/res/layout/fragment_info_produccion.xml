@@ -80,42 +80,61 @@
 
 
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        style="?attr/textInputFilledStyle"
         android:id="@+id/Nombre_Peli"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:ems="15"
-        android:inputType="text"
         android:hint="@string/nombre_produccion"
         app:layout_constraintBottom_toTopOf="@+id/director"
-        app:layout_constraintStart_toEndOf="@+id/guideline_start"
         app:layout_constraintEnd_toStartOf="@+id/guideline_end"
-        app:layout_constraintTop_toBottomOf="@+id/Pelicula_Serie"/>
+        app:layout_constraintStart_toEndOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@+id/Pelicula_Serie">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="?attr/textInputFilledStyle"
         android:id="@+id/director"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:ems="15"
-        android:inputType="text"
         android:hint="@string/director"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintStart_toEndOf="@+id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/Nombre_Peli"
-        app:layout_constraintBottom_toTopOf="@+id/numeroTemporadas" />
+        app:layout_constraintBottom_toTopOf="@+id/numeroTemporadas" >
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+            app:layout_constraintStart_toEndOf="@+id/guideline_start" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="?attr/textInputFilledStyle"
         android:id="@+id/numeroTemporadas"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="7"
-        android:inputType="number"
         android:hint="@string/n_de_seasons"
         app:layout_constraintStart_toEndOf="@+id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/director"
         app:layout_constraintBottom_toTopOf="@+id/opcionesGenero"
-        app:layout_constraintEnd_toStartOf="@+id/bookingDataEditText1" />
+        app:layout_constraintEnd_toStartOf="@+id/bookingDataEditText1" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+            app:layout_constraintStart_toEndOf="@+id/guideline_start" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/bookingDataEditText1"
@@ -143,26 +162,47 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Spinner
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/opcionesGenero"
-        android:layout_width="wrap_content"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:entries="@array/opcionesGenero"
-        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/Genero"
+        app:layout_constraintStart_toEndOf="@+id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/numeroTemporadas"
         app:layout_constraintBottom_toTopOf="@+id/valoracion"
-        app:layout_constraintEnd_toStartOf="@+id/opcionesPais"
-        />
+        app:layout_constraintEnd_toStartOf="@+id/opcionesPais">
 
-    <Spinner
+        <AutoCompleteTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            app:simpleItems="@array/opcionesGenero"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/opcionesPais"
-        android:layout_width="wrap_content"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:entries="@array/opcionesPais"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="@string/Pais"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
         app:layout_constraintTop_toTopOf="@+id/opcionesGenero"
         app:layout_constraintBottom_toBottomOf="@+id/opcionesGenero"
-        app:layout_constraintStart_toEndOf="@+id/opcionesGenero" />
+        app:layout_constraintStart_toEndOf="@+id/opcionesGenero" >
+
+        <AutoCompleteTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            app:simpleItems="@array/opcionesPais"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <RatingBar
         android:id="@+id/valoracion"

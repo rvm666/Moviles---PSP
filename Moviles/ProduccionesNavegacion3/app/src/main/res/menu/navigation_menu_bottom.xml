@@ -2,21 +2,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item
-        android:id="@+id/inicio"
+
+    <item android:id="@+id/inicio"
         android:icon="@drawable/inicio_home_24"
-        android:title="@string/inicio"/>
+        android:title="@string/inicio">
+        @style/Widget.Material3Expressive.BottomNavigationView
+    </item>
 
-    <item
-        android:id="@+id/estadisticasProducciones"
+    <item android:id="@+id/estadisticasProducciones"
         android:icon="@drawable/profilee24"
-        android:title="@string/producciones"
-        />
+        android:title="@string/producciones">
+        @style/Widget.Material3Expressive.BottomNavigationView
+    </item>
 
-    <item
-        android:id="@+id/listaUsuarios"
+    <item android:id="@+id/listaUsuarios"
         android:icon="@drawable/profile24"
-        android:title="@string/usuario" />
+        android:title="@string/usuario" >
+        @style/Widget.Material3Expressive.BottomNavigationView
+    </item>
+
+
 
 
 </menu>

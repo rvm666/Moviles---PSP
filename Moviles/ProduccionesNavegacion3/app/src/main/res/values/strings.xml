@@ -34,6 +34,8 @@
     <string name="producciones_pendientes">Producciones pendientes</string>
     <string name="_0">0</string>
     <string name="producciones_totales">Producciones totales</string>
+    <string name="Genero">Genero</string>
+    <string name="Pais">Pais</string>
     <string-array name="opcionesGenero">
         <item>Género</item>
         <item>Acción / Aventuras</item>
