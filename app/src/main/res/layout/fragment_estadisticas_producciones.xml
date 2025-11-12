@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.EstadisticasProducciones.EstadisticasProducciones"
+    android:background="#C6F6D5">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.20" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <TextView
+        android:id="@+id/masVista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pelicula_mas_vistatext"
+        android:textColor="#E85E43"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/genero"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
+    <TextView
+        android:id="@+id/produccionMasVistas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ejemplo"
+        android:textColor="#E85E43"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/masVista"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintTop_toTopOf="@+id/masVista" />
+
+    <TextView
+        android:id="@+id/genero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/genero_mas_visto_text"
+        android:textColor="#E85E43"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonProduccionesTotales"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@+id/masVista"/>
+
+    <TextView
+        android:id="@+id/generoMasVisto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ejemplo"
+        android:textColor="#E85E43"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/genero"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintTop_toTopOf="@+id/genero" />
+
+    <Button
+        android:id="@+id/buttonProduccionesTotales"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light"
+        android:text="@string/producciones_totales"
+        android:textAlignment="textStart"
+        android:textColor="#E85E43"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_bottom"
+        app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@+id/genero" />
+
+    <TextView
+        android:id="@+id/produccionesPendientes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_0"
+        android:textColor="#E85E43"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonProduccionesTotales"
+        app:layout_constraintEnd_toEndOf="@+id/buttonProduccionesTotales"
+        app:layout_constraintTop_toTopOf="@+id/buttonProduccionesTotales" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

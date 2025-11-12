@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/inicio"
+        android:icon="@drawable/inicio_home_24"
+        android:title="@string/inicio"/>
+
+    <item
+        android:id="@+id/estadisticasProducciones"
+        android:icon="@drawable/profilee24"
+        android:title="@string/producciones"
+        />
+
+    <item
+        android:id="@+id/listaUsuarios"
+        android:icon="@drawable/profile24"
+        android:title="@string/usuario" />
+
+
+</menu>
