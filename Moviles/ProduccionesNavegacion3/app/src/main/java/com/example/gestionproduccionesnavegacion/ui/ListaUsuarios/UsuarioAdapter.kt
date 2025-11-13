@@ -53,6 +53,6 @@ class UsuarioAdapter (
     }
 
     interface UsuariosActions {
-        fun onItemClick(produccion: Usuario)
+        fun onItemClick(usuario: Usuario)
     }
 }

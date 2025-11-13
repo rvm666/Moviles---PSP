@@ -1,40 +1,38 @@
-package com.example.gestionproduccionesnavegacion.ui.AniadirProduccion
+package com.example.gestionproduccionesnavegacion.ui.InfoProduccion
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.anadirusuarios1.ui.common.Constantes
-import com.example.gestionproduccionesnavegacion.databinding.FragmentAniadirProduccionBinding
-import com.example.gestionproduccionesnavegacion.domain.model.Produccion
+import com.example.gestionproduccionesnavegacion.databinding.FragmentInfoProduccionBinding
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
-import kotlin.text.toDouble
+import kotlin.getValue
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AniadirProduccion : Fragment() {
-
-    private var _binding: FragmentAniadirProduccionBinding? = null
+class InfoProduccion : Fragment() {
+    private var _binding: FragmentInfoProduccionBinding? = null
 
     private val binding get() = _binding!!
 
-    private val aniadirProduccionViewModel: AniadirProduccionViewModel by viewModels ()
+    private val args: InfoProduccionArgs by navArgs()
 
+    private val infoProduccionViewModel: InfoProduccionViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAniadirProduccionBinding.inflate(inflater, container, false)
+        _binding = FragmentInfoProduccionBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -76,27 +74,35 @@ class AniadirProduccion : Fragment() {
 
 
 
+
+        infoProduccionViewModel.getProduccion(args.id)
         eventos()
         observacion()
+
     }
 
-    private fun eventos(){
+
+    private fun eventos() {
         with(binding){
-            botonGuardarProduccion.setOnClickListener {
-                aniadirProduccionViewModel.guardarProduccion(crearProduccion())
-                findNavController().navigateUp()
+            pelicula.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    numeroTemporadas.isEnabled = false
+                }
             }
 
-            pelicula.setOnCheckedChangeListener { _, isCheked ->
-                aniadirProduccionViewModel.esPelicula(isCheked)
+            serie.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    numeroTemporadas.isEnabled = true
+                }
             }
         }
     }
 
-    private fun observacion(){
-        aniadirProduccionViewModel.state.observe(viewLifecycleOwner) { state ->
+    private fun observacion() {
+        infoProduccionViewModel.state.observe(viewLifecycleOwner) { state ->
             binding.vista.isChecked = state.produccion.vista ?: false
-            binding.pelicula.isChecked == state.produccion.esPelicula
+            binding.pelicula.isChecked = state.produccion.esPelicula == true
+            binding.serie.isChecked = state.produccion.esPelicula == false
             binding.NombrePeli.editText?.setText(state.produccion.nombre)
             binding.director.editText?.setText(state.produccion.director)
             binding.bookingDateEditText.setText(
@@ -111,26 +117,5 @@ class AniadirProduccion : Fragment() {
             binding.valoracion.rating = state.produccion.valoracion.toFloat()
         }
     }
-
-    private fun crearProduccion(): Produccion {
-        val numeroSeasonsTexto = binding.numeroTemporadas.editText?.text.toString()
-        val lanzamientoTexto = binding.bookingDateEditText.text.toString()
-        val formatter = DateTimeFormatter.ofPattern(Constantes.FORMATO_FECHA)
-
-        val nuevaProduccion = Produccion(
-            id = 0,
-            vista = binding.vista.isChecked,
-            esPelicula = binding.serie.isChecked,
-            nombre = binding.NombrePeli.editText?.text.toString(),
-            director = binding.director.editText?.text.toString(),
-            numeroSeason = numeroSeasonsTexto.toIntOrNull() ?: 0,
-            fechaLanzamiento = LocalDate.parse(lanzamientoTexto, formatter),
-            genero = binding.opcionesGenero.editText?.text.toString(),
-            pais = binding.opcionesPais.editText?.text.toString(),
-            valoracion = binding.valoracion.rating.toDouble()
-        )
-        return nuevaProduccion
-    }
-
 
 }

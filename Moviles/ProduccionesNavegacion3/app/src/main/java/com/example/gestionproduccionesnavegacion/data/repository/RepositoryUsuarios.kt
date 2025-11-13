@@ -2,12 +2,30 @@ package com.example.gestionproduccionesnavegacion.data.repository
 
 import com.example.gestionproduccionesnavegacion.data.local.dao.UsuariosDao
 import com.example.gestionproduccionesnavegacion.data.local.entity.toUsuario
+import com.example.gestionproduccionesnavegacion.data.local.entity.toUsuarioEntity
 import com.example.gestionproduccionesnavegacion.domain.model.Usuario
-import jakarta.inject.Inject
+import javax.inject.Inject
 
 class RepositoryUsuarios @Inject constructor(private val usuariosDao: UsuariosDao){
 
     suspend fun getAllUsuarios(): List<Usuario>{
         return usuariosDao.getAllUsuarios().map { it.toUsuario() }
+    }
+
+    suspend fun getNumTotalUsuarios(): Int {
+        return usuariosDao.getNumTotalUsuarios()
+    }
+
+    suspend fun insertarUsuario(usuario: Usuario) {
+        usuariosDao.insertUsuario(usuario.toUsuarioEntity())
+    }
+
+    suspend fun getUsuarioById(id: Int): Usuario{
+        val usuarioEntity = usuariosDao.getUsuarioById(id)
+        return usuarioEntity.toUsuario()
+    }
+
+    suspend fun updateUsuario(usuario: Usuario){
+        usuariosDao.updateUsuario(usuario.toUsuarioEntity())
     }
 }

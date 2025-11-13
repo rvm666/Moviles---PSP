@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.InfoProduccion.infoProduccion"
+    tools:context=".ui.InfoProduccion.InfoProduccion"
     android:background="#C6F6D5">
 
     <!-- TODO: Update blank fragment layout -->
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/Nombre_Peli"
-        app:layout_constraintEnd_toStartOf="@+id/checkBoxDerecha"
+        app:layout_constraintEnd_toStartOf="@+id/vista"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/textCabezera"
         app:layout_constraintVertical_chainStyle="spread">
@@ -69,7 +69,7 @@
 
     </RadioGroup>
     <CheckBox
-        android:id="@+id/checkBoxDerecha"
+        android:id="@+id/vista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tu_texto_checkbox"
@@ -210,14 +210,14 @@
         android:layout_height="wrap_content"
         android:numStars="5"
         android:stepSize="0.5"
-        app:layout_constraintBottom_toTopOf="@+id/botonLimpiar"
+        app:layout_constraintBottom_toTopOf="@+id/botonActualizar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/opcionesGenero" />
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/botonLimpiar"
+        android:id="@+id/botonActualizar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#5A9BD5"

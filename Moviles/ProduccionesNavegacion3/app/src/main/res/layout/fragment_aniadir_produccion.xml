@@ -49,7 +49,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintEnd_toStartOf="@+id/checkBoxDerecha"
+        app:layout_constraintEnd_toStartOf="@+id/vista"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/textCabezera"
         app:layout_constraintBottom_toTopOf="@+id/Nombre_Peli"
@@ -70,7 +70,7 @@
 
     </RadioGroup>
     <CheckBox
-        android:id="@+id/checkBoxDerecha"
+        android:id="@+id/vista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tu_texto_checkbox"
@@ -212,7 +212,7 @@
         android:layout_height="wrap_content"
         android:numStars="5"
         android:stepSize="0.5"
-        app:layout_constraintBottom_toTopOf="@+id/botonLimpiar"
+        app:layout_constraintBottom_toTopOf="@+id/botonActualizar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/opcionesGenero" />
@@ -227,16 +227,16 @@
         android:text="@string/guardar"
         app:strokeColor="#2C7A7B"
         app:strokeWidth="2dp"
-        app:layout_constraintBottom_toBottomOf="@+id/botonLimpiar"
+        app:layout_constraintBottom_toBottomOf="@+id/botonActualizar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/botonLimpiar"
-        app:layout_constraintStart_toEndOf="@+id/botonLimpiar"
+        app:layout_constraintTop_toTopOf="@+id/botonActualizar"
+        app:layout_constraintStart_toEndOf="@+id/botonActualizar"
         />
 
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/botonLimpiar"
+        android:id="@+id/botonActualizar"
         style="?attr/materialButtonElevatedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

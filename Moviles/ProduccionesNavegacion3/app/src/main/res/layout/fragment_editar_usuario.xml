@@ -82,7 +82,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/usuarioo"
-        app:layout_constraintBottom_toTopOf="@+id/Password"
+        app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toStartOf="@+id/guideline_end"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/EmailAddress">
@@ -95,14 +95,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         style="?attr/textInputFilledStyle"
-        android:id="@+id/Password"
+        android:id="@+id/password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/contrasenia"
         app:layout_constraintEnd_toEndOf="@+id/cabezera"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/usuario"
-        app:layout_constraintBottom_toTopOf="@+id/botonLimpiar">
+        app:layout_constraintBottom_toTopOf="@+id/botonActualizar">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -112,7 +112,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/botonLimpiar"
+        android:id="@+id/botonActualizar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#5A9BD5"
@@ -120,7 +120,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline_middle"
         app:layout_constraintEnd_toStartOf="@+id/guideline_end"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@+id/Password"
+        app:layout_constraintTop_toBottomOf="@+id/password"
         app:strokeColor="#2C7A7B"
         app:strokeWidth="2dp" />
 
@@ -140,7 +140,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonVistas"/>
 
     <TextView
-        android:id="@+id/produccionesPendientes"
+        android:id="@+id/produccionesTotales"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"

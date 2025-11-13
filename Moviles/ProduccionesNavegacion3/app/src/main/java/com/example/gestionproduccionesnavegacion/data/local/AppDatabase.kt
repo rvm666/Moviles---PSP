@@ -6,10 +6,11 @@ import com.example.gestionproduccionesnavegacion.data.local.dao.ProduccionesDao
 import com.example.gestionproduccionesnavegacion.data.local.dao.UsuariosDao
 import com.example.gestionproduccionesnavegacion.data.local.entity.ProduccionEntity
 import com.example.gestionproduccionesnavegacion.data.local.entity.UsuarioEntity
+import com.example.gestionproduccionesnavegacion.data.local.entity.UsuarioProduccionRef
 
 @Database(
-    entities = [ProduccionEntity::class, UsuarioEntity::class],
-    version = 1,
+    entities = [ProduccionEntity::class, UsuarioEntity::class, UsuarioProduccionRef::class],
+    version = 2,
     exportSchema = false
 )
 

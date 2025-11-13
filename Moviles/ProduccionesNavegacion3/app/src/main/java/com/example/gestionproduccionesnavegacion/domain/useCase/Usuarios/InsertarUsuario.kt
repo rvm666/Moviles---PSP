@@ -4,11 +4,9 @@ import com.example.gestionproduccionesnavegacion.data.repository.RepositoryUsuar
 import com.example.gestionproduccionesnavegacion.domain.model.Usuario
 import javax.inject.Inject
 
-class GetAllUsuariosUseCase @Inject constructor(private val repostiroy: RepositoryUsuarios){
+class InsertarUsuario @Inject constructor(private val repostiroy: RepositoryUsuarios) {
 
-    operator suspend fun invoke(): List<Usuario>{
-        return repostiroy.getAllUsuarios()
+    operator suspend fun invoke(usuario: Usuario){
+        return repostiroy.insertarUsuario(usuario)
     }
-
-
 }

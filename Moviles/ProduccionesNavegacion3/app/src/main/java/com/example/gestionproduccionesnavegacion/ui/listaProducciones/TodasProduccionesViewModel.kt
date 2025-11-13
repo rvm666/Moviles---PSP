@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.gestionproduccionesnavegacion.domain.useCase.Producciones.GetAllProduccionesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import jakarta.inject.Inject
+import javax.inject.Inject
 import kotlinx.coroutines.launch
 
 
@@ -21,7 +21,6 @@ class TodasProduccionesViewModel @Inject constructor(
     }
 
     fun cargarProducciones(){
-
         viewModelScope.launch {
             val producciones = getAllProduccionesUseCase()
             state.value = TodasProduccionesState(producciones = producciones)

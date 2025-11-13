@@ -4,10 +4,9 @@ import com.example.gestionproduccionesnavegacion.data.repository.RepositoryProdu
 import com.example.gestionproduccionesnavegacion.domain.model.Produccion
 import javax.inject.Inject
 
-class GetAllProduccionesUseCase @Inject constructor(private val repository: RepositoryProducciones) {
+class GetGeneroMasPopular @Inject constructor(private val repository: RepositoryProducciones) {
 
-    operator suspend fun invoke(): List<Produccion>{
-       return repository.getAllProducciones()
+    operator suspend fun invoke(): String?{
+        return repository.getGeneroMasPopular()
     }
-
 }

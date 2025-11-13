@@ -11,7 +11,7 @@
         android:label="Crear Usuario"
         tools:layout="@layout/fragment_crear_usuario" >
         <action
-            android:id="@+id/action_crearUsuario_to_infoUsuario"
+            android:id="@+id/action_crearUsuario_to_listaUsuarios"
             app:destination="@id/listaUsuarios" />
     </fragment>
     <fragment
@@ -34,17 +34,20 @@
         <action
             android:id="@+id/action_editarUsuario_to_listaTodasProducciones"
             app:destination="@id/listaTodasProducciones" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/listaUsuarios"
-        android:name="com.example.gestionproduccionesnavegacion.ui.InfoUsuario.ListaUsuarios"
+        android:name="com.example.gestionproduccionesnavegacion.ui.ListaUsuarios.ListaUsuarios"
         android:label="Lisa Usuarios"
         tools:layout="@layout/fragment_lista_usuarios" >
         <action
-            android:id="@+id/action_infoUsuario_to_pantallaMainEstadisticas"
+            android:id="@+id/action_listaUsuarios_to_inicio"
             app:destination="@id/inicio" />
         <action
-            android:id="@+id/action_infoUsuario_to_crearUsuario"
+            android:id="@+id/action_listaUsuarios_to_crearUsuario"
             app:destination="@id/crearUsuario"/>
         <action
             android:id="@+id/action_listaUsuarios_to_editarUsuario"
@@ -64,12 +67,15 @@
     </fragment>
     <fragment
         android:id="@+id/infoProduccion"
-        android:name="com.example.gestionproduccionesnavegacion.ui.InfoProduccion.infoProduccion"
+        android:name="com.example.gestionproduccionesnavegacion.ui.InfoProduccion.InfoProduccion"
         android:label="Info Produccion"
         tools:layout="@layout/fragment_info_produccion" >
         <action
             android:id="@+id/action_infoProduccion_to_listaTodasProducciones"
             app:destination="@id/listaTodasProducciones" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/listaTodasProducciones"
@@ -88,7 +94,10 @@
         <action
             android:id="@+id/action_listaTodasProducciones_to_estadisticasProducciones"
             app:destination="@id/estadisticasProducciones" />
-
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="-1"/>
     </fragment>
     <fragment
         android:id="@+id/estadisticasProducciones"
