@@ -174,7 +174,7 @@
         app:layout_constraintEnd_toStartOf="@+id/opcionesPais">
 
         <AutoCompleteTextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="none"
             app:simpleItems="@array/opcionesGenero"
@@ -196,7 +196,7 @@
         app:layout_constraintStart_toEndOf="@+id/opcionesGenero" >
 
         <AutoCompleteTextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="none"
             app:simpleItems="@array/opcionesPais"

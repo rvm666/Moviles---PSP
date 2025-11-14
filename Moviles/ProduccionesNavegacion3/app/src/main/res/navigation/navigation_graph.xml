@@ -76,6 +76,11 @@
         <argument
             android:name="id"
             app:argType="integer" />
+        <argument
+            android:name="idUsuario"
+            app:argType="integer"
+            android:defaultValue="-1"
+            />
     </fragment>
     <fragment
         android:id="@+id/listaTodasProducciones"
@@ -98,6 +103,10 @@
             android:name="id"
             app:argType="integer"
             android:defaultValue="-1"/>
+        <argument
+            android:name="vista"
+            app:argType="boolean"
+            android:defaultValue="false"/>
     </fragment>
     <fragment
         android:id="@+id/estadisticasProducciones"

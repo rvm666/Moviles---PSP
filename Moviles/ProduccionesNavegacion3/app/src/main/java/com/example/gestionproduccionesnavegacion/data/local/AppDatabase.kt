@@ -10,7 +10,7 @@ import com.example.gestionproduccionesnavegacion.data.local.entity.UsuarioProduc
 
 @Database(
     entities = [ProduccionEntity::class, UsuarioEntity::class, UsuarioProduccionRef::class],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 

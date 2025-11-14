@@ -33,8 +33,8 @@ class UsuarioAdapter (
         val actions: UsuariosActions,
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(usuario: Usuario) {
-            binding.NombreProduccion.text = usuario.nombre
-            binding.NombreDirector.text = usuario.email
+            binding.NombreUsuario.text = usuario.nombre
+            binding.Email.text = usuario.email
             binding.root.setOnClickListener {
                 onClickView(usuario)
                 actions.onItemClick(usuario)

@@ -2,10 +2,11 @@ package com.example.gestionproduccionesnavegacion.ui.AniadirProduccion
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.example.anadirusuarios1.ui.common.Constantes
 import com.example.gestionproduccionesnavegacion.domain.model.Produccion
 import com.example.gestionproduccionesnavegacion.domain.useCase.Producciones.InsertarProduccion
+import com.example.gestionproduccionesnavegacion.ui.Common.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.launch
@@ -21,7 +22,13 @@ class AniadirProduccionViewModel @Inject constructor(
 
     fun guardarProduccion(produccion: Produccion){
         viewModelScope.launch {
-            insertarProduccion(produccion)
+            if(insertarProduccion(produccion)){
+                    state.value = state.value?.copy(
+                        produccion = produccion,
+                        uiEvent = UiEvent.ShowSnackbar(Constantes.PRODUCCION_GUARDADA))
+                } else {
+                    state.value = state.value?.copy(uiEvent = UiEvent.ShowSnackbar(Constantes.ERROR_GUARDAR_PRODUCCION))
+                }
         }
     }
 
@@ -31,6 +38,10 @@ class AniadirProduccionViewModel @Inject constructor(
         } else {
             state.value = state.value?.copy(isEnable = true)
         }
+    }
+
+    fun limpiarMensaje(){
+        state.value = state.value?.copy(uiEvent = null)
     }
 
 }

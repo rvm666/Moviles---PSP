@@ -6,7 +6,8 @@ import javax.inject.Inject
 
 class UpdateUsuario @Inject constructor(private val repostiroy: RepositoryUsuarios) {
 
-    operator suspend fun invoke(usuario: Usuario){
-        repostiroy.updateUsuario(usuario)
+    operator suspend fun invoke(usuario: Usuario): Boolean{
+        return repostiroy.updateUsuario(usuario)
+
     }
 }

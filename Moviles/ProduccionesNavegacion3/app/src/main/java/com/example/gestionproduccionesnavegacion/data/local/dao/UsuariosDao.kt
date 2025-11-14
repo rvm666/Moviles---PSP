@@ -22,8 +22,8 @@ interface UsuariosDao {
     suspend fun getUsuarioById(usuarioId: Int): UsuarioEntity
 
     @Insert
-    suspend fun insertUsuario(usuario: UsuarioEntity)
+    suspend fun insertUsuario(usuario: UsuarioEntity): Long
 
     @Update
-    suspend fun updateUsuario(usuario: UsuarioEntity)
+    suspend fun updateUsuario(usuario: UsuarioEntity): Int
 }

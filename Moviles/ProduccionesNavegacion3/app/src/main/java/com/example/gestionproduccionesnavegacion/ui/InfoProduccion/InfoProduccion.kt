@@ -1,15 +1,21 @@
 package com.example.gestionproduccionesnavegacion.ui.InfoProduccion
 
+import com.example.gestionproduccionesnavegacion.R
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.anadirusuarios1.ui.common.Constantes
 import com.example.gestionproduccionesnavegacion.databinding.FragmentInfoProduccionBinding
+import com.example.gestionproduccionesnavegacion.domain.model.Produccion
+import com.example.gestionproduccionesnavegacion.ui.Common.UiEvent
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.time.format.DateTimeFormatter
 import java.util.Date
@@ -17,6 +23,7 @@ import java.util.Locale
 import java.util.TimeZone
 import kotlin.getValue
 import dagger.hilt.android.AndroidEntryPoint
+import java.time.LocalDate
 
 @AndroidEntryPoint
 class InfoProduccion : Fragment() {
@@ -25,6 +32,9 @@ class InfoProduccion : Fragment() {
     private val binding get() = _binding!!
 
     private val args: InfoProduccionArgs by navArgs()
+
+    private val idUsuario = args.idUsuario
+    private val idProduccion = args.id
 
     private val infoProduccionViewModel: InfoProduccionViewModel by viewModels()
 
@@ -74,12 +84,16 @@ class InfoProduccion : Fragment() {
 
 
 
+        configurarSelectores()
+        infoProduccionViewModel.getProduccion(idProduccion)
 
-        infoProduccionViewModel.getProduccion(args.id)
         eventos()
         observacion()
+        configurarPorUsuario()
 
     }
+
+
 
 
     private fun eventos() {
@@ -95,27 +109,112 @@ class InfoProduccion : Fragment() {
                     numeroTemporadas.isEnabled = true
                 }
             }
+
+            botonActualizar.setOnClickListener {
+                if (idUsuario == -1){
+                    infoProduccionViewModel.updateProduccion(crearProduccion())
+                } else {
+                    infoProduccionViewModel.updateProduccionUsuario(crearProduccion(), idUsuario)
+                }
+            }
+
         }
     }
 
-    private fun observacion() {
-        infoProduccionViewModel.state.observe(viewLifecycleOwner) { state ->
-            binding.vista.isChecked = state.produccion.vista ?: false
-            binding.pelicula.isChecked = state.produccion.esPelicula == true
-            binding.serie.isChecked = state.produccion.esPelicula == false
-            binding.NombrePeli.editText?.setText(state.produccion.nombre)
-            binding.director.editText?.setText(state.produccion.director)
-            binding.bookingDateEditText.setText(
-                state.produccion.fechaLanzamiento?.format(
-                    DateTimeFormatter.ofPattern(Constantes.FORMATO_FECHA)
-                ) ?: ""
+    private fun configurarPorUsuario() {
+        with(binding) {
+            if (idUsuario != -1) {
+                NombrePeli.isEnabled = false
+                director.isEnabled = false
+                bookingDateEditText.isEnabled = false
+                opcionesGenero.isEnabled = false
+                opcionesPais.isEnabled = false
+                pelicula.isEnabled = false
+                serie.isEnabled = false
+            } else {
+                vista.isEnabled = false
+            }
+        }
+    }
+
+        private fun configurarSelectores() {
+            val generos = resources.getStringArray(R.array.opcionesGenero)
+            val adapterGenero = ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_dropdown_item_1line,
+                generos
             )
-            binding.numeroTemporadas.isEnabled = state.isEnable
-            binding.numeroTemporadas.editText?.setText(state.produccion.numeroSeason.toString())
-            binding.opcionesGenero.editText?.setText(state.produccion.genero)
-            binding.opcionesPais.editText?.setText(state.produccion.pais)
-            binding.valoracion.rating = state.produccion.valoracion.toFloat()
-        }
-    }
+            val autoCompleteGenero = binding.opcionesGenero.editText as? AutoCompleteTextView
+            autoCompleteGenero?.setAdapter(adapterGenero)
 
+
+            val paises = resources.getStringArray(R.array.opcionesPais)
+            val adapterPais = ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_dropdown_item_1line,
+                paises
+            )
+            val autoCompletePais = binding.opcionesPais.editText as? AutoCompleteTextView
+            autoCompletePais?.setAdapter(adapterPais)
+        }
+
+        private fun observacion() {
+            infoProduccionViewModel.state.observe(viewLifecycleOwner) { state ->
+                binding.vista.isChecked = state.produccion.vista ?: false
+                binding.pelicula.isChecked = state.produccion.esPelicula == true
+                binding.serie.isChecked = state.produccion.esPelicula == false
+                binding.NombrePeli.editText?.setText(state.produccion.nombre)
+                binding.director.editText?.setText(state.produccion.director)
+                binding.bookingDateEditText.setText(
+                    state.produccion.fechaLanzamiento?.format(
+                        DateTimeFormatter.ofPattern(Constantes.FORMATO_FECHA)
+                    ) ?: ""
+                )
+                binding.numeroTemporadas.isEnabled = state.isEnable
+                binding.numeroTemporadas.editText?.setText(state.produccion.numeroSeason.toString())
+                binding.opcionesGenero.editText?.setText(state.produccion.genero)
+                binding.opcionesPais.editText?.setText(state.produccion.pais)
+                binding.valoracion.rating = state.produccion.valoracion.toFloat()
+                state.uiEvent?.let{ event ->
+                    when (event){
+                        is UiEvent.ShowSnackbar -> {
+                            val snackbar = Snackbar.make(
+                                binding.root,
+                                event.message,
+                                Snackbar.LENGTH_LONG
+                            )
+                            event.action?.let {
+                                snackbar.setAction(event.action ?: "UNDO"){
+                                    // Aquí puedes manejar la acción de deshacer si lo necesitas
+                                }
+                            }
+                            snackbar.show()
+                            infoProduccionViewModel.limpiarMensaje()
+                        }
+                        is UiEvent.Navigate -> TODO()
+                        else -> {}
+                    }
+                }
+            }
+        }
+
+        private fun crearProduccion(): Produccion {
+            val numeroSeasonsTexto = binding.numeroTemporadas.editText?.text.toString()
+            val lanzamientoTexto = binding.bookingDateEditText.text.toString()
+            val formatter = DateTimeFormatter.ofPattern(Constantes.FORMATO_FECHA)
+
+            val nuevaProduccion = Produccion(
+                id = 0,
+                vista = binding.vista.isChecked ?: null,
+                esPelicula = binding.serie.isChecked,
+                nombre = binding.NombrePeli.editText?.text.toString(),
+                director = binding.director.editText?.text.toString(),
+                numeroSeason = numeroSeasonsTexto.toIntOrNull() ?: 0,
+                fechaLanzamiento = LocalDate.parse(lanzamientoTexto, formatter),
+                genero = binding.opcionesGenero.editText?.text.toString(),
+                pais = binding.opcionesPais.editText?.text.toString(),
+                valoracion = binding.valoracion.rating.toDouble()
+            )
+            return nuevaProduccion
+        }
 }

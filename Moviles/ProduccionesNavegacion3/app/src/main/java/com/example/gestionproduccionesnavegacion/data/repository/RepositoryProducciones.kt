@@ -12,7 +12,6 @@ class RepositoryProducciones @Inject constructor(private val produccionesDao: Pr
         return produccionesDao.getAllProducciones().map { it.toProduccion() }
     }
 
-
     suspend fun getNumTotalProducciones(): Int {
         return produccionesDao.getNumTotalProducciones()
     }
@@ -30,8 +29,27 @@ class RepositoryProducciones @Inject constructor(private val produccionesDao: Pr
         return produccionEntity.toProduccion()
     }
 
-
-    suspend fun insertProduccion(produccion: Produccion) {
-        produccionesDao.insertProduccion(produccion.toProduccionEntity())
+    suspend fun insertProduccion(produccion: Produccion): Boolean {
+        val id = produccionesDao.insertProduccion(produccion.toProduccionEntity())
+        return id > 0
     }
+
+    suspend fun getProduccionesVistas(id: Int): List<Produccion>{
+        return produccionesDao.getProduccionesVistasByUsuarioId(id).map { it.toProduccion() }
+    }
+
+    suspend fun getProduccionesPendientes(id: Int): List<Produccion>{
+        return produccionesDao.getProduccionesPendientesByUsuarioId(id).map { it.toProduccion() }
+    }
+
+    suspend fun updateProduccion(produccion: Produccion): Boolean {
+        val rowsUpdated = produccionesDao.updateProduccion(produccion.toProduccionEntity())
+        return rowsUpdated > 0
+    }
+
+    suspend fun updateUsuarioProduccionRef(usuarioId: Int, produccionId: Int, vista: Boolean){
+        produccionesDao.updateUsuarioProduccion(usuarioId, produccionId, if (vista) 1 else 0)
+    }
+
+
 }

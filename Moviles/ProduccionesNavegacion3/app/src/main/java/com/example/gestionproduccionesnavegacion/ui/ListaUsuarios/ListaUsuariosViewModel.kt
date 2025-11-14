@@ -14,7 +14,7 @@ class ListaUsuariosViewModel @Inject constructor(
     private val getAllUsuariosUseCase: GetAllUsuariosUseCase
 ): ViewModel() {
 
-    var state : MutableLiveData<ListaUsuariosState> = MutableLiveData(ListaUsuariosState())
+    var state : MutableLiveData<ListaUsuariosState> = MutableLiveData()
         private set
     init{
         cargarUsuarios()

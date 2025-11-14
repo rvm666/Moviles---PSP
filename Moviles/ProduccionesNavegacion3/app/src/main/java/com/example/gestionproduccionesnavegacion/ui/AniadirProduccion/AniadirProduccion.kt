@@ -1,32 +1,38 @@
 package com.example.gestionproduccionesnavegacion.ui.AniadirProduccion
 
+
+import com.example.gestionproduccionesnavegacion.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.anadirusuarios1.ui.common.Constantes
 import com.example.gestionproduccionesnavegacion.databinding.FragmentAniadirProduccionBinding
 import com.example.gestionproduccionesnavegacion.domain.model.Produccion
+import com.example.gestionproduccionesnavegacion.ui.Common.UiEvent
+import com.example.gestionproduccionesnavegacion.ui.InfoProduccion.InfoProduccionArgs
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
-import kotlin.text.toDouble
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.getValue
 
 @AndroidEntryPoint
 class AniadirProduccion : Fragment() {
 
     private var _binding: FragmentAniadirProduccionBinding? = null
-
     private val binding get() = _binding!!
-
     private val aniadirProduccionViewModel: AniadirProduccionViewModel by viewModels ()
 
 
@@ -75,10 +81,33 @@ class AniadirProduccion : Fragment() {
         }
 
 
-
+        configurarDropdowns()
         eventos()
         observacion()
+
     }
+
+    private fun configurarDropdowns() {
+        val generos = resources.getStringArray(R.array.opcionesGenero)
+        val adapterGenero = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_dropdown_item_1line,
+            generos
+        )
+        val autoCompleteGenero = binding.opcionesGenero.editText as? AutoCompleteTextView
+        autoCompleteGenero?.setAdapter(adapterGenero)
+
+
+        val paises = resources.getStringArray(R.array.opcionesPais)
+        val adapterPais = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_dropdown_item_1line,
+            paises
+        )
+        val autoCompletePais = binding.opcionesPais.editText as? AutoCompleteTextView
+        autoCompletePais?.setAdapter(adapterPais)
+    }
+
 
     private fun eventos(){
         with(binding){
@@ -95,7 +124,7 @@ class AniadirProduccion : Fragment() {
 
     private fun observacion(){
         aniadirProduccionViewModel.state.observe(viewLifecycleOwner) { state ->
-            binding.vista.isChecked = state.produccion.vista ?: false
+            binding.vista.isEnabled = false
             binding.pelicula.isChecked == state.produccion.esPelicula
             binding.NombrePeli.editText?.setText(state.produccion.nombre)
             binding.director.editText?.setText(state.produccion.director)
@@ -109,6 +138,28 @@ class AniadirProduccion : Fragment() {
             binding.opcionesGenero.editText?.setText(state.produccion.genero)
             binding.opcionesPais.editText?.setText(state.produccion.pais)
             binding.valoracion.rating = state.produccion.valoracion.toFloat()
+
+
+            state.uiEvent?.let{ event ->
+                when (event){
+                    is UiEvent.ShowSnackbar -> {
+                        val snackbar = Snackbar.make(
+                            binding.root,
+                            event.message,
+                            Snackbar.LENGTH_LONG
+                        )
+                        event.action?.let {
+                            snackbar.setAction(event.action ?: "UNDO"){
+                                // Aquí puedes manejar la acción de deshacer si lo necesitas
+                            }
+                        }
+                        snackbar.show()
+                        aniadirProduccionViewModel.limpiarMensaje()
+                    }
+                    is UiEvent.Navigate -> TODO()
+                    else -> {}
+                }
+            }
         }
     }
 
@@ -119,7 +170,7 @@ class AniadirProduccion : Fragment() {
 
         val nuevaProduccion = Produccion(
             id = 0,
-            vista = binding.vista.isChecked,
+            vista = binding.vista.isChecked ?: null,
             esPelicula = binding.serie.isChecked,
             nombre = binding.NombrePeli.editText?.text.toString(),
             director = binding.director.editText?.text.toString(),

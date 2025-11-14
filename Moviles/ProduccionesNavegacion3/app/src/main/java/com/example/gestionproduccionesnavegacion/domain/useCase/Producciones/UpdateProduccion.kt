@@ -4,9 +4,9 @@ import com.example.gestionproduccionesnavegacion.data.repository.RepositoryProdu
 import com.example.gestionproduccionesnavegacion.domain.model.Produccion
 import javax.inject.Inject
 
-class InsertarProduccion @Inject constructor(private val repository: RepositoryProducciones) {
+class UpdateProduccion @Inject constructor(private val repository: RepositoryProducciones) {
 
     operator suspend fun invoke(produccion: Produccion): Boolean {
-        return repository.insertProduccion(produccion)
+        return repository.updateProduccion(produccion)
     }
 }

@@ -9,6 +9,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.gestionproduccionesnavegacion.databinding.FragmentCrearUsuarioBinding
 import com.example.gestionproduccionesnavegacion.domain.model.Usuario
+import com.example.gestionproduccionesnavegacion.ui.Common.UiEvent
+import com.google.android.material.snackbar.Snackbar
 import kotlin.getValue
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -52,6 +54,26 @@ class CrearUsuario : Fragment() {
                 EmailAddress.editText?.setText(state.usuario.email)
                 usuario.editText?.setText(state.usuario.nombre)
                 password.editText?.setText(state.usuario.contraseña)
+            }
+            state.uiEvent?.let{ event ->
+                when (event){
+                    is UiEvent.ShowSnackbar -> {
+                        val snackbar = Snackbar.make(
+                            binding.root,
+                            event.message,
+                            Snackbar.LENGTH_LONG
+                        )
+                        event.action?.let {
+                            snackbar.setAction(event.action ?: "UNDO"){
+                                // Aquí puedes manejar la acción de deshacer si lo necesitas
+                            }
+                        }
+                        snackbar.show()
+                        crearUsuarioViewModel.limpiarMensaje()
+                    }
+                    is UiEvent.Navigate -> TODO()
+                    else -> {}
+                }
             }
         }
     }

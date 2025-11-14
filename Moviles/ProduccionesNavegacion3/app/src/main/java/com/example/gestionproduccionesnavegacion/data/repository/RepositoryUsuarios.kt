@@ -16,8 +16,9 @@ class RepositoryUsuarios @Inject constructor(private val usuariosDao: UsuariosDa
         return usuariosDao.getNumTotalUsuarios()
     }
 
-    suspend fun insertarUsuario(usuario: Usuario) {
-        usuariosDao.insertUsuario(usuario.toUsuarioEntity())
+    suspend fun insertarUsuario(usuario: Usuario): Boolean {
+        val id = usuariosDao.insertUsuario(usuario.toUsuarioEntity())
+        return id > 0
     }
 
     suspend fun getUsuarioById(id: Int): Usuario{
@@ -25,7 +26,8 @@ class RepositoryUsuarios @Inject constructor(private val usuariosDao: UsuariosDa
         return usuarioEntity.toUsuario()
     }
 
-    suspend fun updateUsuario(usuario: Usuario){
-        usuariosDao.updateUsuario(usuario.toUsuarioEntity())
+    suspend fun updateUsuario(usuario: Usuario): Boolean{
+        val rows = usuariosDao.updateUsuario(usuario.toUsuarioEntity())
+        return rows > 0
     }
 }

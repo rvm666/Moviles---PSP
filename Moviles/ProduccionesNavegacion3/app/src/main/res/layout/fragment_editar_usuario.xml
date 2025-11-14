@@ -39,6 +39,13 @@
         app:layout_constraintGuide_percent="0.90" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_numeros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_middle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -129,7 +136,7 @@
         android:id="@+id/buttonProduccionesPendientes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_light"
+        android:background="@drawable/boton_redondeado"
         android:text="Producciones pendientes"
         android:textAlignment="textStart"
         android:textColor="#E85E43"
@@ -148,6 +155,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/buttonProduccionesPendientes"
         app:layout_constraintEnd_toEndOf="@+id/buttonProduccionesPendientes"
+        app:layout_constraintStart_toStartOf="@+id/line_numeros"
         app:layout_constraintTop_toTopOf="@+id/buttonProduccionesPendientes" />
 
 
@@ -157,7 +165,7 @@
         android:id="@+id/buttonVistas"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_light"
+        android:background="@drawable/boton_redondeado"
         android:text="Producciones vistas"
         android:textAlignment="textStart"
         android:textColor="#E85E43"
@@ -177,6 +185,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/buttonVistas"
         app:layout_constraintEnd_toEndOf="@+id/buttonVistas"
+        app:layout_constraintStart_toStartOf="@+id/line_numeros"
         app:layout_constraintTop_toTopOf="@+id/buttonVistas" />
 
 

@@ -9,7 +9,7 @@
     android:elevation="2dp">
 
     <TextView
-        android:id="@+id/NombreProduccion"
+        android:id="@+id/NombreUsuario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/usuarioo"
@@ -21,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/NombreDirector"
+        android:id="@+id/Email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -29,7 +29,7 @@
         android:textSize="14sp"
         android:textColor="#555555"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NombreProduccion"
+        app:layout_constraintTop_toBottomOf="@+id/NombreUsuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 

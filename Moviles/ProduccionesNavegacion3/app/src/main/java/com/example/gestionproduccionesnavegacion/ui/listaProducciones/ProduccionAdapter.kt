@@ -33,7 +33,7 @@ class ProduccionAdapter(
     ) : RecyclerView.ViewHolder(binding.root)    {
         fun bind(produccion: Produccion){
             binding.NombreProduccion.text = produccion.nombre
-            binding.NombreDirector.text = produccion.director
+            binding.Director.text = produccion.director
             binding.root.setOnClickListener{
                 onClickView(produccion)
                 actions.onItemClick(produccion)

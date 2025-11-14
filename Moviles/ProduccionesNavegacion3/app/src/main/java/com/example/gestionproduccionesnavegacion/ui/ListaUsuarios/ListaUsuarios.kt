@@ -25,9 +25,6 @@ class ListaUsuarios : Fragment() {
 
     private val listaUsuariosViewModel: ListaUsuariosViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -67,6 +64,11 @@ class ListaUsuarios : Fragment() {
             }
 
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        listaUsuariosViewModel.cargarUsuarios()
     }
 
     private fun infoUsuario(id: Int) {

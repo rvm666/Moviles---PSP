@@ -3,6 +3,7 @@ package com.example.gestionproduccionesnavegacion.data.local.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.example.gestionproduccionesnavegacion.data.local.entity.ProduccionEntity
 import com.example.gestionproduccionesnavegacion.data.local.entity.UsuarioEntity
 import kotlinx.coroutines.flow.Flow
@@ -40,10 +41,38 @@ interface ProduccionesDao {
     LIMIT 1""")
     suspend fun getGeneroMasPopular(): GeneroResult?
 
+
+    @Query("""
+    SELECT p.*
+    FROM producciones p
+    INNER JOIN usuario_produccion_ref upr ON p.id = upr.produccion
+    WHERE upr.usuario = :usuarioId AND upr.vista = 1
+    """)
+    suspend fun getProduccionesVistasByUsuarioId(usuarioId: Int): List<ProduccionEntity>
+
+
+    @Query("""
+    SELECT p.*
+    FROM producciones p
+    LEFT JOIN usuario_produccion_ref upr 
+    ON p.id = upr.produccion AND upr.usuario = :usuarioId
+    WHERE upr.vista IS NULL OR upr.vista = 0
+    """)
+    suspend fun getProduccionesPendientesByUsuarioId(usuarioId: Int): List<ProduccionEntity>
+
     @Query("SELECT * FROM producciones WHERE id = :produccionId")
     suspend fun getProduccionById(produccionId: Int): ProduccionEntity
 
+    @Query("""
+    UPDATE usuario_produccion_ref 
+    SET vista = :vista 
+    WHERE usuario = :usuarioId AND produccion = :produccionId
+    """)
+    suspend fun updateUsuarioProduccion(usuarioId: Int, produccionId: Int, vista: Int)
     @Insert
-    suspend fun insertProduccion(produccion: ProduccionEntity)
+    suspend fun insertProduccion(produccion: ProduccionEntity): Long
+
+    @Update
+    suspend fun updateProduccion(usuario: ProduccionEntity): Int
 
 }

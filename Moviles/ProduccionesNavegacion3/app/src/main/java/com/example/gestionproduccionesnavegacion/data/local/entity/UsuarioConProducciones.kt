@@ -3,7 +3,6 @@ package com.example.gestionproduccionesnavegacion.data.local.entity
 import androidx.room.Embedded
 import androidx.room.Junction
 import androidx.room.Relation
-import com.example.gestionproduccionesnavegacion.domain.model.Produccion
 
 data class UsuarioConProducciones(
 
