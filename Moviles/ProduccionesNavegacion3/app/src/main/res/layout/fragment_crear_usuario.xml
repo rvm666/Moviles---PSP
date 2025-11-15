@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.CrearUsuario.CrearUsuario"
+    tools:context=".ui.pantallasUsuarios.crearUsuario.CrearUsuario"
     android:background="#C6F6D5">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_top"
         android:layout_width="wrap_content"
@@ -93,6 +93,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/contrasenia"
+
         app:layout_constraintEnd_toEndOf="@+id/cabezera"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/usuario"

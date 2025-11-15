@@ -18,6 +18,9 @@ interface UsuariosDao {
     suspend fun getNumTotalUsuarios(): Int
 
 
+    @Query("DELETE FROM usuarios WHERE id = :id")
+    suspend fun deleteUsuarioById(id: Int): Int
+
     @Query("SELECT * FROM usuarios WHERE id = :usuarioId")
     suspend fun getUsuarioById(usuarioId: Int): UsuarioEntity
 
@@ -26,4 +29,5 @@ interface UsuariosDao {
 
     @Update
     suspend fun updateUsuario(usuario: UsuarioEntity): Int
+
 }

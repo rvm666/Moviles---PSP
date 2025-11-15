@@ -1,9 +1,7 @@
 package com.example.gestionproduccionesnavegacion.data.local.entity
 
 import androidx.room.Entity
-import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.example.gestionproduccionesnavegacion.domain.model.Produccion
 import com.example.gestionproduccionesnavegacion.domain.model.Usuario
 
 @Entity(
@@ -14,7 +12,7 @@ data class UsuarioEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val nombre: String = "",
-    val contraseña: String = "",
+    val contrasenia: String = "",
     val email: String = ""
 )
 
@@ -22,13 +20,13 @@ data class UsuarioEntity(
 fun Usuario.toUsuarioEntity() = UsuarioEntity(
     id = this.id,
     nombre = this.nombre,
-    contraseña = this.contraseña,
+    contrasenia = this.contrasenia,
     email = this.email
 )
 
 fun UsuarioEntity.toUsuario() = Usuario(
     id = this.id,
     nombre = this.nombre,
-    contraseña = this.contraseña,
+    contrasenia = this.contrasenia,
     email = this.email
 )

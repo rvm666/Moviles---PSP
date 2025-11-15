@@ -4,7 +4,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.gestionproduccionesnavegacion.domain.model.Produccion
 import java.time.LocalDate
-import kotlin.toString
 
 @Entity(
     tableName = "producciones"

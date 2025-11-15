@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.EstadisticasProducciones.EstadisticasProducciones"
+    tools:context=".ui.pantallasProducciones.estadisticasProducciones.EstadisticasProducciones"
     android:background="#C6F6D5">
 
     <androidx.constraintlayout.widget.Guideline

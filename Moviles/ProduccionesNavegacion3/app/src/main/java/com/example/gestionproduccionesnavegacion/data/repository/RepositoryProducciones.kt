@@ -1,10 +1,12 @@
 package com.example.gestionproduccionesnavegacion.data.repository
 
 import com.example.gestionproduccionesnavegacion.data.local.dao.ProduccionesDao
+import com.example.gestionproduccionesnavegacion.data.local.entity.UsuarioProduccionRef
 import com.example.gestionproduccionesnavegacion.data.local.entity.toProduccion
 import com.example.gestionproduccionesnavegacion.data.local.entity.toProduccionEntity
 import com.example.gestionproduccionesnavegacion.domain.model.Produccion
 import javax.inject.Inject
+import kotlin.getOrElse
 
 class RepositoryProducciones @Inject constructor(private val produccionesDao: ProduccionesDao) {
 
@@ -47,9 +49,32 @@ class RepositoryProducciones @Inject constructor(private val produccionesDao: Pr
         return rowsUpdated > 0
     }
 
-    suspend fun updateUsuarioProduccionRef(usuarioId: Int, produccionId: Int, vista: Boolean){
-        produccionesDao.updateUsuarioProduccion(usuarioId, produccionId, if (vista) 1 else 0)
+    suspend fun updateUsuarioProduccionRef(usuarioId: Int, produccionId: Int, vista: Boolean, valoracion: Double?){
+        val rows = runCatching {
+            produccionesDao.updateUsuarioProduccion(usuarioId, produccionId, vista, valoracion)
+        }.getOrElse { exception ->
+            0
+        }
+        if(rows == 0){
+            produccionesDao.upsertUsuarioProduccion(UsuarioProduccionRef(usuarioId, produccionId, vista, valoracion))
+        }
     }
+
+    suspend fun getNumProduccionesVistasByUsuario(id: Int): Int {
+        return produccionesDao.getNumProduccionesVistasByUsuarioId(id)
+    }
+
+    suspend fun getNumProduccionesPendientesByUsuario(id: Int): Int {
+        return produccionesDao.getNumProduccionesPendientesByUsuarioId(id)
+    }
+
+    suspend fun deleteProduccionById(id: Int): Boolean {
+        val rowsDeleted = produccionesDao.deleteProduccionById(id)
+        return rowsDeleted > 0
+    }
+
+
+
 
 
 }

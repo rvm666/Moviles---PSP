@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/crearUsuario"
-        android:name="com.example.gestionproduccionesnavegacion.ui.CrearUsuario.CrearUsuario"
+        android:name="com.example.gestionproduccionesnavegacion.ui.pantallasUsuarios.crearUsuario.CrearUsuario"
         android:label="Crear Usuario"
         tools:layout="@layout/fragment_crear_usuario" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/aniadirProduccion"
-        android:name="com.example.gestionproduccionesnavegacion.ui.AniadirProduccion.AniadirProduccion"
+        android:name="com.example.gestionproduccionesnavegacion.ui.pantallasProducciones.aniadirProduccion.AniadirProduccion"
         android:label="Añadir Produccion"
         tools:layout="@layout/fragment_aniadir_produccion" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/editarUsuario"
-        android:name="com.example.gestionproduccionesnavegacion.ui.EditarUsuario.EditarUsuario"
+        android:name="com.example.gestionproduccionesnavegacion.ui.pantallasUsuarios.editarUsuario.EditarUsuario"
         android:label="Info Usuario"
         tools:layout="@layout/fragment_editar_usuario" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/listaUsuarios"
-        android:name="com.example.gestionproduccionesnavegacion.ui.ListaUsuarios.ListaUsuarios"
+        android:name="com.example.gestionproduccionesnavegacion.ui.pantallasUsuarios.listaUsuarios.ListaUsuarios"
         android:label="Lisa Usuarios"
         tools:layout="@layout/fragment_lista_usuarios" >
         <action
@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/inicio"
-        android:name="com.example.gestionproduccionesnavegacion.ui.PantallaMainEstadisticas.PantallaMainEstadisticas"
+        android:name="com.example.gestionproduccionesnavegacion.ui.pantallaMainEstadisticas.PantallaMainEstadisticas"
         android:label="Inicio"
         tools:layout="@layout/fragment_pantalla_main_estadisticas" >
         <action
@@ -67,7 +67,7 @@
     </fragment>
     <fragment
         android:id="@+id/infoProduccion"
-        android:name="com.example.gestionproduccionesnavegacion.ui.InfoProduccion.InfoProduccion"
+        android:name="com.example.gestionproduccionesnavegacion.ui.pantallasProducciones.infoProduccion.InfoProduccion"
         android:label="Info Produccion"
         tools:layout="@layout/fragment_info_produccion" >
         <action
@@ -84,7 +84,7 @@
     </fragment>
     <fragment
         android:id="@+id/listaTodasProducciones"
-        android:name="com.example.gestionproduccionesnavegacion.ui.listaProducciones.ListaTodasProducciones"
+        android:name="com.example.gestionproduccionesnavegacion.ui.pantallasProducciones.listaProducciones.ListaTodasProducciones"
         android:label="Lista Producciones"
         tools:layout="@layout/fragment_lista_todas_producciones" >
         <action
@@ -110,7 +110,7 @@
     </fragment>
     <fragment
         android:id="@+id/estadisticasProducciones"
-        android:name="com.example.gestionproduccionesnavegacion.ui.EstadisticasProducciones.EstadisticasProducciones"
+        android:name="com.example.gestionproduccionesnavegacion.ui.pantallasProducciones.estadisticasProducciones.EstadisticasProducciones"
         android:label="Producciones"
         tools:layout="@layout/fragment_estadisticas_producciones" >
         <action

@@ -30,4 +30,9 @@ class RepositoryUsuarios @Inject constructor(private val usuariosDao: UsuariosDa
         val rows = usuariosDao.updateUsuario(usuario.toUsuarioEntity())
         return rows > 0
     }
+
+    suspend fun deleteUsuario(id: Int): Boolean{
+        val rows = usuariosDao.deleteUsuarioById(id)
+        return rows > 0
+    }
 }

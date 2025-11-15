@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.listaProducciones.ListaTodasProducciones"
+    tools:context=".ui.pantallasProducciones.listaProducciones.ListaTodasProducciones"
     android:background="#C6F6D5">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewProducciones"
         android:layout_width="0dp"

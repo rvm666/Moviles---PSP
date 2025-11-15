@@ -36,6 +36,7 @@
     <string name="producciones_totales">Producciones totales</string>
     <string name="Genero">Genero</string>
     <string name="Pais">Pais</string>
+    <string name="producciones_vistas">Producciones vistas</string>
     <string-array name="opcionesGenero">
         <item>Género</item>
         <item>Acción / Aventuras</item>

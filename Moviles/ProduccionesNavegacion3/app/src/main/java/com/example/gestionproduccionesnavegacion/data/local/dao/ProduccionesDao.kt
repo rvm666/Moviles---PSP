@@ -4,9 +4,9 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import androidx.room.Upsert
 import com.example.gestionproduccionesnavegacion.data.local.entity.ProduccionEntity
-import com.example.gestionproduccionesnavegacion.data.local.entity.UsuarioEntity
-import kotlinx.coroutines.flow.Flow
+import com.example.gestionproduccionesnavegacion.data.local.entity.UsuarioProduccionRef
 
 @Dao
 interface ProduccionesDao {
@@ -60,19 +60,51 @@ interface ProduccionesDao {
     """)
     suspend fun getProduccionesPendientesByUsuarioId(usuarioId: Int): List<ProduccionEntity>
 
+    @Query("DELETE FROM producciones WHERE id = :id")
+    suspend fun deleteProduccionById(id: Int): Int
+
     @Query("SELECT * FROM producciones WHERE id = :produccionId")
     suspend fun getProduccionById(produccionId: Int): ProduccionEntity
 
     @Query("""
     UPDATE usuario_produccion_ref 
-    SET vista = :vista 
+    SET vista = :vista, valoracion = :valoracion 
     WHERE usuario = :usuarioId AND produccion = :produccionId
     """)
-    suspend fun updateUsuarioProduccion(usuarioId: Int, produccionId: Int, vista: Int)
+    suspend fun updateUsuarioProduccion(usuarioId: Int, produccionId: Int, vista: Boolean, valoracion: Double?)
+
+
+    @Query("""
+        SELECT COUNT(*) 
+    FROM producciones p
+    JOIN usuario_produccion_ref upr
+    ON upr.produccion = p.id
+    WHERE upr.usuario = :usuarioId
+    AND upr.vista = 1
+    """)
+    suspend fun getNumProduccionesVistasByUsuarioId(usuarioId: Int): Int
+
+    @Query("""
+    SELECT COUNT(*)
+    FROM producciones p
+    LEFT JOIN usuario_produccion_ref upr
+    ON upr.produccion = p.id
+    AND upr.usuario = :usuarioId
+    WHERE upr.produccion IS NULL
+    OR upr.vista = 0
+    """)
+    suspend fun getNumProduccionesPendientesByUsuarioId(usuarioId: Int): Int
+
+    @Upsert
+    suspend fun upsertUsuarioProduccion(ref: UsuarioProduccionRef)
+
     @Insert
     suspend fun insertProduccion(produccion: ProduccionEntity): Long
 
     @Update
-    suspend fun updateProduccion(usuario: ProduccionEntity): Int
+    suspend fun updateProduccion(produccion: ProduccionEntity): Int
+
+
+
 
 }

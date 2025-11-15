@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.EditarUsuario.EditarUsuario"
+    tools:context=".ui.pantallasUsuarios.editarUsuario.EditarUsuario"
     android:background="#C6F6D5">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_top"
         android:layout_width="wrap_content"
@@ -137,7 +137,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/boton_redondeado"
-        android:text="Producciones pendientes"
+        android:text="@string/producciones_pendientes"
         android:textAlignment="textStart"
         android:textColor="#E85E43"
         android:textSize="20sp"
@@ -147,10 +147,10 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonVistas"/>
 
     <TextView
-        android:id="@+id/produccionesTotales"
+        android:id="@+id/produccionesPendientes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
+        android:text=""
         android:textColor="#E85E43"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/buttonProduccionesPendientes"
@@ -166,7 +166,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/boton_redondeado"
-        android:text="Producciones vistas"
+        android:text="@string/producciones_vistas"
         android:textAlignment="textStart"
         android:textColor="#E85E43"
         android:textSize="20sp"
@@ -177,10 +177,10 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonProduccionesPendientes" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/produccionesVistas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
+        android:text=""
         android:textColor="#E85E43"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/buttonVistas"

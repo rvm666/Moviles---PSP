@@ -23,7 +23,8 @@ import androidx.room.Index
     ],
     indices = [
         Index(value = ["usuario"]),
-        Index(value = ["produccion"])
+        Index(value = ["produccion"]),
+        Index(value = ["usuario", "vista"])
     ]
 )
 
@@ -31,4 +32,5 @@ data class UsuarioProduccionRef(
     val usuario: Int,
     val produccion: Int,
     val vista: Boolean = false,
+    val valoracion: Double? = null
 )
