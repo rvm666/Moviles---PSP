@@ -1,0 +1,16 @@
+###
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+###
+DELETE http://localhost:8080/rest/producciones/1
+
+###
+GET http://localhost:8080/rest/producciones/producciones_user
+
+
