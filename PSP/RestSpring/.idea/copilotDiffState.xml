@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/src/main/java/org/example/restspring/domain/model/Produccion.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/main/java/org/example/restspring/domain/model/Produccion.java" />
+              <option name="originalContent" value="package org.example.restspring.domain.model;&#10;&#10;public record Produccion(&#10;    int id,&#10;    String titulo,&#10;    int anio,&#10;    String director,&#10;    String genero,&#10;    int userId&#10;) {&#10;}&#10;" />
+              <option name="updatedContent" value="package org.example.restspring.domain.model;&#10;&#10;public record Produccion(&#10;    int id,&#10;    String titulo,&#10;    int anio,&#10;    String director,&#10;    String genero,&#10;    int userId&#10;) {&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
