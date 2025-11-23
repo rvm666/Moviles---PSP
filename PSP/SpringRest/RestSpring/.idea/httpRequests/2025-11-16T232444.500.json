@@ -1,0 +1,6 @@
+{
+  "timestamp": "2025-11-16T22:24:44.776+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "path": "/rest/producciones/1"
+}

@@ -27,6 +27,7 @@ class ListaTodasProducciones : Fragment() {
     private val args: ListaTodasProduccionesArgs by navArgs()
 
     private val idUsuario: Int by lazy { args.id }
+
     private val vista: Boolean by lazy { args.vista }
 
     private lateinit var adapter: ProduccionAdapter

@@ -44,6 +44,8 @@ class InfoProduccionViewModel @Inject constructor(
         }
     }
 
+
+
     fun updateProduccionUsuario(produccion: Produccion, idUsuario: Int){
         viewModelScope.launch {
             if(updateProduccionUsuario.invoke(produccion, idUsuario)){

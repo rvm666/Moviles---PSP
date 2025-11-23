@@ -1,0 +1,17 @@
+[
+  {
+    "titulo": "The Godfather",
+    "director": "Francis Ford Coppola",
+    "genero": "Crime"
+  },
+  {
+    "titulo": "The Dark Knight",
+    "director": "Christopher Nolan",
+    "genero": "Action"
+  },
+  {
+    "titulo": "New Production by Admin",
+    "director": "tuputamadre",
+    "genero": "Accion"
+  }
+]

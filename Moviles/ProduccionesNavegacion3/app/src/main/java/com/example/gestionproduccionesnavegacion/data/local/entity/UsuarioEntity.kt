@@ -24,6 +24,7 @@ fun Usuario.toUsuarioEntity() = UsuarioEntity(
     email = this.email
 )
 
+
 fun UsuarioEntity.toUsuario() = Usuario(
     id = this.id,
     nombre = this.nombre,

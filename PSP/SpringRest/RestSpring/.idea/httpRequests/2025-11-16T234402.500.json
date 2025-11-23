@@ -1,0 +1,6 @@
+{
+  "timestamp": "2025-11-16T22:44:02.028+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "path": "/rest/usuarios/filtrar"
+}

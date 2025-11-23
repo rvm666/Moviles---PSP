@@ -12,6 +12,7 @@ import com.example.gestionproduccionesnavegacion.data.local.entity.UsuarioProduc
 interface ProduccionesDao {
 
     data class NombreResult(val nombre: String)
+
     data class GeneroResult(val genero: String)
 
 
@@ -51,6 +52,12 @@ interface ProduccionesDao {
     suspend fun getProduccionesVistasByUsuarioId(usuarioId: Int): List<ProduccionEntity>
 
 
+    @Query("""SELECT valoracion FROM usuario_produccion_ref 
+    WHERE usuario = :usuarioId AND produccion = :produccionId""")
+    suspend fun getValoracionProduccionByUsuarioId(usuarioId: Int, produccionId: Int)
+
+
+
     @Query("""
     SELECT p.*
     FROM producciones p
@@ -75,7 +82,7 @@ interface ProduccionesDao {
 
 
     @Query("""
-        SELECT COUNT(*) 
+        SELECT COUNT(*)
     FROM producciones p
     JOIN usuario_produccion_ref upr
     ON upr.produccion = p.id
@@ -100,6 +107,11 @@ interface ProduccionesDao {
 
     @Insert
     suspend fun insertProduccion(produccion: ProduccionEntity): Long
+
+    @Query("""INSERT INTO usuario_produccion_ref (usuario, produccion, vista, valoracion)
+        VALUES (:usuarioId, :produccionId, :vista, :valoracion)""")
+    suspend fun insertVistaConValoraciónProduccion(usuarioId: Int, produccionId: Int, vista: Boolean, valoracion: Double?): Long
+
 
     @Update
     suspend fun updateProduccion(produccion: ProduccionEntity): Int

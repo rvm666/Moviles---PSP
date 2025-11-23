@@ -14,6 +14,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.gestionproduccionesnavegacion.ui.common.Constantes
 import com.example.gestionproduccionesnavegacion.databinding.FragmentInfoProduccionBinding
 import com.example.gestionproduccionesnavegacion.domain.model.Produccion
+import com.example.gestionproduccionesnavegacion.domain.model.UsuarioProduccionCrossRef
 import com.example.gestionproduccionesnavegacion.ui.common.UiEvent
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
@@ -212,11 +213,7 @@ class InfoProduccion : Fragment() {
         val numeroSeasonsTexto = binding.numeroTemporadas.editText?.text.toString()
         val lanzamientoTexto = binding.bookingDateEditText.text.toString()
         val formatter = DateTimeFormatter.ofPattern(Constantes.FORMATO_FECHA)
-        val valoracionActual = if (idUsuario != -1) {
-            binding.valoracion.rating.toDouble()
-        } else {
-            infoProduccionViewModel.state.value?.produccion?.valoracion ?: 0.0
-        }
+
         val nuevaProduccion = Produccion(
             id = idProduccion,
             vista = binding.vista.isChecked,
@@ -226,10 +223,23 @@ class InfoProduccion : Fragment() {
             numeroSeason = numeroSeasonsTexto.toIntOrNull() ?: 0,
             fechaLanzamiento = LocalDate.parse(lanzamientoTexto, formatter),
             genero = binding.opcionesGenero.editText?.text.toString(),
-            pais = binding.opcionesPais.editText?.text.toString(),
-            valoracion = valoracionActual
+            pais = binding.opcionesPais.editText?.text.toString()
         )
         return nuevaProduccion
+    }
+
+    private fun crearUsuarioProduccion(): UsuarioProduccionCrossRef{
+        val valoracionActual = if (idUsuario != -1) {
+            binding.valoracion.rating.toDouble()
+        } else {
+            infoProduccionViewModel.state.value?.produccion?.valoracion ?: 0.0
+        }
+        return UsuarioProduccionCrossRef(
+            idUsuario,
+            idProduccion,
+            binding.vista.isChecked,
+            valoracionActual
+        )
     }
 
     override fun onDestroyView() {

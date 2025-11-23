@@ -1,0 +1,671 @@
+GET http://localhost:8080/rest/usuarios/filtrar?nombre=The Godfather
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=467C2B36015F0B0521A3B1EE7FE33D5D
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=5DF94297E01F0822E75FCBCBCF8164D8
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T234516.200.json
+
+###
+
+GET http://localhost:8080/rest/usuarios/filtrar?nombre=The Godfather
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=5DF94297E01F0822E75FCBCBCF8164D8
+
+<> 2025-11-16T234402.500.json
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=5DF94297E01F0822E75FCBCBCF8164D8
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T234401.200.json
+
+###
+
+GET http://localhost:8080/rest/usuarios/filtrar?nombre=user
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=5DF94297E01F0822E75FCBCBCF8164D8
+
+<> 2025-11-16T234336.200.json
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=5DF94297E01F0822E75FCBCBCF8164D8
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T234335.200.json
+
+###
+
+GET http://localhost:8080/rest/producciones/4
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=5DF94297E01F0822E75FCBCBCF8164D8
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=5DF94297E01F0822E75FCBCBCF8164D8
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T234206.200.json
+
+###
+
+GET http://localhost:8080/rest/usuarios/1
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=5DF94297E01F0822E75FCBCBCF8164D8
+
+<> 2025-11-16T234137-1.200.json
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=5DF94297E01F0822E75FCBCBCF8164D8
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T234137.200.json
+
+###
+
+GET http://localhost:8080/rest/usuarios
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=5DF94297E01F0822E75FCBCBCF8164D8
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 49
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=5DF94297E01F0822E75FCBCBCF8164D8
+
+{
+  "username": "user",
+  "password": "user123"
+}
+
+<> 2025-11-16T234043.200.json
+
+###
+
+GET http://localhost:8080/rest/usuarios
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=5DF94297E01F0822E75FCBCBCF8164D8
+
+<> 2025-11-16T233945-1.200.json
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=C1A2ECD6C44897B1F5ADF0E27774BF27
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T233945.200.json
+
+###
+
+GET http://localhost:8080/rest/producciones
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=C1A2ECD6C44897B1F5ADF0E27774BF27
+
+<> 2025-11-16T232854-1.200.json
+
+###
+
+PUT http://localhost:8080/rest/producciones/1
+Content-Type: application/json
+Content-Length: 94
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=C1A2ECD6C44897B1F5ADF0E27774BF27
+
+{
+  "titulo": "The Godafatherrrrrrrrrr",
+  "director": "tuputamadre2",
+  "genero": "Comedia"
+}
+
+###
+
+DELETE http://localhost:8080/rest/producciones/1
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=C1A2ECD6C44897B1F5ADF0E27774BF27
+content-length: 0
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=C1A2ECD6C44897B1F5ADF0E27774BF27
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T232854.200.json
+
+###
+
+GET http://localhost:8080/rest/producciones
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=C1A2ECD6C44897B1F5ADF0E27774BF27
+
+<> 2025-11-16T232802.200.json
+
+###
+
+PUT http://localhost:8080/rest/producciones/1
+Content-Type: application/json
+Content-Length: 85
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=C1A2ECD6C44897B1F5ADF0E27774BF27
+
+{
+  "titulo": "The Godafather",
+  "director": "tuputamadre2",
+  "genero": "Comedia"
+}
+
+###
+
+DELETE http://localhost:8080/rest/producciones/1
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=C1A2ECD6C44897B1F5ADF0E27774BF27
+content-length: 0
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=767029C96809073235C268DA55E86069
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T232801.200.json
+
+###
+
+GET http://localhost:8080/rest/producciones
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=767029C96809073235C268DA55E86069
+
+<> 2025-11-16T232518.200.json
+
+###
+
+PUT http://localhost:8080/rest/producciones/1
+Content-Type: application/json
+Content-Length: 85
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=767029C96809073235C268DA55E86069
+
+{
+  "titulo": "The Godafather",
+  "director": "tuputamadre2",
+  "genero": "Comedia"
+}
+
+<> 2025-11-16T232518.500.json
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=767029C96809073235C268DA55E86069
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T232517.200.json
+
+###
+
+GET http://localhost:8080/rest/producciones
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=767029C96809073235C268DA55E86069
+
+<> 2025-11-16T232445.200.json
+
+###
+
+PUT http://localhost:8080/rest/producciones/1
+Content-Type: application/json
+Content-Length: 93
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=767029C96809073235C268DA55E86069
+
+{
+  "titulo": "The Godafather Part II",
+  "director": "tuputamadre2",
+  "genero": "Comedia"
+}
+
+<> 2025-11-16T232444.500.json
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T232444.200.json
+
+###
+
+GET http://localhost:8080/rest/producciones
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+<> 2025-11-16T223802-2.200.json
+
+###
+
+PUT http://localhost:8080/rest/producciones/2
+Content-Type: application/json
+Content-Length: 93
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+{
+  "titulo": "The Godafather Part II",
+  "director": "tuputamadre2",
+  "genero": "Comedia"
+}
+
+<> 2025-11-16T223802-1.200.json
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T223802.200.json
+
+###
+
+GET http://localhost:8080/rest/producciones
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+<> 2025-11-16T223255-1.200.json
+
+###
+
+POST http://localhost:8080/rest/producciones
+Content-Type: application/json
+Content-Length: 133
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+{
+  "id": 0,
+  "titulo": "New Production by User",
+  "anio": 2020,
+  "director": "tuputamadre",
+  "genero": "Accion",
+  "userId": 2
+}
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 49
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+{
+  "username": "user",
+  "password": "user123"
+}
+
+<> 2025-11-16T223255.200.json
+
+###
+
+GET http://localhost:8080/rest/producciones
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+<> 2025-11-16T223113.200.json
+
+###
+
+POST http://localhost:8080/rest/producciones
+Content-Type: application/json
+Content-Length: 134
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+{
+  "id": 0,
+  "titulo": "New Production by Admin",
+  "anio": 2020,
+  "director": "tuputamadre",
+  "genero": "Accion",
+  "userId": 2
+}
+
+<> 2025-11-16T223112.201.json
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T223112.200.json
+
+###
+
+GET http://localhost:8080/rest/producciones/producciones_user
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+###
+
+DELETE http://localhost:8080/rest/producciones/1
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+content-length: 0
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T222312.200.json
+
+###
+
+GET http://localhost:8080/rest/producciones/producciones_user
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+###
+
+DELETE http://localhost:8080/rest/producciones/1
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+content-length: 0
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T222309.200.json
+
+###
+
+GET http://localhost:8080/rest/producciones/producciones_user
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+<> 2025-11-16T222030.200.json
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T222029.200.json
+
+###
+
+GET http://localhost:8080/rest/producciones/filtrar?nombre=gato
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T221923.200.json
+
+###
+
+GET http://localhost:8080/rest/producciones/filtrar?nombre=gato
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+###
+
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+Content-Length: 51
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+<> 2025-11-16T221906.200.json
+
+###
+
+GET http://localhost:8080/rest/producciones/filtrar?nombre=The Godfather
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.2.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=4C132E4DC3850B3EB4605AE2D4D947F0
+
+<> 2025-11-16T221815-1.200.json
+
+###
+

@@ -5,6 +5,7 @@ import com.example.gestionproduccionesnavegacion.data.local.entity.UsuarioProduc
 import com.example.gestionproduccionesnavegacion.data.local.entity.toProduccion
 import com.example.gestionproduccionesnavegacion.data.local.entity.toProduccionEntity
 import com.example.gestionproduccionesnavegacion.domain.model.Produccion
+import com.example.gestionproduccionesnavegacion.domain.model.UsuarioProduccionCrossRef
 import javax.inject.Inject
 import kotlin.getOrElse
 
@@ -33,6 +34,12 @@ class RepositoryProducciones @Inject constructor(private val produccionesDao: Pr
 
     suspend fun insertProduccion(produccion: Produccion): Boolean {
         val id = produccionesDao.insertProduccion(produccion.toProduccionEntity())
+        return id > 0
+    }
+
+    suspend fun insertarProduccionVista(usuarioProduccion: UsuarioProduccionCrossRef): Boolean{
+
+        val id = produccionesDao.insertVistaConValoraciónProduccion(usuarioProduccion.usuario, usuarioProduccion.produccion, true, usuarioProduccion.valoracion)
         return id > 0
     }
 

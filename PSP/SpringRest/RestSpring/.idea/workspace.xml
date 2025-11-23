@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9c84ad9a-c299-4a3d-893d-77bdd872d691" name="Changes" comment="terminado">
+      <change beforePath="$PROJECT_DIR$/../../../Moviles/ProduccionesNavegacion3/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Moviles/ProduccionesNavegacion3/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Moviles/ProduccionesNavegacion3/app/src/main/java/com/example/gestionproduccionesnavegacion/data/local/entity/UsuarioEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Moviles/ProduccionesNavegacion3/app/src/main/java/com/example/gestionproduccionesnavegacion/data/local/entity/UsuarioEntity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Moviles/ProduccionesNavegacion3/app/src/main/java/com/example/gestionproduccionesnavegacion/ui/pantallasProducciones/listaProducciones/ListaTodasProducciones.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Moviles/ProduccionesNavegacion3/app/src/main/java/com/example/gestionproduccionesnavegacion/ui/pantallasProducciones/listaProducciones/ListaTodasProducciones.kt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "rvm666"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/rvm666/Moviles---PSP.git",
+    "accountId": "319696b4-0c44-45a9-a3dd-71e79a862d7e"
+  }
+}]]></component>
+  <component name="HttpClientOnboardingState">{
+  &quot;isOnboardingCommentShown&quot;: true
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="35WPs5ssaQtUYWabPpaCDzcbJqG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "HTTP Request.All in Delete_admin.executor": "Run",
+    "HTTP Request.All in Save_admin.executor": "Run",
+    "HTTP Request.All in delete_mal.executor": "Run",
+    "HTTP Request.All in getAll_Admin.executor": "Run",
+    "HTTP Request.All in getAll_User.executor": "Run",
+    "HTTP Request.All in getAll_user.executor": "Run",
+    "HTTP Request.All in getById_mal.executor": "Run",
+    "HTTP Request.All in getByName_bien.executor": "Run",
+    "HTTP Request.All in getByName_mal.executor": "Run",
+    "HTTP Request.All in getByUser_bien.executor": "Run",
+    "HTTP Request.All in getByUser_mal.executor": "Run",
+    "HTTP Request.All in getbyId_bien.executor": "Run",
+    "HTTP Request.All in getbyId_mal.executor": "Run",
+    "HTTP Request.All in save_user.executor": "Run",
+    "HTTP Request.All in update_bien.executor": "Run",
+    "HTTP Request.All in update_mal.executor": "Run",
+    "HTTP Request.generated-requests | #1.executor": "Run",
+    "HTTP Request.generated-requests | #2 (1).executor": "Run",
+    "HTTP Request.generated-requests | #2.executor": "Run",
+    "HTTP Request.generated-requests | #3.executor": "Run",
+    "HTTP Request.generated-requests | #4.executor": "Run",
+    "HTTP Request.generated-requests | #5.executor": "Run",
+    "HTTP Request.login_bien | #1.executor": "Run",
+    "HTTP Request.login_mal | #1.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "Spring Boot.RestSpringApplication.executor": "Run",
+    "git-widget-placeholder": "Moviles",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "F:/REPOSITORIO BRANCH/Moviles---PSP/PSP/SpringRest/RestSpring/src/test/java/org/example/restspring/pruebas/usuarios/GetByName",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\REPOSITORIO BRANCH\Moviles---PSP\PSP\SpringRest\RestSpring\src\test\java\org\example\restspring\pruebas\usuarios\GetByName" />
+      <recent name="F:\REPOSITORIO BRANCH\Moviles---PSP\PSP\SpringRest\RestSpring\src\test\java\org\example\restspring\pruebas\usuarios\GetById" />
+      <recent name="F:\REPOSITORIO BRANCH\Moviles---PSP\PSP\SpringRest\RestSpring\src\test\java\org\example\restspring\pruebas\usuarios\GetAll" />
+      <recent name="F:\REPOSITORIO BRANCH\Moviles---PSP\PSP\SpringRest\RestSpring\src\test\java\org\example\restspring\pruebas\producciones\Update" />
+      <recent name="F:\REPOSITORIO BRANCH\Moviles---PSP\PSP\SpringRest\RestSpring\src\test\java\org\example\restspring\pruebas\producciones\Save" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\REPOSITORIO BRANCH\Moviles---PSP\PSP\SpringRest\RestSpring\src\test\java\org\example\restspring\pruebas\producciones\GetAll" />
+      <recent name="F:\REPOSITORIO BRANCH\Moviles---PSP\PSP\SpringRest\RestSpring\src\test\java\org\example\restspring\pruebas\login" />
+      <recent name="F:\REPOSITORIO BRANCH\Moviles---PSP\PSP\SpringRest\RestSpring\src\test\java\org\example\restspring\Pruebas" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationStatuses">
+      <map>
+        <entry key="HttpClient.HttpRequestRunConfigurationType">
+          <value>
+            <map>
+              <entry key="All in getAll_user" value="STOPPED" />
+              <entry key="All in getByName_bien" value="STOPPED" />
+              <entry key="All in getByName_mal" value="STOPPED" />
+              <entry key="All in getbyId_bien" value="STOPPED" />
+              <entry key="All in getbyId_mal" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.RestSpringApplication">
+    <configuration name="All in getAll_user" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/test/java/org/example/restspring/pruebas/usuarios/GetAll/getAll_user.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="All in getByName_bien" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/test/java/org/example/restspring/pruebas/usuarios/GetByName/getByName_bien.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="All in getByName_mal" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/test/java/org/example/restspring/pruebas/usuarios/GetByName/getByName_mal.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="All in getbyId_bien" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/test/java/org/example/restspring/pruebas/usuarios/GetById/getbyId_bien.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="All in getbyId_mal" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/test/java/org/example/restspring/pruebas/usuarios/GetById/getbyId_mal.http">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration name="RestSpringApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="RestSpring" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.restspring.RestSpringApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.All in getByName_mal" />
+        <item itemvalue="HTTP Request.All in getByName_bien" />
+        <item itemvalue="HTTP Request.All in getbyId_mal" />
+        <item itemvalue="HTTP Request.All in getbyId_bien" />
+        <item itemvalue="HTTP Request.All in getAll_user" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9c84ad9a-c299-4a3d-893d-77bdd872d691" name="Changes" comment="" />
+      <created>1763223060189</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763223060189</updated>
+      <workItem from="1763223061822" duration="13682000" />
+      <workItem from="1763302068036" duration="26424000" />
+      <workItem from="1763377126352" duration="5814000" />
+    </task>
+    <task id="LOCAL-00001" summary="terminado">
+      <option name="closed" value="true" />
+      <created>1763334478013</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1763334478013</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="terminado" />
+    <option name="LAST_COMMIT_MESSAGE" value="terminado" />
+  </component>
+</project>
