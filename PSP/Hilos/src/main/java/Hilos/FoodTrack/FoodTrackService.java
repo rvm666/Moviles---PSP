@@ -67,7 +67,7 @@ public class FoodTrackService {
         log.info("Se ha cerrado el foodtrack");
     }
 
-    public TipoPlato platoAleatorio(){
+    private TipoPlato platoAleatorio(){
         TipoPlato[] platos = TipoPlato.values();
         int indiceAleatorio = new Random().nextInt(platos.length);
         return platos[indiceAleatorio];

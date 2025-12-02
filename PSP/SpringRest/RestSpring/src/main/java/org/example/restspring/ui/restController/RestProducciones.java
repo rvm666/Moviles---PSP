@@ -35,12 +35,10 @@ public class RestProducciones {
         if (authService.isAdmin(session)) {
             return ResponseEntity.ok(producciones.getAll());
         }else {
-         int userId = authService.getUsuarioIdFromSession(session);
+            int userId = authService.getUsuarioIdFromSession(session);
             List<ProduccionDTO> produccionesUser = producciones.getByUserId(userId);
             return ResponseEntity.ok(produccionesUser);
         }
-
-
 
     }
 

@@ -15,6 +15,8 @@ public class BancoService {
     private final List<ObjetoHistorial> historial;
     private final IBancoVirtual saldo;
     private final AtomicInteger operacionesNoRealizadas = new AtomicInteger(0);
+
+
     public BancoService(IBancoVirtual saldo, List<ObjetoHistorial> historial) {
         this.historial = new CopyOnWriteArrayList<>(historial);
         this.saldo = saldo;
