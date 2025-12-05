@@ -1,6 +1,7 @@
-package org.example.restspring.ui.service;
+package org.example.restspring.domain.service;
 
 import org.example.restspring.data.ProduccionRepository;
+import org.example.restspring.domain.errores.NotFoundException;
 import org.example.restspring.domain.model.Produccion;
 import org.example.restspring.ui.dto.ProduccionDTO;
 import org.springframework.stereotype.Service;
@@ -44,8 +45,8 @@ public class ProduccionService {
 
     public ProduccionDTO getByName(String name){
         Produccion produccion = produccionRepository.getByName(name);
-        if(produccion == null) return null;
-        return new ProduccionDTO(produccion.titulo(), produccion.director(), produccion.genero());
+        if(produccion != null) return new ProduccionDTO(produccion.titulo(), produccion.director(), produccion.genero());
+        throw new NotFoundException("No se ha encontrado la produccion con el nombre: " + name);
     }
 
     public ProduccionDTO save(Produccion produccion){

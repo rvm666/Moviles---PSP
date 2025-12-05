@@ -6,7 +6,7 @@ import org.example.restspring.domain.model.Usuario;
 import org.example.restspring.ui.config.Constantes;
 import org.example.restspring.ui.dto.ProduccionDTO;
 import org.example.restspring.ui.service.AuthService;
-import org.example.restspring.ui.service.ProduccionService;
+import org.example.restspring.domain.service.ProduccionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -55,11 +55,7 @@ public class RestProducciones {
     @GetMapping("/filtrar")
     public ResponseEntity<ProduccionDTO> filtroProduccion(@RequestParam String nombre) {
         ProduccionDTO produccion = producciones.getByName(nombre);
-        if(produccion != null){
-            return ResponseEntity.ok(produccion);
-        }else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
+        return ResponseEntity.ok(produccion);
     }
 
 

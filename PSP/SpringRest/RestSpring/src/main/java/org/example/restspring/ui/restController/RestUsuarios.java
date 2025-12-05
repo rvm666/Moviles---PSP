@@ -4,7 +4,7 @@ import jakarta.servlet.http.HttpSession;
 import org.example.restspring.ui.config.Constantes;
 import org.example.restspring.ui.dto.UsuarioDTO;
 import org.example.restspring.ui.service.AuthService;
-import org.example.restspring.ui.service.UsuarioService;
+import org.example.restspring.domain.service.UsuarioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package org.example.restspring.ui.service;
+package org.example.restspring.domain.service;
 
 import org.example.restspring.data.UsuarioRepository;
 import org.example.restspring.domain.model.Usuario;
