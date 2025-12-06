@@ -15,23 +15,22 @@ public class UsuarioRepository {
     public UsuarioRepository(PasswordEncoder encoder) {
         this.encoder = encoder;
         this.usuarios = new java.util.ArrayList<>();
-        saveWithPlainPassword("admin", "admin123", "admin@gmail.com", "Juan", true);
-        saveWithPlainPassword("user", "user123", "user@gmail.com", "Carlos", false);
-        saveWithPlainPassword("user2", "user123456", "user2@gmail.com", "Maria", false);
+        saveWithPlainPassword("admin", "admin123", "admin@gmail.com", "Juan", true, "", true);
+        saveWithPlainPassword("user", "user123", "user@gmail.com", "Carlos", false, "", true);
+        saveWithPlainPassword("user2", "user123456", "user2@gmail.com", "Maria", false, "", true);
 
     }
 
-    private void saveWithPlainPassword(String username, String plainPassword, String email, String nombre, boolean esAdmin) {
+    public void saveWithPlainPassword(String username, String plainPassword, String email, String nombre, boolean esAdmin, String codigo, Boolean activado) {
         String hashedPassword = encoder.encode(plainPassword);
-        Usuario usuario = new Usuario(0, username, hashedPassword, email, nombre, esAdmin);
+        Usuario usuario = new Usuario(0, username, hashedPassword, email, codigo, activado, nombre, esAdmin);
         save(usuario);
     }
 
-    public Usuario save(Usuario usuario) {
+    private void save(Usuario usuario) {
         int id = nextId();
-        Usuario usuarioGuardado = new Usuario(id, usuario.username(), usuario.password(), usuario.email(), usuario.nombre(), usuario.esAdmin());
+        Usuario usuarioGuardado = new Usuario(id, usuario.username(), usuario.password(), usuario.email(), usuario.codigo(), usuario.activado(), usuario.nombre(), usuario.esAdmin());
         usuarios.add(usuarioGuardado);
-        return usuarioGuardado;
     }
 
 
@@ -44,12 +43,26 @@ public class UsuarioRepository {
         return usuarios.stream().filter(produccion -> produccion.id() == id).findFirst().orElse(null);
     }
 
+    public Usuario getByCodigo(String codigo){
+        return usuarios.stream().filter(usuario -> usuario.codigo().equals(codigo)).findFirst().orElse(null);
+    }
+
+    public Usuario update(int id, Usuario usuario) {
+        Usuario antigua = getById(id);
+        if(antigua == null){
+            return null;
+        }
+        int index = usuarios.indexOf(antigua);
+        Usuario actualizada = new Usuario(id, usuario.username(), usuario.password(), usuario.email(), usuario.codigo(), usuario.activado(), usuario.nombre(), usuario.esAdmin());
+        usuarios.set(index, actualizada);
+        return actualizada;
+    }
 
     public Usuario getByName(String name) {
         return usuarios.stream().filter(usuario -> usuario.username().equals(name)).findFirst().orElse(null);
     }
 
-    public int nextId(){
+    private int nextId(){
         return usuarios.size()+1;
     }
 }

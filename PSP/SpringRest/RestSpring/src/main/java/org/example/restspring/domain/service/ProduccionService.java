@@ -6,7 +6,6 @@ import org.example.restspring.domain.model.Produccion;
 import org.example.restspring.ui.dto.ProduccionDTO;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -32,15 +31,15 @@ public class ProduccionService {
     public List<ProduccionDTO> getByUserId(int userId){
         List<Produccion> produccion = produccionRepository.getByUserId(userId);
         List<ProduccionDTO> produccionDTOS = new ArrayList<>();
-        if(produccion.isEmpty()) return Collections.emptyList();
+        if(produccion.isEmpty()) throw new NotFoundException("El usuario con id: " + userId + " no tiene producciones o no existe");
         produccion.forEach(p -> produccionDTOS.add(new ProduccionDTO(p.titulo(), p.director(), p.genero())));
         return produccionDTOS;
     }
 
     public ProduccionDTO getById(int id){
         Produccion produccion = produccionRepository.getById(id);
-        if(produccion == null) return null;
-        return new ProduccionDTO(produccion.titulo(), produccion.director(), produccion.genero());
+        if(produccion != null) return new ProduccionDTO(produccion.titulo(), produccion.director(), produccion.genero());
+        throw new NotFoundException("Produccion con id: " + id + " no encontrada");
     }
 
     public ProduccionDTO getByName(String name){
@@ -56,12 +55,15 @@ public class ProduccionService {
 
     public ProduccionDTO update(int id, ProduccionDTO produccionDTO){
         Produccion produccionAntes = produccionRepository.getById(id);
-        if(produccionAntes == null) return null;
-        Produccion produccion1 = produccionRepository.update(id, new Produccion(id, produccionDTO.titulo(), produccionAntes.anio(), produccionDTO.director(), produccionDTO.genero(), produccionAntes.userId()));
-        return new ProduccionDTO(produccion1.titulo(), produccion1.director(), produccion1.genero());
+        if(produccionAntes != null){
+            Produccion produccion1 = produccionRepository.update(id, new Produccion(id, produccionDTO.titulo(), produccionAntes.anio(), produccionDTO.director(), produccionDTO.genero(), produccionAntes.userId()));
+            return new ProduccionDTO(produccion1.titulo(), produccion1.director(), produccion1.genero());
+        }
+        throw new NotFoundException("Produccion con id: " + id + " no encontrada");
     }
 
-    public boolean delete(int id, int userId){
-        return produccionRepository.delete(id, userId);
+    public void delete(int id, int userId){
+
+        if(!produccionRepository.delete(id, userId)) throw new NotFoundException("No se ha podido eliminar la produccion con id: " + id + ", puede que no exista o no pertenezca al usuario con id: " + userId);
     }
 }

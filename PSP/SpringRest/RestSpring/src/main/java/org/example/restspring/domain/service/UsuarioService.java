@@ -1,7 +1,9 @@
 package org.example.restspring.domain.service;
 
 import org.example.restspring.data.UsuarioRepository;
+import org.example.restspring.domain.errores.NotFoundException;
 import org.example.restspring.domain.model.Usuario;
+import org.example.restspring.ui.config.Constantes;
 import org.example.restspring.ui.dto.UsuarioDTO;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -29,16 +31,14 @@ public class UsuarioService {
 
     public UsuarioDTO getById(int id){
         Usuario usuario = usuarioRepository.getById(id);
-
-        return new UsuarioDTO(usuario.username(), usuario.password());
+        if(usuario != null) return new UsuarioDTO(usuario.username(), usuario.password());
+        throw new NotFoundException(Constantes.USUARIO_NO_ENCONTRADO);
     }
 
     public UsuarioDTO getByName(String name){
         Usuario usuario = usuarioRepository.getByName(name);
-        if (usuario == null) {
-            return null;
-        }
-        return new UsuarioDTO(usuario.username(), usuario.password());
+        if (usuario != null) return new UsuarioDTO(usuario.username(), usuario.password());
+        throw new NotFoundException(Constantes.USUARIO_NO_ENCONTRADO);
     }
 
 

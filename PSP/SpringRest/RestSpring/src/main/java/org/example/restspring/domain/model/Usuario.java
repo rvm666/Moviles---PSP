@@ -6,6 +6,8 @@ public record Usuario(
     String username,
     String password,
     String email,
+    String codigo,
+    Boolean activado,
     String nombre,
     Boolean esAdmin
 ) {

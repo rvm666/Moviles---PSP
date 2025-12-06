@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Activación de la cuenta</title>
+</head>
+<body>
+    <h1>ACTIVA TU CUENTA <span th:text="${usuario}">Usuario</span></h1>
+    <p>Tu código es:</p>
+    <h2 th:text="${codigo}">CODIGO</h2>
+    <p>Pincha en el enlace para activar tu cuenta:</p>
+    <a th:href="${enlaceActivacion}">Activa tu cuenta aqui</a>
+</body>
+</html>
