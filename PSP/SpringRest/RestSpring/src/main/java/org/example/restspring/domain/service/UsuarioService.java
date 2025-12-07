@@ -41,6 +41,4 @@ public class UsuarioService {
         throw new NotFoundException(Constantes.USUARIO_NO_ENCONTRADO);
     }
 
-
-
 }

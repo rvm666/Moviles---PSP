@@ -33,11 +33,8 @@ public class RestUsuarios {
     @PostMapping("/login")
     public ResponseEntity<UsuarioDTO> login(@RequestBody UsuarioDTO usuario, HttpSession session) {
         UsuarioDTO usuarioDTO = authService.login(usuario, session);
-        if (usuarioDTO != null) {
-            return ResponseEntity.ok(usuarioDTO);
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        }
+        return ResponseEntity.ok(usuarioDTO);
+
     }
 
     @PostMapping("/registro")

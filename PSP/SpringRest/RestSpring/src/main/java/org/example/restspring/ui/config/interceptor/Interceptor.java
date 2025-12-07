@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.restspring.domain.errores.ForbbidenException;
 import org.example.restspring.domain.errores.UnauthorizedException;
+import org.example.restspring.ui.config.Constantes;
 import org.example.restspring.ui.service.AuthService;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
@@ -30,9 +31,9 @@ public class Interceptor implements HandlerInterceptor {
         RequiresAuth requiresAuth = handlerMethod.getMethodAnnotation(RequiresAuth.class);
 
         if(requiresAuth != null){
-            if(!authService.isAuthenticated(request.getSession())) throw new UnauthorizedException("Tiene que iniciar sesion");
+            if(!authService.isAuthenticated(request.getSession())) throw new UnauthorizedException(Constantes.TIENE_QUE_INICIAR_SESION);
 
-            if(requiresAuth.admin() && !authService.isAdmin(request.getSession())) throw new ForbbidenException("No tiene permisos para acceder");
+            if(requiresAuth.admin() && !authService.isAdmin(request.getSession())) throw new ForbbidenException(Constantes.NO_TIENE_PERMISOS);
         }
 
         return true;

@@ -26,7 +26,7 @@ public class AuthService {
 
     public Usuario registrar(Usuario usuario){
         Usuario user = usuarioRepository.getByName(usuario.username());
-        if(user != null) throw new BadRequestException("El usuario " + usuario.username() + " ya esta registrado");
+        if(user != null) throw new BadRequestException(Constantes.EL_USUARIO + usuario.username() + Constantes.YA_ESTA_REGISTRADO);
 
 
         usuarioRepository.saveWithPlainPassword(usuario.username(), usuario.password(), usuario.email(), usuario.nombre(), usuario.esAdmin(), usuario.codigo(), usuario.activado());
