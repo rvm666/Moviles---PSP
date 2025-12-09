@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.pantallaAniadir.MainActivity"
+    android:background="#C6F6D5">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.97" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        style="?attr/floatingActionButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_margin="12dp"
+        android:contentDescription="@string/m3_expressive_primary_fab_content_description"
+        app:srcCompat="@drawable/baseline_arrow_back_24" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <TextView
+        android:id="@+id/textCabezera"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/a_adir_usuario"
+        android:textAlignment="center"
+        android:textColor="#E85E43"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintStart_toEndOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_top" />
+
+    <RadioGroup
+        android:id="@+id/Pelicula_Serie"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/guideline_start"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_center"
+        app:layout_constraintTop_toBottomOf="@+id/textCabezera"
+        app:layout_constraintBottom_toTopOf="@+id/Nombre_Peli">
+
+        <RadioButton
+            android:id="@+id/pelicula"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/pelicula" />
+
+        <RadioButton
+            android:id="@+id/serie"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/serie" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/Nombre_Peli"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="@string/nombre_personaje"
+        app:layout_constraintEnd_toEndOf="@+id/Pelicula_Serie"
+        app:layout_constraintStart_toStartOf="@+id/Pelicula_Serie"
+        app:layout_constraintTop_toBottomOf="@+id/Pelicula_Serie"
+        app:layout_constraintBottom_toTopOf="@+id/director"/>
+
+    <EditText
+        android:id="@+id/director"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="@string/director"
+        app:layout_constraintEnd_toEndOf="@+id/Nombre_Peli"
+        app:layout_constraintStart_toStartOf="@+id/Nombre_Peli"
+        app:layout_constraintTop_toBottomOf="@+id/Nombre_Peli"
+        app:layout_constraintBottom_toTopOf="@+id/numeroTemporadas"/>
+
+
+
+    <EditText
+        android:id="@+id/numeroTemporadas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/n_de_seasons"
+        app:layout_constraintStart_toStartOf="@+id/director"
+        app:layout_constraintTop_toBottomOf="@+id/director"
+        app:layout_constraintEnd_toEndOf="@+id/director"
+        app:layout_constraintBottom_toTopOf="@+id/bookingDataEditText1"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/bookingDataEditText1"
+        style="?attr/textInputOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/lanzamiento"
+        app:endIconContentDescription="Open Date Picker"
+        app:endIconDrawable="@drawable/baseline_calendar_month_24"
+        app:endIconMode="custom"
+        app:layout_constraintEnd_toEndOf="@+id/numeroTemporadas"
+        app:layout_constraintStart_toStartOf="@+id/numeroTemporadas"
+        app:layout_constraintTop_toBottomOf="@+id/numeroTemporadas"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_bottom">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bookingDateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="false"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <Spinner
+        android:id="@+id/opcionesGenero"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/opcionesGenero"
+        app:layout_constraintStart_toEndOf="@+id/guideline_center"
+        app:layout_constraintTop_toBottomOf="@+id/textCabezera"
+        app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+        app:layout_constraintBottom_toTopOf="@+id/opcionesPais" />
+
+    <Spinner
+        android:id="@+id/opcionesPais"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/opcionesPais"
+        app:layout_constraintStart_toStartOf="@+id/opcionesGenero"
+        app:layout_constraintEnd_toEndOf="@+id/opcionesGenero"
+        app:layout_constraintTop_toBottomOf="@+id/opcionesGenero"
+        app:layout_constraintBottom_toTopOf="@+id/valoracion"/>
+
+    <RatingBar
+        android:id="@+id/valoracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="@+id/opcionesPais"
+        app:layout_constraintStart_toStartOf="@+id/opcionesPais"
+        app:layout_constraintTop_toBottomOf="@+id/opcionesPais"
+        app:layout_constraintBottom_toTopOf="@+id/botonLimpiardeGuardar"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/botonLimpiardeGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#5A9BD5"
+        app:strokeColor="#2C7A7B"
+        app:strokeWidth="2dp"
+        android:text="@string/limpiar"
+        app:layout_constraintStart_toStartOf="@+id/opcionesGenero"
+        app:layout_constraintEnd_toStartOf="@+id/botonGuardar"
+        app:layout_constraintTop_toBottomOf="@+id/valoracion"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_bottom"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/botonGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#BFA2DB"
+        app:strokeColor="#2C7A7B"
+        app:strokeWidth="2dp"
+        android:text="@string/guardar"
+        app:layout_constraintStart_toEndOf="@+id/botonLimpiardeGuardar"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintTop_toTopOf="@+id/botonLimpiardeGuardar"
+        app:layout_constraintBottom_toBottomOf="@+id/botonLimpiardeGuardar"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
