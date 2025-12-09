@@ -1,0 +1,25 @@
+###
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+
+###
+POST http://localhost:8080/rest/producciones
+Content-Type: application/json
+
+{
+  "id": 0,
+  "titulo": "New Production by Admin",
+  "anio": 2020,
+  "director": "tuputamadre",
+  "genero": "Accion",
+  "userId": 2
+}
+
+###
+GET http://localhost:8080/rest/producciones

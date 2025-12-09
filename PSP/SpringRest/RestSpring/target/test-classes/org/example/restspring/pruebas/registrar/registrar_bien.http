@@ -1,0 +1,16 @@
+###
+POST http://localhost:8080/rest/usuarios/registro
+Content-Type: application/json
+
+{
+  "id": 0,
+  "username": "prueba_registro",
+  "password": "nose",
+  "email": "rvm666@educa.madrid.org",
+  "codigo": "",
+  "activado": false,
+  "nombre": "Ramón",
+  "esAdmin": true
+}
+
+

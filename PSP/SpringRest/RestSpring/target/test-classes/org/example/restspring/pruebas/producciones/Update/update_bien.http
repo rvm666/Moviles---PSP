@@ -1,0 +1,23 @@
+###
+POST http://localhost:8080/rest/usuarios/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+
+###
+PUT http://localhost:8080/rest/producciones/2
+Content-Type: application/json
+
+{
+  "titulo": "The Godafather Part II",
+  "director": "tuputamadre2",
+  "genero": "Comedia"
+}
+
+
+###
+GET http://localhost:8080/rest/producciones
