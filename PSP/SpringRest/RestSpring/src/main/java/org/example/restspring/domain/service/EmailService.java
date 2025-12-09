@@ -49,10 +49,11 @@ public class EmailService {
             String html = templateEngine.process(Constantes.EMAIL, context);
             helper.setText(html, true);
             mailSender.send(message);
-
         } catch (Exception e){
             log.error(Constantes.ERROR_AL_ENVIAR_CORREO1, destinatario, e);
             throw new BadRequestException(Constantes.ERROR_AL_ENVIAR_CORREO2);
         }
     }
+
+
 }

@@ -1,6 +1,4 @@
 package org.example.restspring.ui.restcontroller;
-/*Aqui me da un warning pero es por el nombre del paquete,
- lo cambie poniendo la primera en mayuscula pero seguia igual*/
 import jakarta.servlet.http.HttpSession;
 import org.example.restspring.domain.model.Produccion;
 import org.example.restspring.domain.model.Usuario;

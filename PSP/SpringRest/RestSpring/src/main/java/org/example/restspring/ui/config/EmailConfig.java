@@ -25,4 +25,5 @@ public class EmailConfig {
         resolver.setCharacterEncoding(Constantes.ENCODING);
         return resolver;
     }
+
 }

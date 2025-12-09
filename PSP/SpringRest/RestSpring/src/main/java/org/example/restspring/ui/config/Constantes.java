@@ -7,6 +7,7 @@ public class Constantes {
     public static final String USUARIO = "usuario";
     public static final String REST_PRODUCCIONES = "/rest/producciones";
     public static final String REST_USUARIOS = "/rest/usuarios";
+    public static final String REST_ACTIVACION = "/rest/activar";
 
 
 
@@ -18,7 +19,7 @@ public class Constantes {
 
 
     public static final String USUARIO_NO_ENCONTRADO = "Usuario no encontrado";
-    public static final String CODIGO_INVALIDO = "El codigo es invalido";
+    public static final String CODIGO_INVALIDO = "No se ha podido activar su cuenta. CODIGO INVALIDO";
     public static final String CREDENCIALES_INVALIDAS = "Las credenciales son invalidas";
     public static final String CODIGO = "codigo";
     public static final String ACTIVACION_CUENTA = "Activación de la cuenta";

@@ -28,5 +28,4 @@ public class WebConfig implements WebMvcConfigurer {
                 .excludePathPatterns(pathLogin, pathRegistro);
     }
 
-
 }

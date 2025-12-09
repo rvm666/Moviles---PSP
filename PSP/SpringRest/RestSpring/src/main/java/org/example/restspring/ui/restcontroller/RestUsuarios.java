@@ -47,12 +47,6 @@ public class RestUsuarios {
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
 
-    @GetMapping("/activar")
-    public ResponseEntity<UsuarioDTO> activarCuenta(@RequestParam String codigo){
-        UsuarioDTO usuario = authService.activarCuenta(codigo);
-        return ResponseEntity.ok(usuario);
-    }
-
     @GetMapping
     @RequiresAuth(admin = true)
     public ResponseEntity<List<UsuarioDTO>> listarUsuarios() {

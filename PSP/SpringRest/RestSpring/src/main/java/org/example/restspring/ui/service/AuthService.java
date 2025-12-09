@@ -21,7 +21,6 @@ public class AuthService {
     public AuthService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
         this.usuarioRepository = usuarioRepository;
         this.passwordEncoder = passwordEncoder;
-
     }
 
     public Usuario registrar(Usuario usuario){
@@ -48,8 +47,11 @@ public class AuthService {
                 usuario.esAdmin()
         );
 
-        Usuario usuarioActivado = usuarioRepository.update(usuario.id(), user);
-        return new UsuarioDTO(usuarioActivado.username(), null);
+
+
+        Usuario usuarioo = usuarioRepository.update(usuario.id(), user);
+
+        return new UsuarioDTO(usuarioo.username(), null);
     }
 
     public UsuarioDTO login(UsuarioDTO usuarioDTO, HttpSession session){
