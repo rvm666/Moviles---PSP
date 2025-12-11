@@ -1,6 +1,5 @@
 package org.example.restspring.ui.restcontroller;
-/*Aqui me da un warning pero es por el nombre del paquete,
- lo cambie poniendo la primera en mayuscula pero seguia igual*/
+
 import jakarta.servlet.http.HttpSession;
 import org.example.restspring.domain.model.Usuario;
 import org.example.restspring.domain.service.EmailService;
@@ -13,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -40,7 +40,8 @@ public class RestUsuarios {
     @PostMapping("/registro")
     public ResponseEntity<Usuario> registro(@RequestBody Usuario usuario){
         String codigoActivacion = UUID.randomUUID().toString();
-        Usuario nuevo = new Usuario(usuario.id(), usuario.username(), usuario.password(), usuario.email(), codigoActivacion, usuario.activado(), usuario.nombre(), usuario.esAdmin());
+        LocalDateTime fechaRegistro = LocalDateTime.now().plusHours(24);
+        Usuario nuevo = new Usuario(usuario.id(), usuario.username(), usuario.password(), usuario.email(), codigoActivacion, usuario.activado(), usuario.nombre(), usuario.esAdmin(), fechaRegistro);
         Usuario user = authService.registrar(nuevo);
 
         emailService.enviarMail(usuario.email(), usuario.nombre(), codigoActivacion);

@@ -1,6 +1,8 @@
 package org.example.restspring.domain.model;
 
 
+import java.time.LocalDateTime;
+
 public record Usuario(
     int id,
     String username,
@@ -9,6 +11,7 @@ public record Usuario(
     String codigo,
     Boolean activado,
     String nombre,
-    Boolean esAdmin
+    Boolean esAdmin,
+    LocalDateTime fecha
 ) {
 }

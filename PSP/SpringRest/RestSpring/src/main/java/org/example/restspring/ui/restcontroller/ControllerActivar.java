@@ -24,8 +24,7 @@ public class ControllerActivar {
     public String activarCuenta(@RequestParam String codigo,
                                 Model model){
         UsuarioDTO usuario = authService.activarCuenta(codigo);
-        model.addAttribute("activada", true);
         model.addAttribute(Constantes.USUARIO, usuario.username());
-        return "activacion";
+        return Constantes.ACTIVACION;
     }
 }

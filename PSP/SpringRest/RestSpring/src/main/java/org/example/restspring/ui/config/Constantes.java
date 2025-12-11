@@ -15,6 +15,7 @@ public class Constantes {
     public static final String PREFIJO = "templates/";
     public static final String SUFIJO = ".html";
     public static final String ENCODING = "UTF-8";
+    public static final String ACTIVACION = "activacion";
 
 
 
@@ -38,6 +39,7 @@ public class Constantes {
     public static final String NO_TIENE_PERMISOS = "No tiene permisos para acceder";
     public static final String EL_USUARIO = "El usuario ";
     public static final String YA_ESTA_REGISTRADO = " ya está registrado";
+    public static final String CODIGO_EXPIRADO = "El código de activación ha expirado";
 
 
     public static final String BASE_URL = "${app.path.base-url}";

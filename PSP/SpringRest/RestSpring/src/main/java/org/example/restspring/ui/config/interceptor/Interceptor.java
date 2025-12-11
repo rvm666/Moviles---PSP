@@ -20,7 +20,10 @@ public class Interceptor implements HandlerInterceptor {
         this.authService = authService;
     }
 
+
     @Override
+    @SuppressWarnings("java:S3516")
+    /*este metodo me daba warning de que siempre devuelvo lo mismo y he buscado y al poner la anotación esa de SuppressWarnings se ha quitado*/
     public boolean preHandle(@NonNull HttpServletRequest request,
                              @NonNull HttpServletResponse response,
                              @NonNull Object handler){
@@ -30,11 +33,13 @@ public class Interceptor implements HandlerInterceptor {
 
         RequiresAuth requiresAuth = handlerMethod.getMethodAnnotation(RequiresAuth.class);
 
-        if(requiresAuth != null){
-            if(!authService.isAuthenticated(request.getSession())) throw new UnauthorizedException(Constantes.TIENE_QUE_INICIAR_SESION);
-
-            if(requiresAuth.admin() && !authService.isAdmin(request.getSession())) throw new ForbbidenException(Constantes.NO_TIENE_PERMISOS);
+        if(requiresAuth == null){
+            return true;
         }
+
+        if(!authService.isAuthenticated(request.getSession())) throw new UnauthorizedException(Constantes.TIENE_QUE_INICIAR_SESION);
+
+        if(requiresAuth.admin() && !authService.isAdmin(request.getSession())) throw new ForbbidenException(Constantes.NO_TIENE_PERMISOS);
 
         return true;
     }

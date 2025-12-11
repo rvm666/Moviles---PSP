@@ -10,6 +10,8 @@ import org.example.restspring.ui.dto.UsuarioDTO;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 
 @Service
 public class AuthService {
@@ -28,13 +30,15 @@ public class AuthService {
         if(user != null) throw new BadRequestException(Constantes.EL_USUARIO + usuario.username() + Constantes.YA_ESTA_REGISTRADO);
 
 
-        usuarioRepository.saveWithPlainPassword(usuario.username(), usuario.password(), usuario.email(), usuario.nombre(), usuario.esAdmin(), usuario.codigo(), usuario.activado());
-        return new Usuario(usuario.id(), usuario.username(), null, usuario.email(), usuario.codigo(), usuario.activado(), usuario.nombre(), null);
+        usuarioRepository.saveWithPlainPassword(usuario);
+        return new Usuario(usuario.id(), usuario.username(), null, usuario.email(), usuario.codigo(), usuario.activado(), usuario.nombre(), null, usuario.fecha());
     }
 
     public UsuarioDTO activarCuenta(String codigo){
         Usuario usuario = usuarioRepository.getByCodigo(codigo);
         if(usuario == null) throw new BadRequestException(Constantes.CODIGO_INVALIDO);
+
+        if(usuario.fecha().isBefore(LocalDateTime.now())) throw new BadRequestException(Constantes.CODIGO_EXPIRADO);
 
         Usuario user = new Usuario(
                 usuario.id(),
@@ -44,7 +48,8 @@ public class AuthService {
                 codigo,
                 true,
                 usuario.nombre(),
-                usuario.esAdmin()
+                usuario.esAdmin(),
+                usuario.fecha()
         );
 
 
