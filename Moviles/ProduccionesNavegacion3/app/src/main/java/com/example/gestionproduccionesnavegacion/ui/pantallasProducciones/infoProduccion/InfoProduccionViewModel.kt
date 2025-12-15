@@ -29,7 +29,6 @@ class InfoProduccionViewModel @Inject constructor(
             val produccion = getProduccionById(id)
             state.value = state.value?.copy(produccion = produccion, isEnable = produccion.esPelicula == false)
         }
-
     }
 
     fun updateProduccion(produccion: Produccion){
