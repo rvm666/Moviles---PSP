@@ -31,7 +31,7 @@ public class AuthService {
 
 
         usuarioRepository.saveWithPlainPassword(usuario);
-        return new Usuario(usuario.id(), usuario.username(), null, usuario.email(), usuario.codigo(), usuario.activado(), usuario.nombre(), null, usuario.fecha());
+        return new Usuario(usuario.id(), usuario.username(), null, usuario.email(), usuario.codigo(), usuario.activado(), usuario.nombre(), null, usuario.fecha(), usuario.twoFactorEnabled(), usuario.twoFactorCode());
     }
 
     public UsuarioDTO activarCuenta(String codigo){
@@ -49,7 +49,9 @@ public class AuthService {
                 true,
                 usuario.nombre(),
                 usuario.esAdmin(),
-                usuario.fecha()
+                usuario.fecha(),
+                usuario.twoFactorEnabled(),
+                usuario.twoFactorCode()
         );
 
 

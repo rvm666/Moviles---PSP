@@ -12,6 +12,8 @@ public record Usuario(
     Boolean activado,
     String nombre,
     Boolean esAdmin,
-    LocalDateTime fecha
+    LocalDateTime fecha,
+    Boolean twoFactorEnabled,
+    String twoFactorCode
 ) {
 }

@@ -16,21 +16,21 @@ public class UsuarioRepository {
     public UsuarioRepository(PasswordEncoder encoder) {
         this.encoder = encoder;
         this.usuarios = new java.util.ArrayList<>();
-        saveWithPlainPassword(new Usuario(1, "admin", "admin123", "admin@gmail.com", "Juan", true, "", true, LocalDateTime.now()));
-        saveWithPlainPassword(new Usuario(2, "user", "user123", "user@gmail.com", "Carlos", false, "", true, LocalDateTime.now().minusDays(10)));
-        saveWithPlainPassword(new Usuario(3, "user2", "user123456", "user2@gmail.com", "Maria", false, "", true, LocalDateTime.now().minusDays(5)));
+        saveWithPlainPassword(new Usuario(1, "admin", "admin123", "admin@gmail.com", "Juan", true, "", true, LocalDateTime.now(), false, null));
+        saveWithPlainPassword(new Usuario(2, "user", "user123", "user@gmail.com", "Carlos", false, "", true, LocalDateTime.now().minusDays(10), false, null));
+        saveWithPlainPassword(new Usuario(3, "user2", "user123456", "user2@gmail.com", "Maria", false, "", true, LocalDateTime.now().minusDays(5), false, null));
 
     }
 
     public void saveWithPlainPassword(Usuario usuarioo) {
         String hashedPassword = encoder.encode(usuarioo.password());
-        Usuario usuario = new Usuario(0, usuarioo.username(), hashedPassword, usuarioo.email(), usuarioo.codigo(), usuarioo.activado(), usuarioo.nombre(), usuarioo.esAdmin(), usuarioo.fecha());
+        Usuario usuario = new Usuario(0, usuarioo.username(), hashedPassword, usuarioo.email(), usuarioo.codigo(), usuarioo.activado(), usuarioo.nombre(), usuarioo.esAdmin(), usuarioo.fecha(), usuarioo.twoFactorEnabled(), usuarioo.twoFactorCode());
         save(usuario);
     }
 
     private void save(Usuario usuario) {
         int id = nextId();
-        Usuario usuarioGuardado = new Usuario(id, usuario.username(), usuario.password(), usuario.email(), usuario.codigo(), usuario.activado(), usuario.nombre(), usuario.esAdmin(), usuario.fecha());
+        Usuario usuarioGuardado = new Usuario(id, usuario.username(), usuario.password(), usuario.email(), usuario.codigo(), usuario.activado(), usuario.nombre(), usuario.esAdmin(), usuario.fecha(), usuario.twoFactorEnabled(), usuario.twoFactorCode());
         usuarios.add(usuarioGuardado);
     }
 
@@ -54,7 +54,7 @@ public class UsuarioRepository {
             return null;
         }
         int index = usuarios.indexOf(antigua);
-        Usuario actualizada = new Usuario(id, usuario.username(), usuario.password(), usuario.email(), usuario.codigo(), usuario.activado(), usuario.nombre(), usuario.esAdmin(), usuario.fecha());
+        Usuario actualizada = new Usuario(id, usuario.username(), usuario.password(), usuario.email(), usuario.codigo(), usuario.activado(), usuario.nombre(), usuario.esAdmin(), usuario.fecha(), usuario.twoFactorEnabled(), usuario.twoFactorCode());
         usuarios.set(index, actualizada);
         return actualizada;
     }
