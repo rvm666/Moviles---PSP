@@ -11,6 +11,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.composeapp.ui.util.Dimens
 
 @Composable
 public fun RatingStars(
@@ -18,7 +19,7 @@ public fun RatingStars(
     onRatingChanged: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Row(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+    Row(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(Dimens.StarsSpacing)) {
         for (i in 1..5) {
             IconButton(onClick = { onRatingChanged(i) }) {
                 if (i <= rating) {
