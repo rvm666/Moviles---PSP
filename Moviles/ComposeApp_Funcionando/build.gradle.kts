@@ -5,4 +5,6 @@ plugins {
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.hilt.android) apply false
+    id("name.remal.check-dependency-updates") version "1.5.0"
+
 }
