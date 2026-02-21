@@ -52,8 +52,8 @@ fun PerfilScreenViewModel(
     }
 
     ProfileScreen(uiState = uiState,
-        onLogout = onLogout
-
+        onLogout = onLogout,
+        onEnable2FA ={viewModel.enable2FA()}
         )
 
 }
@@ -94,10 +94,10 @@ fun ProfileScreen(
                     modifier = Modifier.padding(Dimens.InlineSpacing),
                     verticalArrangement = Arrangement.spacedBy(Dimens.SectionSpacingCompact)
                 ) {
-                    ProfileRow(label = "Nombre", value = uiState.usuairo.nombre)
-                    ProfileRow(label = "Usuario", value = uiState.usuairo.usuario)
-                    ProfileRow(label = "Email", value = uiState.usuairo.email)
-                    ProfileRow(label = "Rol", value = if (uiState.usuairo.isAdmin) "Admin" else "Usuario")
+                    ProfileRow(label = "Nombre", value = uiState.usuario.nombre)
+                    ProfileRow(label = "Usuario", value = uiState.usuario.usuario)
+                    ProfileRow(label = "Email", value = uiState.usuario.email)
+                    ProfileRow(label = "Rol", value = if (uiState.usuario.isAdmin) "Admin" else "Usuario")
                 }
             }
 
@@ -138,7 +138,8 @@ fun GreetingPreview() {
                 email = "mariguano@email.com",
                 isAdmin = false
             )),
-            onEnable2FA = {}
+            onEnable2FA = {},
+            onLogout = {}
         )
     }
 }

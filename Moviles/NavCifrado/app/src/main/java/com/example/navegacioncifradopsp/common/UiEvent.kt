@@ -7,4 +7,5 @@ interface UiEvent {
         val action: String? = null
     ): UiEvent
 
+    data object NavigateBack : UiEvent
 }

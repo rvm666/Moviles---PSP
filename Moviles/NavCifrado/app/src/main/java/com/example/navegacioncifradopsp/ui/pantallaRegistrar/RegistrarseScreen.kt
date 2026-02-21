@@ -24,6 +24,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.navegacioncifradopsp.common.UiEvent
+import com.example.navegacioncifradopsp.domain.model.Usuario
 import com.example.navegacioncifradopsp.ui.reutilizableOno.AuthPasswordField
 import com.example.navegacioncifradopsp.ui.reutilizableOno.AuthScaffold
 import com.example.navegacioncifradopsp.ui.reutilizableOno.AuthTextField
@@ -33,7 +34,8 @@ import com.example.navegacioncifradopsp.ui.util.Dimens
 
 @Composable
 fun RegisterScreenViewModel(
-    viewModel: RegistrarViewModel = hiltViewModel()
+    viewModel: RegistrarViewModel = hiltViewModel(),
+    onNavigateBack: () -> Unit
 ) {
 
     val uiState by viewModel.state.collectAsStateWithLifecycle()
@@ -54,9 +56,14 @@ fun RegisterScreenViewModel(
             }
         }
     }
-    RegisterScreen(uiState = uiState,
-        snackbarHostState = snackbarHostState,
 
+
+    RegisterScreen(
+        snackbarHostState = snackbarHostState,
+        onRegister = { usuario ->
+            viewModel.register(usuario)
+        },
+        onBackToLogin = onNavigateBack
         )
 
 }
@@ -64,7 +71,7 @@ fun RegisterScreenViewModel(
 fun RegisterScreen(
     modifier: Modifier = Modifier,
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
-    onRegister: (name: String, email: String, username: String, password: String) -> Unit,
+    onRegister: (Usuario) -> Unit,
     onBackToLogin: () -> Unit,
 ) {
     var name by remember { mutableStateOf("") }
@@ -113,7 +120,7 @@ fun RegisterScreen(
             Boton(
                 text = "Crear cuenta",
                 color = MaterialTheme.colorScheme.primary,
-                onClick = { onRegister(name.trim(), email.trim(), username.trim(), password) }
+                onClick = { onRegister(Usuario(name.trim(), username.trim(), email.trim(),false, password)) }
             )
 
             Boton(
@@ -130,7 +137,7 @@ fun RegisterScreen(
 fun GreetingPreview() {
     NavegacionCifradoPSPTheme {
         RegisterScreen(
-            onRegister = { _, _, _, _ -> },
+            onRegister = { _ -> },
             onBackToLogin = {}
         )
     }

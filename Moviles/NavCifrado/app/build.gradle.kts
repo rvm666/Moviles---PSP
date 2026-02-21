@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt.android)
+    alias(libs.plugins.jetbrains.kotlin.serialization)
 }
 
 android {
@@ -104,12 +105,13 @@ dependencies {
     implementation(libs.retrofit.converter.gson)
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging.interceptor)
+    implementation(libs.datastore.preferences)
 
     // Gson
     implementation(libs.gson)
 
     //Seralization
-    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.kotlinx.serialization.core)
 
     // Coil for image loading
     implementation(libs.coil.compose)

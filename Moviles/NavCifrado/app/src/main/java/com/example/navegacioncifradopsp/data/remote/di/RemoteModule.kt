@@ -2,7 +2,7 @@ package com.example.navegacioncifradopsp.data.remote.di
 
 import com.example.navegacioncifradopsp.BuildConfig
 import com.example.navegacioncifradopsp.common.Constantes
-import com.example.navegacioncifradopsp.data.remote.AuthInterceptor
+import com.example.navegacioncifradopsp.data.remote.utils.AuthInterceptor
 import com.example.navegacioncifradopsp.data.remote.apiService.ProduccionesApi
 import com.example.navegacioncifradopsp.data.remote.apiService.UsuariosApi
 import dagger.Module

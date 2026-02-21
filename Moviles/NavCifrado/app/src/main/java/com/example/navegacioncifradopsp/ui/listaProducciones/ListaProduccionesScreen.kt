@@ -1,11 +1,13 @@
 package com.example.navegacioncifradopsp.ui.listaProducciones
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -13,8 +15,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices.PIXEL_8
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -29,9 +31,10 @@ import com.example.navegacioncifradopsp.ui.theme.NavegacionCifradoPSPTheme
 import com.example.navegacioncifradopsp.ui.util.Dimens
 
 @Composable
-fun ListScreenViewModel(
+fun ListProduccionesScreenViewModel(
     viewModel: LisaProduccionesViewModel = hiltViewModel(),
-    onNavigateDetalle: (Produccion) -> Unit = {},
+    onNavigateDetalle: (Int) -> Unit = {},
+    onAdd: () -> Unit = {}
 ) {
 
     val uiState by viewModel.state.collectAsStateWithLifecycle()
@@ -56,19 +59,21 @@ fun ListScreenViewModel(
 
 
     ListScreen(uiState = uiState,
-        onItemClick = onNavigateDetalle,
-        onAdd = {}
+        onItemClick = {produccion -> onNavigateDetalle(produccion.id)},
+        onAdd = onAdd,
+        onDelete = {produccion -> viewModel.delete(produccion)}
     )
 
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ListScreen(
     uiState: ListaProduccionesState,
     modifier: Modifier = Modifier,
-    title: String = "Listado",
     onItemClick: (Produccion) -> Unit,
     onAdd: () -> Unit,
+    onDelete: (Produccion) -> Unit = {},
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
 ) {
     Scaffold(
@@ -88,14 +93,6 @@ fun ListScreen(
                     vertical = Dimens.ScreenPaddingVerticalCompact
                 )
         ) {
-            Text(
-                text = title,
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center,
-                color = MaterialTheme.colorScheme.primary,
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold
-            )
 
             Spacer(Modifier.height(Dimens.SectionSpacingCompact))
 
@@ -115,26 +112,48 @@ fun ListScreen(
                     modifier = Modifier.fillMaxSize(),
                     verticalArrangement = Arrangement.spacedBy(Dimens.SectionSpacingCompact)
                 ) {
-                    items(uiState.producciones) { item ->
-                        ElevatedCard(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clickable { onItemClick(item) }
+                    items(uiState.producciones, key = { it.id }) { item ->
+                        SwipeToDismissBox(
+                            state = rememberSwipeToDismissBoxState(
+                                confirmValueChange = { value ->
+                                    if (value == SwipeToDismissBoxValue.EndToStart) {
+                                        onDelete(item)
+                                        true
+                                    } else false
+                                }
+                            ),
+                            backgroundContent = {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .background(Color.Red)
+                                        .padding(16.dp),
+                                    contentAlignment = Alignment.CenterEnd
+                                ) {
+                                    Icon(Icons.Default.Delete, contentDescription = null)
+                                }
+                            }
                         ) {
-                            Column(
-                                modifier = Modifier.padding(Dimens.InlineSpacing),
-                                verticalArrangement = Arrangement.spacedBy(4.dp)
+                            ElevatedCard(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clickable { onItemClick(item) }
                             ) {
-                                Text(
-                                    text = item.nombre,
-                                    style = MaterialTheme.typography.titleMedium,
-                                    fontWeight = FontWeight.SemiBold
-                                )
-                                Text(
-                                    text = item.director,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                                )
+                                Column(
+                                    modifier = Modifier.padding(Dimens.InlineSpacing),
+                                    verticalArrangement = Arrangement.spacedBy(4.dp)
+                                ) {
+                                    Text(
+                                        text = item.nombre,
+                                        style = MaterialTheme.typography.titleMedium,
+                                        fontWeight = FontWeight.SemiBold
+                                    )
+                                    Text(
+                                        text = item.director,
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                }
                             }
                         }
                     }

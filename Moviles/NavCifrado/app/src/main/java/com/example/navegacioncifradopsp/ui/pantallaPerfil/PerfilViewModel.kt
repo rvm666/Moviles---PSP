@@ -28,4 +28,8 @@ class PerfilViewModel @Inject constructor(
             _uiEvent.send(event)
         }
     }
+
+    fun enable2FA(){
+
+    }
 }

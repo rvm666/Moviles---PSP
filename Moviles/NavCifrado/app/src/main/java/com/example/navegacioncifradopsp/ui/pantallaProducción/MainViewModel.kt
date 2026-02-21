@@ -25,7 +25,6 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val aniadirProduccionUseCase: AnadirProduccionUseCase,
     private val getProduccionUseCase: GetProduccionByIdUseCase,
-    private val borrarProduccionUseCase: BorrarProduccionUseCase,
     private val actualizarProduccionUseCase: ActualizarProduccionUseCase
 ) : ViewModel() {
 
@@ -60,28 +59,16 @@ class MainViewModel @Inject constructor(
                 is NetworkResult.Success -> {
                     _state.update { it.copy(produccion = produccion) }
                     _uiEvent.send(UiEvent.ShowSnackbar(Constantes.PRODUCCION_GUARDADA))
+                    _uiEvent.send(UiEvent.NavigateBack)
                 }
                 is NetworkResult.Error -> _uiEvent.send(UiEvent.ShowSnackbar(result.message))
             }
         }
     }
 
-    fun clickBotonBorrar(produccion: Produccion){
-        viewModelScope.launch {
-            val guardado = borrarProduccionUseCase.invoke(produccion)
-            when(guardado){
-                is NetworkResult.Success -> {
-                    _state.update{it.copy(produccion = Produccion())}
-                    _uiEvent.send(UiEvent.ShowSnackbar(Constantes.PRODUCCION_ELIMINADA))
-                }
-                is NetworkResult.Error -> _uiEvent.send(UiEvent.ShowSnackbar(guardado.message))
-            }
-        }
 
-
-    }
     fun actualizarProduccion(produccion: Produccion) {
-        val id = _state.value.indiceProduccion
+        val id = _state.value.produccion.id
         if (produccion.nombre.isBlank()) {
             sendEvent(UiEvent.ShowSnackbar(Constantes.NOMBRE_OBLIGATORIO))
             return
@@ -98,10 +85,15 @@ class MainViewModel @Inject constructor(
                 is NetworkResult.Success -> {
                     _state.update{ it.copy(produccion = produccion) }
                     _uiEvent.send(UiEvent.ShowSnackbar(Constantes.PRODUCCION_ACTUALIZADA))
+                    _uiEvent.send(UiEvent.NavigateBack)
                 }
                 is NetworkResult.Error -> _uiEvent.send(UiEvent.ShowSnackbar(result.message))
             }
         }
+    }
+
+    fun cargarProduccion(id: Int){
+
     }
 
     fun limpiarPantalla(){

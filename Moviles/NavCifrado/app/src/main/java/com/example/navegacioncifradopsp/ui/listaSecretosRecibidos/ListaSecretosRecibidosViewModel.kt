@@ -1,10 +1,9 @@
-package com.example.navegacioncifradopsp.ui.pantallaRegistrar
+package com.example.navegacioncifradopsp.ui.listaSecretosRecibidos
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.navegacioncifradopsp.common.UiEvent
-import com.example.navegacioncifradopsp.domain.model.Usuario
-import com.example.navegacioncifradopsp.ui.listaProducciones.ListaProduccionesState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,12 +12,14 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class RegistrarViewModel @Inject constructor(
 
-) : ViewModel() {
+@HiltViewModel
+class ListaSecretosRecibidosViewModel @Inject constructor(
 
-    private var _state = MutableStateFlow(RegistrarState())
-    val state: StateFlow<RegistrarState> = _state.asStateFlow()
+): ViewModel() {
+
+    private var _state = MutableStateFlow(ListaSecretosRecibidosState())
+    val state: StateFlow<ListaSecretosRecibidosState> = _state.asStateFlow()
 
     private val _uiEvent = Channel<UiEvent>()
 
@@ -28,10 +29,5 @@ class RegistrarViewModel @Inject constructor(
         viewModelScope.launch {
             _uiEvent.send(event)
         }
-    }
-
-
-    fun register(usuario: Usuario){
-
     }
 }

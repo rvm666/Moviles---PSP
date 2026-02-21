@@ -27,7 +27,9 @@ import com.example.navegacioncifradopsp.ui.util.Dimens
 
 @Composable
 fun ProduccionScreenViewModel(
-    viewModel: MainViewModel = hiltViewModel()
+    viewModel: MainViewModel = hiltViewModel(),
+    produccionId: Int,
+    onNavigateBack: () -> Unit
 ) {
     val uiState by viewModel.state.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
@@ -42,9 +44,16 @@ fun ProduccionScreenViewModel(
                             duration = SnackbarDuration.Short
                         )
                     }
+                    is UiEvent.NavigateBack -> {
+                        onNavigateBack()
+                    }
                 }
             }
         }
+    }
+
+    LaunchedEffect(produccionId){
+        viewModel.cargarProduccion(produccionId)
     }
 
     ProduccionScreen(uiState = uiState,
@@ -53,7 +62,6 @@ fun ProduccionScreenViewModel(
         onGuardar = {
             produccion -> viewModel.clickBotonGuardar(produccion)
         },
-        onBorrar = { produccion -> viewModel.clickBotonBorrar(produccion) },
         onActualizar = { produccion -> viewModel.actualizarProduccion(produccion) }
     )
 
@@ -65,7 +73,6 @@ fun ProduccionScreen(
     snackbarHostState : SnackbarHostState = remember { SnackbarHostState() },
     onLimpiar: () -> Unit = {},
     onGuardar: (Produccion) -> Unit = {},
-    onBorrar: (Produccion) -> Unit = {},
     onActualizar: (Produccion) -> Unit = {},
 ) {
 

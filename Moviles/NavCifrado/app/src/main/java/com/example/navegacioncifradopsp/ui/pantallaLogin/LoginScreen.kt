@@ -15,8 +15,6 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.navegacioncifradopsp.common.UiEvent
-import com.example.navegacioncifradopsp.ui.listaProducciones.LisaProduccionesViewModel
-import com.example.navegacioncifradopsp.ui.listaProducciones.ListScreen
 import com.example.navegacioncifradopsp.ui.reutilizableOno.AuthPasswordField
 import com.example.navegacioncifradopsp.ui.reutilizableOno.AuthScaffold
 import com.example.navegacioncifradopsp.ui.reutilizableOno.AuthTextField
@@ -27,7 +25,8 @@ import com.example.navegacioncifradopsp.ui.util.Dimens
 @Composable
 fun LoginScreenViewModel(
     viewModel: LoginViewModel = hiltViewModel(),
-    navigateToRegister: () -> Unit
+    navigateToRegister: () -> Unit,
+    navigateToHome: () -> Unit
 ) {
 
     val uiState by viewModel.state.collectAsStateWithLifecycle()
