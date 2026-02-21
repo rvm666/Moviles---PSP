@@ -15,7 +15,7 @@ class AuthAuthenticator @Inject constructor(
 
     override fun authenticate(route: Route?, response: Response): Request? {
         val token = runBlocking {
-            tokenManager.getToken().first()
+            tokenManager.getRefreshToken().first()
         }
         return runBlocking {
             val newToken = getNewToken(token)
@@ -25,7 +25,7 @@ class AuthAuthenticator @Inject constructor(
             }
 
             newToken.body()?.let {
-                tokenManager.saveToken(it.token)
+                tokenManager.saveToken(newToken.body()?.token ?: "", token ?: "")
                 response.request.newBuilder()
                     .header("Authorization", "Bearer ${it.token}")
                     .build()
@@ -36,8 +36,6 @@ class AuthAuthenticator @Inject constructor(
     private suspend fun getNewToken(refreshToken: String?): retrofit2.Response<LoginResponse> {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-
-
 
         return service.value.refreshToken("Bearer $refreshToken")
     }

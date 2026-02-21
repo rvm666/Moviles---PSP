@@ -2,7 +2,9 @@ package com.example.navegacioncifradopsp.ui.pantallaLogin
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.navegacioncifradopsp.common.NetworkResult
 import com.example.navegacioncifradopsp.common.UiEvent
+import com.example.navegacioncifradopsp.domain.usecase.authUseCase.LoginUseCase
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class LoginViewModel @Inject constructor(
-
+    private val loginUseCase: LoginUseCase
 ) : ViewModel() {
 
     private var _state = MutableStateFlow(LoginState())
@@ -29,6 +31,16 @@ class LoginViewModel @Inject constructor(
     }
 
     fun login(username: String, password: String){
-
+        viewModelScope.launch {
+            val result = loginUseCase(username, password)
+            when(result){
+                is NetworkResult.Success -> {
+                    sendEvent(UiEvent.ShowSnackbar("Login exitoso"))
+                }
+                is NetworkResult.Error -> {
+                    sendEvent(UiEvent.ShowSnackbar(result.message))
+                }
+            }
+        }
     }
 }

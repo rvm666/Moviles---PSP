@@ -3,6 +3,9 @@ package com.example.navegacioncifradopsp.data.model.authentication
 import com.google.gson.annotations.SerializedName
 
 data class LoginResponse(
-    @SerializedName("access_token")
-    val token: String
+    @SerializedName("accesToken")
+    val token: String,
+
+    @SerializedName("refreshToken")
+    val refreshToken: String
 )

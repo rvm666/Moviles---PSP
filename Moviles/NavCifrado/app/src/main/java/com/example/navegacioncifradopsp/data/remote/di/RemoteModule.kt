@@ -2,9 +2,11 @@ package com.example.navegacioncifradopsp.data.remote.di
 
 import com.example.navegacioncifradopsp.BuildConfig
 import com.example.navegacioncifradopsp.common.Constantes
+import com.example.navegacioncifradopsp.data.remote.apiService.AuthApiService
 import com.example.navegacioncifradopsp.data.remote.utils.AuthInterceptor
 import com.example.navegacioncifradopsp.data.remote.apiService.ProduccionesApi
 import com.example.navegacioncifradopsp.data.remote.apiService.UsuariosApi
+import com.example.navegacioncifradopsp.data.remote.utils.AuthAuthenticator
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,12 +26,13 @@ object RemoteModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(authInterceptor: AuthInterceptor): OkHttpClient{
+    fun provideOkHttpClient(authInterceptor: AuthInterceptor, authAuthenticator: AuthAuthenticator): OkHttpClient{
         return OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
             .addInterceptor(authInterceptor)
+            .authenticator(authAuthenticator)
             .build()
     }
 
@@ -47,24 +50,17 @@ object RemoteModule {
 
     @Provides
     @Singleton
-    @Named(Constantes.USUARIOS)
-    fun provideRetrofitUsuarios(okHttpClient: OkHttpClient): Retrofit{
-        return Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL_PLACEHOLDER)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(okHttpClient)
-            .build()
-    }
-
-    @Provides
-    @Singleton
-    fun provideProduccionesApi(@Named(Constantes.PRODUCCIONES) retrofit: Retrofit): ProduccionesApi {
+    fun provideProduccionesApi(retrofit: Retrofit): ProduccionesApi {
         return retrofit.create(ProduccionesApi::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideUsuariosApi(@Named(Constantes.USUARIOS) retrofit: Retrofit): UsuariosApi {
+    fun provideUsuariosApi( retrofit: Retrofit): UsuariosApi {
         return retrofit.create(UsuariosApi::class.java)
     }
+
+    @Provides @Singleton
+    fun provideAuthApi(retrofit: Retrofit): AuthApiService =
+        retrofit.create(AuthApiService::class.java)
 }

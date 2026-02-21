@@ -24,9 +24,7 @@ android {
     buildTypes {
         debug {
             // URL para desarrollo (puedes cambiarla si tienes un servidor de pruebas)
-            buildConfigField("String", "BASE_URL_PLACEHOLDER", "\"https://jsonplaceholder.typicode.com/\"")
-            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
-            buildConfigField("String", "API_KEY", "\"7ade6bf922376936927c66c07b02b875\"")
+            buildConfigField("String", "BASE_URL", "\"http://192.168.0.13/\"")
         }
         release {
             isMinifyEnabled = false
@@ -35,9 +33,7 @@ android {
                 "proguard-rules.pro"
             )
             // URL para producción
-            buildConfigField("String", "BASE_URL_PLACEHOLDER", "\"https://jsonplaceholder.typicode.com/\"")
-            buildConfigField("String", "BASE_URL", "https://api.themoviedb.org/3/")
-            buildConfigField("String", "API_KEY", "7ade6bf922376936927c66c07b02b875")
+            buildConfigField("String", "BASE_URL", "http://192.168.0.13/")
         }
     }
     compileOptions {

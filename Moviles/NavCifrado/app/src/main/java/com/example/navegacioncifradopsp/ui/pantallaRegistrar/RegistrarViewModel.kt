@@ -2,6 +2,7 @@ package com.example.navegacioncifradopsp.ui.pantallaRegistrar
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.navegacioncifradopsp.common.UiEvent
 import com.example.navegacioncifradopsp.domain.model.Usuario
 import com.example.navegacioncifradopsp.ui.listaProducciones.ListaProduccionesState
@@ -32,6 +33,8 @@ class RegistrarViewModel @Inject constructor(
 
 
     fun register(usuario: Usuario){
-
+        viewModelScope.launch {
+            val result =
+        }
     }
 }

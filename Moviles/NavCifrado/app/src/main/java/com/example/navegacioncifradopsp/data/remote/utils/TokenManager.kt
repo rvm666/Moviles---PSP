@@ -3,7 +3,7 @@ package com.example.navegacioncifradopsp.data.remote.utils
 import android.content.Context
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
-import com.example.compose.dataStore
+import com.example.navegacioncifradopsp.dataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -13,6 +13,7 @@ class TokenManager @Inject constructor(@ApplicationContext private val context: 
 
 
     private val TOKEN_KEY = stringPreferencesKey("jwt_token")
+    private val REFRESH_TOKEN_KEY = stringPreferencesKey("refresh_token")
 
 
     fun getToken(): Flow<String?> {
@@ -21,15 +22,23 @@ class TokenManager @Inject constructor(@ApplicationContext private val context: 
         }
     }
 
-    suspend fun saveToken(token: String) {
+    fun getRefreshToken(): Flow<String?> {
+        return context.dataStore.data.map { preferences ->
+            preferences[REFRESH_TOKEN_KEY]
+        }
+    }
+
+    suspend fun saveToken(token: String, refreshToken: String) {
         context.dataStore.edit { preferences ->
             preferences[TOKEN_KEY] = token
+            preferences[REFRESH_TOKEN_KEY] = refreshToken
         }
     }
 
     suspend fun deleteToken() {
         context.dataStore.edit { preferences ->
             preferences.remove(TOKEN_KEY)
+            preferences.remove(REFRESH_TOKEN_KEY)
         }
     }
 }
