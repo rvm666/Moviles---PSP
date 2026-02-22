@@ -9,6 +9,6 @@ fun isValidIdUsuario(id: Int): NetworkResult<Boolean> {
 }
 
 fun isValidUser(user: UsuarioResponseItem): NetworkResult<Boolean> {
-    return  if (user.name == "" || user.email == "" || user.username == "")  NetworkResult.Error(
+    return  if (user.nombre == "" || user.email == "" || user.username == "")  NetworkResult.Error(
         Constantes.CAMPOS_VACIOS) else  NetworkResult.Success(true)
 }

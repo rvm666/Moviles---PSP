@@ -24,7 +24,7 @@ android {
     buildTypes {
         debug {
             // URL para desarrollo (puedes cambiarla si tienes un servidor de pruebas)
-            buildConfigField("String", "BASE_URL", "\"http://192.168.0.13/\"")
+            buildConfigField("String", "BASE_URL", "\"http://10.0.2.2:8080/\"")
         }
         release {
             isMinifyEnabled = false
@@ -33,7 +33,7 @@ android {
                 "proguard-rules.pro"
             )
             // URL para producción
-            buildConfigField("String", "BASE_URL", "http://192.168.0.13/")
+            buildConfigField("String", "BASE_URL", "http://10.0.2.2:8080/")
         }
     }
     compileOptions {

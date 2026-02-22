@@ -43,6 +43,7 @@ fun LoginScreenViewModel(
                             duration = SnackbarDuration.Short
                         )
                     }
+                    is UiEvent.NavigateToHome -> navigateToHome()
                 }
             }
         }

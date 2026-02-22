@@ -8,4 +8,6 @@ interface UiEvent {
     ): UiEvent
 
     data object NavigateBack : UiEvent
+
+    data object NavigateToHome : UiEvent
 }

@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.navegacioncifradopsp.common.NetworkResult
 import com.example.navegacioncifradopsp.common.UiEvent
 import com.example.navegacioncifradopsp.domain.usecase.authUseCase.LoginUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,6 +14,7 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class LoginViewModel @Inject constructor(
     private val loginUseCase: LoginUseCase
 ) : ViewModel() {
@@ -36,6 +38,7 @@ class LoginViewModel @Inject constructor(
             when(result){
                 is NetworkResult.Success -> {
                     sendEvent(UiEvent.ShowSnackbar("Login exitoso"))
+                    sendEvent(UiEvent.NavigateToHome)
                 }
                 is NetworkResult.Error -> {
                     sendEvent(UiEvent.ShowSnackbar(result.message))

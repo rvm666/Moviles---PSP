@@ -52,6 +52,7 @@ fun RegisterScreenViewModel(
                             duration = SnackbarDuration.Short
                         )
                     }
+                    is UiEvent.NavigateBack -> onNavigateBack()
                 }
             }
         }

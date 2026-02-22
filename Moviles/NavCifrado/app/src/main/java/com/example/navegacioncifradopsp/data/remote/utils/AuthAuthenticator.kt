@@ -7,6 +7,7 @@ import kotlinx.coroutines.runBlocking
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import javax.inject.Inject
+import dagger.Lazy
 
 class AuthAuthenticator @Inject constructor(
     private val tokenManager: TokenManager,
@@ -37,6 +38,6 @@ class AuthAuthenticator @Inject constructor(
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
-        return service.value.refreshToken("Bearer $refreshToken")
+        return service.get().refreshToken("Bearer $refreshToken")
     }
 }

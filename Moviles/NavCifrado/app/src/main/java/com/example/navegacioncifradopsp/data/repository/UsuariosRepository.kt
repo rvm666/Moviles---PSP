@@ -54,19 +54,19 @@ class UsuariosRepository @Inject constructor(private val usuariosApi: UsuariosAp
 
     }
 
-    suspend fun updateUsuario(user: UsuarioResponseItem): NetworkResult<Boolean> {
-        try {
-            if(usuariosApi.actualizarUsuario(user.id, user).isSuccessful){
-                return NetworkResult.Success(true)
-            }else {
-                return NetworkResult.Error(Constantes.ERROR_ACTUALIZAR)
-            }
-
-        }catch (e: Exception){
-            return NetworkResult.Error(Constantes.ERROR_ + e.message)
-        }
-
-    }
+//    suspend fun updateUsuario(user: UsuarioResponseItem): NetworkResult<Boolean> {
+//        try {
+//            if(usuariosApi.actualizarUsuario(user.id, user).isSuccessful){
+//                return NetworkResult.Success(true)
+//            }else {
+//                return NetworkResult.Error(Constantes.ERROR_ACTUALIZAR)
+//            }
+//
+//        }catch (e: Exception){
+//            return NetworkResult.Error(Constantes.ERROR_ + e.message)
+//        }
+//
+//    }
 
     suspend fun guardarUsuario(user: UsuarioResponseItem): NetworkResult<Boolean>{
         try {

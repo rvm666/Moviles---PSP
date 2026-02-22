@@ -2,10 +2,11 @@ package com.example.navegacioncifradopsp.ui.pantallaRegistrar
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.navegacioncifradopsp.common.NetworkResult
 import com.example.navegacioncifradopsp.common.UiEvent
 import com.example.navegacioncifradopsp.domain.model.Usuario
-import com.example.navegacioncifradopsp.ui.listaProducciones.ListaProduccionesState
+import com.example.navegacioncifradopsp.domain.usecase.authUseCase.RegisterUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,8 +15,9 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class RegistrarViewModel @Inject constructor(
-
+    private val registrarUsuario: RegisterUseCase
 ) : ViewModel() {
 
     private var _state = MutableStateFlow(RegistrarState())
@@ -34,7 +36,14 @@ class RegistrarViewModel @Inject constructor(
 
     fun register(usuario: Usuario){
         viewModelScope.launch {
-            val result =
+            val result = registrarUsuario.invoke(usuario)
+            when(result){
+                is NetworkResult.Success -> {
+                    sendEvent(UiEvent.ShowSnackbar("Usuario registrado correctamente"))
+                    sendEvent(UiEvent.NavigateBack)
+                }
+                is NetworkResult.Error -> sendEvent(UiEvent.ShowSnackbar(result.message))
+            }
         }
     }
 }

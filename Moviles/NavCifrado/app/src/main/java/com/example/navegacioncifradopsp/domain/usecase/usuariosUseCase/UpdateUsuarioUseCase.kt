@@ -8,9 +8,9 @@ import javax.inject.Inject
 
 class UpdateUsuarioUseCase @Inject constructor(private val repository: UsuariosRepository) {
 
-    suspend operator fun invoke(user: UsuarioResponseItem): NetworkResult<Boolean> =
-        isValidUser(user)
-            .then { repository.updateUsuario(user) }
+//    suspend operator fun invoke(user: UsuarioResponseItem): NetworkResult<Boolean> =
+//        isValidUser(user)
+//            .then { repository.updateUsuario(user) }
 
 
 }
